@@ -5,7 +5,6 @@
   const links=[...document.querySelectorAll('.main-nav a')];
   const sections=[...document.querySelectorAll('main > section')];
   let current=0;
-  let timer=null;
 
   toggle?.addEventListener('click',()=>{
     const open=nav.classList.toggle('open');
@@ -35,17 +34,13 @@
   document.addEventListener('touchstart',(e)=>{
     startX=e.changedTouches[0].screenX;
   },{passive:true});
+
   document.addEventListener('touchend',(e)=>{
     const dx=e.changedTouches[0].screenX-startX;
     if(Math.abs(dx)>60){
       goTo(dx<0?current+1:current-1);
     }
   },{passive:true});
-
-  const startAuto=()=>{
-    timer=setInterval(()=>goTo(current+1),5000);
-  };
-  startAuto();
 
   window.addEventListener('scroll',()=>{
     header?.classList.toggle('scrolled',scrollY>30);
