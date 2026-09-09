@@ -25,7 +25,6 @@ function installViewportFit(){
  style.id='viewport-fit-home-research';
  style.textContent=`
 body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.66) 32%,rgba(255,255,255,.08) 72%)}
-.site-header .home-branding img{filter:brightness(.48) saturate(.65) contrast(1.25)}
 body.paged #home .lab-cn,body.paged #home .lab-en,body.paged #home .mockup-description,body.paged #home .home-slogan strong,body.paged #home .home-slogan small{color:#18372e;font-weight:700}
 body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
