@@ -8,35 +8,36 @@
   <title>先进集成电路材料与类脑芯片实验室｜中山大学</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    :root{--home-green:#0a6a43;--home-deep:#073e31;--home-ink:#101918}
-    .site-header{height:108px!important;padding:0 3.1vw!important;background:rgba(255,255,255,.97)!important;border-bottom:1px solid rgba(7,62,49,.09)!important;box-shadow:none!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:30px!important}
-    .home-branding{display:flex;align-items:center;gap:25px;min-width:0}
-    .sysu-brand{display:flex;align-items:center;gap:13px;color:var(--home-green);white-space:nowrap}
-    .sysu-seal{width:62px;height:62px;border:3px solid var(--home-green);border-radius:50%;display:grid;place-items:center;position:relative;font-family:'Noto Sans SC',sans-serif;font-weight:700;font-size:20px}
-    .sysu-seal:before,.sysu-seal:after{content:'';position:absolute;border:1px solid var(--home-green);border-radius:50%}.sysu-seal:before{inset:6px}.sysu-seal:after{inset:11px}
-    .sysu-name strong{display:block;font-family:'Noto Sans SC',sans-serif;font-size:29px;line-height:1;letter-spacing:.13em;font-weight:700}.sysu-name small{display:block;font-size:7px;letter-spacing:.08em;margin-top:6px;font-weight:600}
-    .brand-divider{height:58px;width:1px;background:#9cbdb0}
-    .brand{gap:11px!important}.brand-logo-wrap{width:72px!important;height:66px!important;overflow:visible!important}.brand-logo{width:72px!important;height:66px!important;object-fit:contain!important}.brand-mark-fallback{font-size:15px!important}
-    .ambic-title{display:flex;flex-direction:column;color:var(--home-green);white-space:nowrap}.ambic-title strong{font-size:33px;line-height:1;font-weight:700;letter-spacing:.02em}.ambic-title small{font-size:12px;line-height:1;margin-top:6px;letter-spacing:.02em}
+    :root{--home-green:#08723f;--home-deep:#063a2e;--home-ink:#101615}
+    .site-header{height:102px!important;padding:0 2.4vw!important;background:#fff!important;border-bottom:1px solid rgba(7,62,49,.08)!important;box-shadow:none!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important}
+    .home-branding{display:flex;align-items:center;gap:21px;min-width:0;flex:0 0 auto}
+    .sysu-brand{display:flex;align-items:center;gap:11px;color:var(--home-green);white-space:nowrap}
+    .sysu-seal{width:58px;height:58px;border:2.5px solid var(--home-green);border-radius:50%;display:grid;place-items:center;position:relative;font-family:'Noto Sans SC',sans-serif;font-weight:800;font-size:18px;line-height:1}
+    .sysu-seal:before,.sysu-seal:after{content:'';position:absolute;border:1px solid var(--home-green);border-radius:50%}.sysu-seal:before{inset:5px}.sysu-seal:after{inset:10px}
+    .sysu-name strong{display:block;font-family:'Noto Sans SC',sans-serif;font-size:28px;line-height:1;letter-spacing:.11em;font-weight:800}.sysu-name small{display:block;font-size:7px;letter-spacing:.055em;margin-top:5px;font-weight:600}
+    .brand-divider{height:54px;width:1px;background:#83aa9b}
+    .brand{gap:9px!important;min-width:0}.brand-logo-wrap{width:70px!important;height:62px!important;overflow:visible!important}.brand-logo{width:70px!important;height:62px!important;object-fit:contain!important;object-position:center!important}.brand-mark-fallback{font-size:15px!important}
+    .ambic-title{display:flex;flex-direction:column;color:var(--home-green);white-space:nowrap}.ambic-title strong{font-size:34px;line-height:.95;font-weight:700;letter-spacing:.015em}.ambic-title small{font-size:11px;line-height:1;margin-top:6px;letter-spacing:.015em}
     .brand-text{display:none!important}
-    .main-nav{gap:36px!important;font-size:14px!important;color:#222!important;align-items:center}.main-nav a{font-weight:500;padding:41px 0 32px}.main-nav a:after{height:2px!important;bottom:20px!important;background:var(--home-green)!important}.main-nav a:first-child{color:var(--home-green);font-weight:700}.main-nav a:first-child:after{right:0!important}
-    .menu-toggle{margin-left:5px}
-    .hero.mockup-home{padding:0!important;margin:0!important;max-width:none!important;height:100vh!important;min-height:100vh!important;display:block!important;position:relative!important;overflow:hidden!important;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/SYSU%20Shenzhen%20Main%20Entrance%2020221208.jpg?width=1800')!important;background-size:cover!important;background-position:center 55%!important;background-repeat:no-repeat!important}
-    .hero.mockup-home:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.96) 24%,rgba(255,255,255,.81) 42%,rgba(255,255,255,.32) 66%,rgba(255,255,255,.06) 100%),linear-gradient(0deg,rgba(240,248,244,.22),rgba(255,255,255,.04));z-index:1}
-    .hero.mockup-home:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(7,62,49,.12));z-index:1;pointer-events:none}
-    .mockup-copy{position:absolute;z-index:3;left:11.5vw;top:51%;transform:translateY(-46%);width:min(690px,45vw)}
-    .mockup-copy h1{font-family:'Noto Sans SC',sans-serif;font-size:clamp(52px,5.4vw,88px)!important;line-height:1.12!important;letter-spacing:-.055em!important;font-weight:700!important;margin:0 0 25px!important;color:#111!important}.mockup-copy h1 span{display:block;color:var(--home-green);margin-top:8px}
-    .lab-cn{font-size:22px;font-weight:500;letter-spacing:.035em;margin:0;color:#263331}.lab-en{font-size:15px;letter-spacing:.02em;color:#4d5d59;margin:3px 0 27px}
-    .mockup-description{max-width:560px;font-size:16px;line-height:1.9;color:#394743;margin:0 0 30px}
-    .mockup-button{display:inline-flex;align-items:center;gap:14px;padding:15px 27px;border-radius:5px;background:var(--home-green);color:#fff;font-size:15px;box-shadow:0 12px 30px rgba(10,106,67,.18);transition:.25s}.mockup-button:hover{transform:translateY(-2px);background:#075b39}
-    .home-slogan{position:absolute;z-index:3;left:3.2vw;bottom:30px;color:#12241f;display:flex;align-items:flex-start;gap:20px}.home-slogan:before{content:'';width:42px;height:1px;background:#27493e;margin-top:12px}.home-slogan strong{display:block;font-size:18px;letter-spacing:.35em;font-weight:500}.home-slogan small{display:block;margin-top:6px;font-size:10px;letter-spacing:.15em;color:#4c5e58}
-    .home-pager{position:absolute;z-index:3;right:3.2vw;bottom:31px;display:flex;align-items:center;gap:12px;color:#fff}.home-pager i{display:block;width:48px;height:5px;border:1px solid rgba(255,255,255,.85);border-radius:8px}.home-pager i:first-child{background:#fff}.home-pager span{font-size:14px;margin-left:12px;letter-spacing:.08em;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+    .main-nav{gap:34px!important;font-size:14px!important;color:#1d2523!important;align-items:center;justify-content:flex-end;flex:1}.main-nav a{font-weight:500;padding:39px 0 31px;white-space:nowrap}.main-nav a:after{height:2px!important;bottom:19px!important;background:var(--home-green)!important}.main-nav a:first-child{color:var(--home-green);font-weight:700}.main-nav a:first-child:after{right:0!important}
+    .header-search{width:38px;height:38px;border:0;background:transparent;display:grid;place-items:center;position:relative;flex:0 0 38px;margin-left:2px;cursor:pointer}.header-search:before{content:'';width:15px;height:15px;border:2px solid #13211e;border-radius:50%;position:absolute;left:8px;top:8px}.header-search:after{content:'';width:9px;height:2px;background:#13211e;position:absolute;left:22px;top:24px;transform:rotate(45deg);transform-origin:left center}
+    .menu-toggle{margin-left:3px}
+    .hero.mockup-home{padding:0!important;margin:0!important;max-width:none!important;height:100vh!important;min-height:100vh!important;display:block!important;position:relative!important;overflow:hidden!important;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/SYSU%20Shenzhen%20Main%20Entrance%2020221208.jpg?width=2000')!important;background-size:cover!important;background-position:center 56%!important;background-repeat:no-repeat!important}
+    .hero.mockup-home:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.985) 0%,rgba(255,255,255,.975) 22%,rgba(255,255,255,.88) 37%,rgba(255,255,255,.58) 49%,rgba(255,255,255,.20) 65%,rgba(255,255,255,.02) 100%),linear-gradient(0deg,rgba(246,250,247,.48) 0%,rgba(246,250,247,.12) 36%,rgba(255,255,255,0) 64%);z-index:1}
+    .hero.mockup-home:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(4,50,38,.12));z-index:1;pointer-events:none}
+    .mockup-copy{position:absolute;z-index:3;left:10.7vw;top:23.3vh;transform:none;width:min(710px,46vw)}
+    .mockup-copy h1{font-family:'Noto Sans SC',sans-serif;font-size:clamp(54px,5.15vw,84px)!important;line-height:1.11!important;letter-spacing:-.055em!important;font-weight:800!important;margin:0 0 20px!important;color:#0e1413!important}.mockup-copy h1 span{display:block;color:var(--home-green);margin-top:4px}
+    .lab-cn{font-size:21px;font-weight:500;letter-spacing:.02em;margin:0;color:#252d2b;line-height:1.4}.lab-en{font-size:15px;letter-spacing:.005em;color:#414b48;margin:2px 0 24px;line-height:1.45}
+    .mockup-description{max-width:575px;font-size:15px;line-height:1.82;color:#39423f;margin:0 0 29px}
+    .mockup-button{display:inline-flex;align-items:center;gap:12px;padding:13px 26px;border-radius:4px;background:var(--home-green);color:#fff;font-size:14px;box-shadow:0 10px 24px rgba(10,106,67,.14);transition:.22s}.mockup-button:hover{transform:translateY(-2px);background:#075b39}
+    .home-slogan{position:absolute;z-index:3;left:3.05vw;bottom:27px;color:#12211d;display:flex;align-items:flex-start;gap:18px}.home-slogan:before{content:'';width:38px;height:1px;background:#27493e;margin-top:11px}.home-slogan strong{display:block;font-size:15px;letter-spacing:.34em;font-weight:500}.home-slogan small{display:block;margin-top:5px;font-size:9px;letter-spacing:.12em;color:#40524c}
+    .home-pager{position:absolute;z-index:3;right:3.0vw;bottom:28px;display:flex;align-items:center;gap:10px;color:#fff}.home-pager i{display:block;width:46px;height:5px;border:1px solid rgba(255,255,255,.9);border-radius:8px}.home-pager i:first-child{background:#fff}.home-pager span{font-size:13px;margin-left:10px;letter-spacing:.06em;text-shadow:0 1px 5px rgba(0,0,0,.34)}
     .hero-scroll,.hero-visual{display:none!important}
-    @media(max-width:1180px){.sysu-name strong{font-size:22px}.sysu-seal{width:52px;height:52px}.ambic-title strong{font-size:27px}.brand-logo-wrap,.brand-logo{width:60px!important;height:55px!important}.main-nav{gap:22px!important;font-size:12px!important}.mockup-copy{left:8vw;width:52vw}}
-    @media(max-width:900px){.site-header{height:72px!important;padding:0 18px!important}.home-branding{gap:12px}.sysu-brand{display:none}.brand-divider{display:none}.brand-logo-wrap,.brand-logo{width:48px!important;height:45px!important}.ambic-title strong{font-size:22px}.ambic-title small{font-size:9px}.main-nav{top:72px!important}.main-nav a{padding:8px 0!important}.hero.mockup-home{background-position:65% center!important}.mockup-copy{left:24px;top:49%;width:calc(100% - 48px);max-width:600px}.mockup-copy h1{font-size:46px!important}.lab-cn{font-size:17px}.lab-en{font-size:12px}.mockup-description{font-size:14px;max-width:88%}.home-slogan{left:24px;bottom:24px}.home-slogan strong{font-size:12px;letter-spacing:.19em}.home-slogan small{font-size:8px}.home-pager{display:none}}
+    @media(max-width:1280px){.site-header{padding:0 22px!important}.home-branding{gap:14px}.sysu-name strong{font-size:22px}.sysu-seal{width:50px;height:50px}.brand-divider{height:46px}.ambic-title strong{font-size:27px}.brand-logo-wrap,.brand-logo{width:58px!important;height:52px!important}.main-nav{gap:20px!important;font-size:12px!important}.mockup-copy{left:8.5vw;width:52vw}}
+    @media(max-width:900px){.site-header{height:72px!important;padding:0 18px!important}.home-branding{gap:12px}.sysu-brand{display:none}.brand-divider{display:none}.brand-logo-wrap,.brand-logo{width:48px!important;height:45px!important}.ambic-title strong{font-size:22px}.ambic-title small{font-size:9px}.main-nav{top:72px!important}.main-nav a{padding:8px 0!important}.header-search{display:none}.hero.mockup-home{background-position:64% center!important}.mockup-copy{left:24px;top:19vh;width:calc(100% - 48px);max-width:600px}.mockup-copy h1{font-size:46px!important}.lab-cn{font-size:17px}.lab-en{font-size:12px}.mockup-description{font-size:14px;max-width:88%}.home-slogan{left:24px;bottom:24px}.home-slogan strong{font-size:12px;letter-spacing:.19em}.home-slogan small{font-size:8px}.home-pager{display:none}}
   </style>
 </head>
 <body>
@@ -58,10 +59,11 @@
       <a href="#research">研究方向</a>
       <a href="#publications">科研成果</a>
       <a href="#team">团队成员</a>
-      <a href="#visual">科研视觉</a>
+      <a href="#visual">科研资源</a>
       <a href="#news">动态</a>
       <a href="#contact">联系我们</a>
     </nav>
+    <button class="header-search" type="button" aria-label="搜索"></button>
     <button class="menu-toggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
   </header>
 
@@ -71,7 +73,7 @@
         <h1>一起构建<span>下一代智能器件。</span></h1>
         <p class="lab-cn">先进集成电路材料与类脑芯片实验室</p>
         <p class="lab-en">Advanced IC Materials &amp; Neuromorphic Chips Laboratory</p>
-        <p class="mockup-description">致力于突破后摩尔时代的算力瓶颈，聚焦于新型半导体材料、忆阻器器件、以及具有高能效比的神经形态（类脑）计算架构的研究与应用。</p>
+        <p class="mockup-description">致力于突破后摩尔时代的算力瓶颈，<br>聚焦于新型半导体材料、忆阻器器件、以及具有高能效比的<br>神经形态（类脑）计算架构的研究与应用。</p>
         <a class="mockup-button" href="#research">了解更多 <span>→</span></a>
       </div>
       <div class="home-slogan"><div><strong>材料感知世界　让芯片理解智能</strong><small>SENSING THE WORLD WITH MATERIALS　EMPOWERING INTELLIGENCE WITH CHIPS</small></div></div>
