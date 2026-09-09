@@ -31,12 +31,12 @@ body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:0;padding-bottom:0;gap:0;display:block}
- body.paged #home .mockup-copy{max-width:680px;padding-top:0;position:absolute;left:11.3vw;top:54%;transform:translateY(-50%);z-index:2}
+ body.paged #home .mockup-copy{max-width:680px;padding-top:0;position:absolute;left:11.3vw;top:50%;transform:translateY(-50%);z-index:2}
  body.paged #home .lab-cn{font-size:clamp(25px,min(2.15vw,3.8vh),36px);line-height:1.32;letter-spacing:.02em;margin:0 0 8px}
  body.paged #home .lab-en{font-size:clamp(13px,min(1.15vw,2vh),18px);line-height:1.45;letter-spacing:.035em;margin:0 0 clamp(18px,3vh,30px)}
  body.paged #home .mockup-description{font-size:clamp(14px,min(1.02vw,2vh),17px);line-height:1.85;margin:0 0 14px;max-width:600px}
  body.paged #home .mockup-button{padding:10px 24px;margin-top:8px;font-weight:700}
- body.paged #home .home-slogan{position:absolute;left:11.3vw;bottom:22px;padding-top:10px;max-width:680px}
+ body.paged #home .home-slogan{position:absolute;left:11.3vw;top:calc(50% + 205px);bottom:auto;padding-top:0;max-width:680px;z-index:2}
  body.paged #home .home-slogan strong{font-size:clamp(13px,1vw,16px)}
  body.paged #home .home-slogan small{font-size:11px;margin-top:4px}
  body.paged #home .home-pager{padding:5px 13px}
@@ -53,7 +53,8 @@ body.paged #home .mockup-description{font-weight:700}
  body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
 }
 @media (min-width:651px) and (max-height:700px){
- body.paged #home .mockup-copy{top:55%}
+ body.paged #home .mockup-copy{top:49%}
+ body.paged #home .home-slogan{top:calc(49% + 180px)}
  body.paged #home .lab-cn{font-size:clamp(23px,4.2vh,31px)}
  body.paged #home .lab-en{margin-bottom:14px}
  body.paged #home .mockup-description{line-height:1.55}
