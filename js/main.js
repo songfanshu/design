@@ -81,6 +81,17 @@ function applyCopyUpdates(){
    if(pager)pager.remove();
  }
 }
+function addMasterStudents(){
+ const list=document.querySelector('#team .roster-masters .roster-students');
+ if(!list)return;
+ const names=['胡松','张宇迪','孙艳姿','朱丹','程现','尹越檐','赵安欣'];
+ const existing=new Set([...list.querySelectorAll('.roster-student > span:last-child')].map(el=>el.textContent.trim()));
+ const avatar='<span class="roster-avatar" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="13" fill="#c5ccca"/><path d="M15 71v-7a25 25 0 0 1 50 0v7" fill="#c5ccca"/></svg></span>';
+ names.forEach(name=>{
+   if(existing.has(name))return;
+   list.insertAdjacentHTML('beforeend',`<li class="roster-student">${avatar}<span>${name}</span></li>`);
+ });
+}
 function addAlumniSection(){
  const team=document.getElementById('team');
  if(!team||team.querySelector('.roster-alumni'))return;
@@ -121,6 +132,7 @@ document.body.classList.add('paged');
 const homePage=document.getElementById('home');
 if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
+addMasterStudents();
 addAlumniSection();
 installViewportFit();
 initSharpCampusMap();
