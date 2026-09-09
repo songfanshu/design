@@ -29,6 +29,7 @@ body.paged #home .lab-cn,body.paged #home .lab-en,body.paged #home .mockup-descr
 body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
+#team .alumni-placeholder{min-height:112px;width:100%;border:1px dashed rgba(7,91,57,.28);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#708079;font-size:14px;letter-spacing:.08em;background:rgba(255,255,255,.34)}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:0;padding-bottom:0;gap:0;display:block}
  body.paged #home .mockup-copy{max-width:920px;padding-top:0;position:absolute;left:11.3vw;top:48%;transform:translateY(-50%);z-index:2}
@@ -80,6 +81,13 @@ function applyCopyUpdates(){
    if(pager)pager.remove();
  }
 }
+function addAlumniSection(){
+ const team=document.getElementById('team');
+ if(!team||team.querySelector('.roster-alumni'))return;
+ const masters=team.querySelector('.roster-masters');
+ if(!masters)return;
+ masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">待添加</div></div></div>');
+}
 function initSharpCampusMap(){
  const frame=document.querySelector('#contact .map-frame');
  if(!frame)return;
@@ -113,6 +121,7 @@ document.body.classList.add('paged');
 const homePage=document.getElementById('home');
 if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
+addAlumniSection();
 installViewportFit();
 initSharpCampusMap();
 show(location.hash.slice(1));
