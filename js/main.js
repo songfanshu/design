@@ -77,6 +77,8 @@ function applyCopyUpdates(){
    if(cn)cn.textContent='先进集成电路材料与类脑芯片课题组';
    const en=home.querySelector('.lab-en');
    if(en)en.textContent='Advanced IC Materials & Neuromorphic Chips Research Group';
+   const pager=home.querySelector('.home-pager');
+   if(pager)pager.remove();
  }
 }
 function initSharpCampusMap(){
