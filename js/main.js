@@ -24,21 +24,22 @@ function installViewportFit(){
  const style=document.createElement('style');
  style.id='viewport-fit-home-research';
  style.textContent=`
-body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.88),rgba(255,255,255,.72) 32%,rgba(255,255,255,.1) 72%)}
-#team .team-motto strong,#team .team-quote p{font-family:"STKaiti","KaiTi","FangSong","FZKai-Z03","Microsoft YaHei",serif;font-style:italic;font-weight:700;letter-spacing:.12em;text-shadow:0 2px 10px rgba(7,91,57,.12)}
-#team .team-motto strong{font-size:clamp(25px,2.25vw,38px);line-height:1.55}
-#team .team-motto strong span{font-family:inherit}
-#team .team-quote p{font-size:clamp(28px,2.7vw,44px);line-height:1.5;letter-spacing:.18em;margin:.2em 0}
+body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.66) 32%,rgba(255,255,255,.08) 72%)}
+#team .team-motto strong,#team .team-quote p{font-family:"FZKai-Z03","STKaiti","KaiTi","Songti SC","SimSun",serif;font-style:normal;font-weight:500;color:#064b32;letter-spacing:.06em;text-shadow:none}
+#team .team-motto strong{font-size:clamp(27px,2.35vw,40px);line-height:1.72;display:block;transform:rotate(-1deg)}
+#team .team-motto strong span{font-family:inherit;padding-left:3.1em}
+#team .team-quote p{font-size:clamp(30px,2.85vw,46px);line-height:1.62;letter-spacing:.12em;margin:.15em 0;transform:rotate(-1.5deg)}
+#team .team-quote>span{font-family:Georgia,serif;font-weight:400;opacity:.28}
 @media (min-width:651px){
- body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(22px,4.2vh,52px);padding-bottom:18px;gap:clamp(10px,1.8vh,20px)}
- body.paged #home .mockup-copy h1{font-size:clamp(38px,min(4.45vw,7.2vh),68px);line-height:1.12;margin-bottom:clamp(8px,1.5vh,16px)}
- body.paged #home .lab-cn{font-size:clamp(17px,min(1.55vw,2.8vh),24px);line-height:1.4}
- body.paged #home .lab-en{font-size:clamp(13px,min(1.2vw,2.1vh),18px);line-height:1.35;margin-bottom:clamp(8px,1.5vh,16px)}
- body.paged #home .mockup-description{font-size:clamp(14px,min(1.05vw,2.2vh),17px);line-height:1.65;margin:8px 0}
- body.paged #home .mockup-button{padding:9px 22px;margin-top:6px}
- body.paged #home .home-slogan{padding-top:8px}
+ body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(40px,7vh,74px);padding-bottom:22px;gap:clamp(14px,2.4vh,28px)}
+ body.paged #home .mockup-copy{max-width:680px;padding-top:clamp(6px,1.5vh,18px)}
+ body.paged #home .lab-cn{font-size:clamp(25px,min(2.15vw,3.8vh),36px);font-weight:800;line-height:1.32;letter-spacing:.02em;color:#123f31;margin:0 0 8px}
+ body.paged #home .lab-en{font-size:clamp(13px,min(1.15vw,2vh),18px);line-height:1.45;letter-spacing:.035em;margin:0 0 clamp(18px,3vh,30px);color:#31594c}
+ body.paged #home .mockup-description{font-size:clamp(14px,min(1.02vw,2vh),17px);line-height:1.85;margin:0 0 14px;max-width:600px;color:#334b43}
+ body.paged #home .mockup-button{padding:10px 24px;margin-top:8px}
+ body.paged #home .home-slogan{padding-top:10px;max-width:680px}
  body.paged #home .home-slogan strong{font-size:clamp(13px,1vw,16px)}
- body.paged #home .home-slogan small{font-size:11px;margin-top:3px}
+ body.paged #home .home-slogan small{font-size:11px;margin-top:4px}
  body.paged #home .home-pager{padding:5px 13px}
  body.paged #research{height:100%;overflow:hidden;padding-top:clamp(20px,3.5vh,38px);padding-bottom:clamp(18px,3vh,32px);display:flex;flex-direction:column}
  body.paged #research .section-head{margin-bottom:clamp(14px,2.6vh,28px);flex:0 0 auto}
@@ -53,9 +54,10 @@ body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.88),r
  body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
 }
 @media (min-width:651px) and (max-height:700px){
- body.paged #home{padding-top:16px;gap:8px}
- body.paged #home .mockup-copy h1{font-size:clamp(34px,6.2vh,50px)}
- body.paged #home .mockup-description{line-height:1.45}
+ body.paged #home{padding-top:24px;gap:10px}
+ body.paged #home .lab-cn{font-size:clamp(23px,4.2vh,31px)}
+ body.paged #home .lab-en{margin-bottom:14px}
+ body.paged #home .mockup-description{line-height:1.55}
  body.paged #research{padding-top:14px;padding-bottom:14px}
  body.paged #research .section-head{margin-bottom:10px}
  body.paged #research .research-art{height:72px;margin:7px 0}
