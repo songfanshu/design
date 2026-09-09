@@ -37,7 +37,40 @@
     .hero-scroll,.hero-visual{display:none!important}
     @media(max-width:1180px){.site-header{padding:0 24px!important}.sysu-name strong{font-size:21px}.sysu-seal{width:50px;height:50px}.ambic-title strong{font-size:26px}.brand-logo-wrap,.brand-logo{width:56px!important;height:52px!important}.main-nav{gap:20px!important;font-size:12px!important}.mockup-copy{left:8vw;width:52vw}.mockup-copy h1{font-size:58px!important}}
     @media(max-width:900px){.site-header{height:72px!important;padding:0 18px!important}.home-branding{gap:12px}.sysu-brand{display:none}.brand-divider{display:none}.brand-logo-wrap,.brand-logo{width:48px!important;height:45px!important}.ambic-title strong{font-size:22px}.ambic-title small{font-size:9px}.main-nav{top:72px!important;gap:8px!important}.main-nav a{padding:8px 0!important}.search-icon{display:none}.hero.mockup-home:before,.hero.mockup-home:after{top:72px}.hero.mockup-home:before{background-position:65% center}.mockup-copy{left:24px;top:25vh;width:calc(100% - 48px);max-width:600px}.mockup-copy h1{font-size:46px!important}.lab-cn{font-size:17px}.lab-en{font-size:12px}.mockup-description{font-size:14px;max-width:88%}.home-slogan{left:24px;bottom:24px}.home-slogan strong{font-size:11px;letter-spacing:.17em}.home-slogan small{font-size:7px}.home-pager{display:none}}
-  </style>
+  
+    /* 参考图 1536×864 首页像素级还原：视觉由本地参考资产承载，原有链接与后续页面继续可用 */
+    @media (min-width: 901px) {
+      .site-header{
+        height:102px!important;
+        padding:0 3.2vw!important;
+        background:#fff url('assets/home-reference.png') center top/100vw auto no-repeat!important;
+        border:0!important;
+      }
+      .site-header .home-branding,
+      .site-header .main-nav,
+      .site-header .search-icon,
+      .site-header .menu-toggle{opacity:0!important}
+      .site-header .home-branding,
+      .site-header .main-nav{pointer-events:auto!important}
+      .site-header .search-icon,
+      .site-header .menu-toggle{pointer-events:none!important}
+      .hero.mockup-home{
+        height:calc(100vh - 102px)!important;
+        min-height:calc(100vh - 102px)!important;
+        background:#eef4f1!important;
+      }
+      .hero.mockup-home:before{
+        inset:0!important;
+        background:url('assets/home-reference.png') center -102px/100vw auto no-repeat!important;
+        z-index:1!important;
+      }
+      .hero.mockup-home:after{display:none!important}
+      .hero.mockup-home .mockup-copy,
+      .hero.mockup-home .home-slogan,
+      .hero.mockup-home .home-pager{opacity:0!important}
+      .hero.mockup-home .mockup-button{pointer-events:auto!important}
+    }
+</style>
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -46,7 +79,7 @@
       <span class="brand-divider"></span>
       <a class="brand" href="#home" aria-label="AMBIC 实验室首页"><span class="brand-logo-wrap"><img class="brand-logo" src="https://raw.githubusercontent.com/songfanshu/website/main/assets/ambic-logo-transparent.png" alt="AMBIC 实验室 Logo"/><span class="brand-mark-fallback">AMBIC</span></span><span class="ambic-title"><strong>AMBIC</strong><small>AMBIC Laboratory</small></span><span class="brand-text">先进集成电路材料与类脑芯片实验室</span></a>
     </div>
-    <nav class="main-nav" aria-label="主导航"><a href="#home">首页</a><a href="#research">研究方向</a><a href="#publications">科研成果</a><a href="#team">团队成员</a><a href="#visual">科研视觉</a><a href="#news">动态</a><a href="#contact">联系我们</a></nav>
+    <nav class="main-nav" aria-label="主导航"><a href="#home">首页</a><a href="#research">研究方向</a><a href="#publications">科研成果</a><a href="#team">团队成员</a><a href="#visual">科研资源</a><a href="#news">动态</a><a href="#contact">联系我们</a></nav>
     <span class="search-icon" aria-hidden="true"></span><button class="menu-toggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
   </header>
   <main>
