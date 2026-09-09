@@ -6,6 +6,7 @@
   const links=[...document.querySelectorAll('.main-nav a')];
   const sections=[...document.querySelectorAll('main > section')];
   let current=0;
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
 
   // 首页左上角：使用用户提供的 AMBIC 实验室 Logo，并放在 AMBIC 字样旁边。
   const logoImg=document.querySelector('.brand-logo');
@@ -62,6 +63,19 @@
   `;
   document.head.appendChild(horizontalStyle);
   document.body.classList.add('horizontal-ready');
+
+  // 禁止浏览器恢复旧的横向滚动位置：无锚点访问时始终显示首页。
+  const resetHorizontalHome=()=>{
+    if(location.hash || !main)return;
+    current=0;
+    main.scrollLeft=0;
+    main.scrollTop=0;
+  };
+  resetHorizontalHome();
+  requestAnimationFrame(resetHorizontalHome);
+  setTimeout(resetHorizontalHome,80);
+  window.addEventListener('pageshow',resetHorizontalHome);
+
 
   // 将学生名单加入团队页面，避免覆盖现有教师信息。
   const team=document.getElementById('team');
