@@ -25,13 +25,18 @@ function installViewportFit(){
  style.id='viewport-fit-home-research';
  style.textContent=`
 body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.66) 32%,rgba(255,255,255,.08) 72%)}
+.site-header .home-branding img{filter:brightness(.48) saturate(.65) contrast(1.25)}
+body.paged #home .lab-cn,body.paged #home .lab-en,body.paged #home .mockup-description,body.paged #home .home-slogan strong,body.paged #home .home-slogan small{color:#18372e;font-weight:700}
+body.paged #home .lab-cn{font-weight:900}
+body.paged #home .lab-en{font-weight:700}
+body.paged #home .mockup-description{font-weight:700}
 @media (min-width:651px){
- body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(40px,7vh,74px);padding-bottom:22px;gap:clamp(14px,2.4vh,28px)}
- body.paged #home .mockup-copy{max-width:680px;padding-top:clamp(6px,1.5vh,18px)}
- body.paged #home .lab-cn{font-size:clamp(25px,min(2.15vw,3.8vh),36px);font-weight:800;line-height:1.32;letter-spacing:.02em;color:#123f31;margin:0 0 8px}
- body.paged #home .lab-en{font-size:clamp(13px,min(1.15vw,2vh),18px);line-height:1.45;letter-spacing:.035em;margin:0 0 clamp(18px,3vh,30px);color:#31594c}
- body.paged #home .mockup-description{font-size:clamp(14px,min(1.02vw,2vh),17px);line-height:1.85;margin:0 0 14px;max-width:600px;color:#334b43}
- body.paged #home .mockup-button{padding:10px 24px;margin-top:8px}
+ body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(58px,9.5vh,96px);padding-bottom:18px;gap:clamp(14px,2.4vh,28px)}
+ body.paged #home .mockup-copy{max-width:680px;padding-top:clamp(12px,2.3vh,28px)}
+ body.paged #home .lab-cn{font-size:clamp(25px,min(2.15vw,3.8vh),36px);line-height:1.32;letter-spacing:.02em;margin:0 0 8px}
+ body.paged #home .lab-en{font-size:clamp(13px,min(1.15vw,2vh),18px);line-height:1.45;letter-spacing:.035em;margin:0 0 clamp(18px,3vh,30px)}
+ body.paged #home .mockup-description{font-size:clamp(14px,min(1.02vw,2vh),17px);line-height:1.85;margin:0 0 14px;max-width:600px}
+ body.paged #home .mockup-button{padding:10px 24px;margin-top:8px;font-weight:700}
  body.paged #home .home-slogan{padding-top:10px;max-width:680px}
  body.paged #home .home-slogan strong{font-size:clamp(13px,1vw,16px)}
  body.paged #home .home-slogan small{font-size:11px;margin-top:4px}
@@ -49,7 +54,8 @@ body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),r
  body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
 }
 @media (min-width:651px) and (max-height:700px){
- body.paged #home{padding-top:24px;gap:10px}
+ body.paged #home{padding-top:34px;gap:10px}
+ body.paged #home .mockup-copy{padding-top:10px}
  body.paged #home .lab-cn{font-size:clamp(23px,4.2vh,31px)}
  body.paged #home .lab-en{margin-bottom:14px}
  body.paged #home .mockup-description{line-height:1.55}
