@@ -24,6 +24,7 @@ function installViewportFit(){
  const style=document.createElement('style');
  style.id='viewport-fit-home-research';
  style.textContent=`
+body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.88),rgba(255,255,255,.72) 32%,rgba(255,255,255,.1) 72%)}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(22px,4.2vh,52px);padding-bottom:18px;gap:clamp(10px,1.8vh,20px)}
  body.paged #home .mockup-copy h1{font-size:clamp(38px,min(4.45vw,7.2vh),68px);line-height:1.12;margin-bottom:clamp(8px,1.5vh,16px)}
