@@ -90,6 +90,8 @@ function initSharpCampusMap(){
  resizeHeight();mq.addEventListener?.('change',resizeHeight);
 }
 document.body.classList.add('paged');
+const homePage=document.getElementById('home');
+if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 installViewportFit();
 initSharpCampusMap();
 show(location.hash.slice(1));
