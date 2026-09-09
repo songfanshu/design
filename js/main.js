@@ -25,11 +25,6 @@ function installViewportFit(){
  style.id='viewport-fit-home-research';
  style.textContent=`
 body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.66) 32%,rgba(255,255,255,.08) 72%)}
-#team .team-motto strong,#team .team-quote p{font-family:"FZKai-Z03","STKaiti","KaiTi","Songti SC","SimSun",serif;font-style:normal;font-weight:500;color:#064b32;letter-spacing:.06em;text-shadow:none}
-#team .team-motto strong{font-size:clamp(27px,2.35vw,40px);line-height:1.72;display:block;transform:rotate(-1deg)}
-#team .team-motto strong span{font-family:inherit;padding-left:3.1em}
-#team .team-quote p{font-size:clamp(30px,2.85vw,46px);line-height:1.62;letter-spacing:.12em;margin:.15em 0;transform:rotate(-1.5deg)}
-#team .team-quote>span{font-family:Georgia,serif;font-weight:400;opacity:.28}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(40px,7vh,74px);padding-bottom:22px;gap:clamp(14px,2.4vh,28px)}
  body.paged #home .mockup-copy{max-width:680px;padding-top:clamp(6px,1.5vh,18px)}
