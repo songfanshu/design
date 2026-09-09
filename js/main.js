@@ -35,12 +35,12 @@ body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
 #team .alumni-placeholder{min-height:112px;width:100%;border:1px dashed rgba(7,91,57,.28);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#708079;font-size:14px;letter-spacing:.08em;background:rgba(255,255,255,.34)}
-.page-dots-controller{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 9px;border:1px solid rgba(24,55,46,.12);border-radius:999px;background:rgba(255,255,255,.72);box-shadow:0 4px 18px rgba(15,49,39,.10);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:1px solid rgba(24,55,46,.38);border-radius:50%;background:rgba(255,255,255,.86);cursor:pointer;transition:transform .22s ease,background .22s ease,border-color .22s ease}
-.page-dot:hover{transform:scale(1.16);border-color:#18372e}
-.page-dot.active{background:#18372e;border-color:#18372e;transform:scale(1.25)}
+.page-dots-controller{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(24,55,46,.34);cursor:pointer;transition:transform .22s ease,background .22s ease}
+.page-dot:hover{transform:scale(1.16);background:rgba(24,55,46,.58)}
+.page-dot.active{background:#18372e;transform:scale(1.25)}
 .page-dot:focus-visible{outline:2px solid #18372e;outline-offset:3px}
-@media (max-width:650px){.page-dots-controller{right:10px;top:50%;gap:8px;padding:10px 8px}.page-dot{width:8px;height:8px}}
+@media (max-width:650px){.page-dots-controller{right:10px;top:50%;gap:8px;padding:0}.page-dot{width:8px;height:8px}}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:0;padding-bottom:0;gap:0;display:block}
  body.paged #home .mockup-copy{max-width:920px;padding-top:0;position:absolute;left:11.3vw;top:48%;transform:translateY(-50%);z-index:2}
