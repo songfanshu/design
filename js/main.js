@@ -25,6 +25,10 @@ function installViewportFit(){
  style.id='viewport-fit-home-research';
  style.textContent=`
 body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.88),rgba(255,255,255,.72) 32%,rgba(255,255,255,.1) 72%)}
+#team .team-motto strong,#team .team-quote p{font-family:"STKaiti","KaiTi","FangSong","FZKai-Z03","Microsoft YaHei",serif;font-style:italic;font-weight:700;letter-spacing:.12em;text-shadow:0 2px 10px rgba(7,91,57,.12)}
+#team .team-motto strong{font-size:clamp(25px,2.25vw,38px);line-height:1.55}
+#team .team-motto strong span{font-family:inherit}
+#team .team-quote p{font-size:clamp(28px,2.7vw,44px);line-height:1.5;letter-spacing:.18em;margin:.2em 0}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:clamp(22px,4.2vh,52px);padding-bottom:18px;gap:clamp(10px,1.8vh,20px)}
  body.paged #home .mockup-copy h1{font-size:clamp(38px,min(4.45vw,7.2vh),68px);line-height:1.12;margin-bottom:clamp(8px,1.5vh,16px)}
@@ -61,6 +65,17 @@ body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.88),r
 `;
  document.head.appendChild(style);
 }
+function applyCopyUpdates(){
+ const home=document.getElementById('home');
+ if(home){
+   const headline=home.querySelector('.mockup-copy h1');
+   if(headline)headline.remove();
+   const cn=home.querySelector('.lab-cn');
+   if(cn)cn.textContent='先进集成电路材料与类脑芯片课题组';
+   const en=home.querySelector('.lab-en');
+   if(en)en.textContent='Advanced IC Materials & Neuromorphic Chips Research Group';
+ }
+}
 function initSharpCampusMap(){
  const frame=document.querySelector('#contact .map-frame');
  if(!frame)return;
@@ -93,6 +108,7 @@ function initSharpCampusMap(){
 document.body.classList.add('paged');
 const homePage=document.getElementById('home');
 if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
+applyCopyUpdates();
 installViewportFit();
 initSharpCampusMap();
 show(location.hash.slice(1));
