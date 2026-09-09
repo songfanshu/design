@@ -4,8 +4,11 @@ const main=document.getElementById('pages');
 const pages=[...main.querySelectorAll(':scope > section')];
 const nav=document.getElementById('mainNav');
 const toggle=document.querySelector('.menu-toggle');
+const autoPageIds=['home','research','publications','team','visual','news','contact'];
+const AUTO_SWITCH_MS=15000;
 let current=0;
 let campusMap=null;
+let autoTimer=null;
 if('scrollRestoration' in history) history.scrollRestoration='manual';
 function show(id,push=false){
  let index=pages.findIndex(p=>p.id===id); if(index<0)index=0;
@@ -16,9 +19,11 @@ function show(id,push=false){
  pages.forEach((p,i)=>{const active=i===index;p.classList.toggle('active',active);p.classList.toggle('before',i<index);p.inert=!active;p.setAttribute('aria-hidden',String(!active));});
  if(moveFocus){pages[index].setAttribute('tabindex','-1');pages[index].focus({preventScroll:true});}
  nav.querySelectorAll('a').forEach(a=>{if(a.hash==='#'+pages[index].id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+ updatePageDots(pages[index].id);
  nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');
  if(id==='contact'&&campusMap)setTimeout(()=>campusMap.resize(),80);
  if(push&&location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
+ restartAutoSwitch();
 }
 function installViewportFit(){
  const style=document.createElement('style');
@@ -30,6 +35,12 @@ body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
 #team .alumni-placeholder{min-height:112px;width:100%;border:1px dashed rgba(7,91,57,.28);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#708079;font-size:14px;letter-spacing:.08em;background:rgba(255,255,255,.34)}
+.page-dots-controller{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid rgba(24,55,46,.12);border-radius:999px;background:rgba(255,255,255,.72);box-shadow:0 4px 18px rgba(15,49,39,.10);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:1px solid rgba(24,55,46,.38);border-radius:50%;background:rgba(255,255,255,.86);cursor:pointer;transition:transform .22s ease,background .22s ease,border-color .22s ease}
+.page-dot:hover{transform:scale(1.16);border-color:#18372e}
+.page-dot.active{background:#18372e;border-color:#18372e;transform:scale(1.25)}
+.page-dot:focus-visible{outline:2px solid #18372e;outline-offset:3px}
+@media (max-width:650px){.page-dots-controller{bottom:12px;gap:8px;padding:8px 10px}.page-dot{width:8px;height:8px}}
 @media (min-width:651px){
  body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:0;padding-bottom:0;gap:0;display:block}
  body.paged #home .mockup-copy{max-width:920px;padding-top:0;position:absolute;left:11.3vw;top:48%;transform:translateY(-50%);z-index:2}
@@ -99,6 +110,40 @@ function addAlumniSection(){
  if(!masters)return;
  masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">待添加</div></div></div>');
 }
+function installPageDots(){
+ const ids=autoPageIds.filter(id=>pages.some(p=>p.id===id));
+ if(!ids.length||document.querySelector('.page-dots-controller'))return;
+ const labels={home:'首页',research:'研究方向',publications:'科研成果',team:'团队成员',visual:'科研资源',news:'动态',contact:'联系我们'};
+ const controller=document.createElement('div');
+ controller.className='page-dots-controller';
+ controller.setAttribute('role','navigation');
+ controller.setAttribute('aria-label','页面切换');
+ controller.innerHTML=ids.map(id=>`<button class="page-dot" type="button" data-page="${id}" aria-label="切换到${labels[id]||id}" title="${labels[id]||id}"></button>`).join('');
+ controller.addEventListener('click',e=>{
+   const dot=e.target.closest('.page-dot');
+   if(!dot)return;
+   show(dot.dataset.page,true);
+ });
+ document.body.appendChild(controller);
+}
+function updatePageDots(id){
+ document.querySelectorAll('.page-dot').forEach(dot=>{
+   const active=dot.dataset.page===id;
+   dot.classList.toggle('active',active);
+   dot.setAttribute('aria-current',active?'page':'false');
+ });
+}
+function restartAutoSwitch(){
+ clearTimeout(autoTimer);
+ autoTimer=null;
+ const id=pages[current]?.id;
+ if(document.hidden||!autoPageIds.includes(id))return;
+ autoTimer=setTimeout(()=>{
+   const index=autoPageIds.indexOf(pages[current]?.id);
+   const nextId=autoPageIds[(index+1)%autoPageIds.length];
+   show(nextId,true);
+ },AUTO_SWITCH_MS);
+}
 function initSharpCampusMap(){
  const frame=document.querySelector('#contact .map-frame');
  if(!frame)return;
@@ -135,6 +180,7 @@ applyCopyUpdates();
 addMasterStudents();
 addAlumniSection();
 installViewportFit();
+installPageDots();
 initSharpCampusMap();
 show(location.hash.slice(1));
 document.addEventListener('click',e=>{
@@ -146,6 +192,7 @@ toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');tog
 window.addEventListener('popstate',()=>show(location.hash.slice(1)));
 window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
 window.addEventListener('pageshow',()=>show(location.hash.slice(1)));
+document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(autoTimer);autoTimer=null;}else{restartAutoSwitch();}});
 document.addEventListener('keydown',e=>{
  if(e.target.closest('input,textarea,select,[contenteditable="true"]'))return;
  if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
