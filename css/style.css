@@ -25,43 +25,63 @@ html body .home-pager{right:3.3vw!important;bottom:29px!important;gap:9px!import
 @media(max-width:1300px){html body .site-header{padding:0 24px!important}html body .main-nav{gap:25px!important;font-size:13px!important}html body .sysu-name strong{font-size:22px!important}html body .sysu-seal{width:54px!important;height:54px!important}html body .ambic-title strong{font-size:29px!important}html body .mockup-copy{left:8vw!important}}
 @media(max-width:900px){html body .site-header{height:72px!important;padding:0 18px!important}html body .sysu-brand,html body .brand-divider{display:none!important}html body .main-nav{height:auto!important;top:72px!important;gap:12px!important}html body .menu-toggle{display:flex!important}html body .menu-toggle span:first-child{width:20px!important;transform:none!important}html body .menu-toggle span:last-child{width:20px!important;height:2px!important;border:0!important;border-radius:0!important;background:#17211e!important;top:20px!important}html body .menu-toggle span:last-child:after{display:none!important}html body .mockup-copy{left:24px!important;max-width:calc(100% - 48px)!important;width:calc(100% - 48px)!important}html body .mockup-copy h1{font-size:48px!important}html body .lab-cn{font-size:17px!important}html body .lab-en{font-size:12px!important}html body .mockup-description{font-size:14px!important}html body .home-slogan{left:24px!important}html body .home-slogan strong{font-size:12px!important}.team .student-roster-group{grid-template-columns:1fr}.team .student-roster-list,.team .student-roster-group:last-child .student-roster-list{grid-template-columns:repeat(3,1fr)!important}}
 
-
-/* 2026-09-09：参考图首页与腾讯云横向首屏稳定性修复 */
-@media (min-width: 901px) {
-  body.horizontal-ready .site-header {
-    height:102px !important;
-    background:transparent !important;
-    border:0 !important;
-    box-shadow:none !important;
-  }
-  body.horizontal-ready .site-header .home-branding,
-  body.horizontal-ready .site-header .main-nav,
-  body.horizontal-ready .site-header .search-icon,
-  body.horizontal-ready .site-header .menu-toggle {
-    opacity:0 !important;
-  }
-  body.horizontal-ready .site-header .home-branding,
-  body.horizontal-ready .site-header .main-nav {
-    pointer-events:auto !important;
-  }
-  body.horizontal-ready main > .hero.mockup-home {
-    padding:0 !important;
-    margin:0 !important;
-    width:100vw !important;
-    height:100vh !important;
-    min-height:100vh !important;
-    background:#fff url('../assets/home-reference.png') center/100% 100% no-repeat !important;
-  }
-  body.horizontal-ready main > .hero.mockup-home::before,
-  body.horizontal-ready main > .hero.mockup-home::after {
-    display:none !important;
-  }
-  body.horizontal-ready .hero.mockup-home .mockup-copy,
-  body.horizontal-ready .hero.mockup-home .home-slogan,
-  body.horizontal-ready .hero.mockup-home .home-pager {
-    opacity:0 !important;
-  }
-  body.horizontal-ready .hero.mockup-home .mockup-button {
-    pointer-events:auto !important;
-  }
+/* 2026-09-09：可交互首页。背景仅包含校园照片，所有文字和控件均为真实 DOM。 */
+.site-header{
+  z-index:1000!important;
+  background:#fff!important;
+}
+.site-header .home-branding,
+.site-header .main-nav,
+.site-header .search-icon,
+.site-header .menu-toggle{
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+main>.hero.mockup-home{
+  position:relative!important;
+  padding:0!important;
+  margin:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  overflow:hidden!important;
+  background:#eef5f2 url('../assets/home-campus-clean.png') center/cover no-repeat!important;
+}
+main>.hero.mockup-home::before{
+  content:''!important;
+  display:block!important;
+  position:absolute!important;
+  inset:102px 0 0 0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.94) 22%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.25) 62%,rgba(255,255,255,0) 82%)!important;
+}
+main>.hero.mockup-home::after{
+  content:''!important;
+  display:block!important;
+  position:absolute!important;
+  inset:102px 0 0 0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 65%,rgba(3,56,37,.12) 100%)!important;
+}
+.hero.mockup-home .mockup-copy,
+.hero.mockup-home .home-slogan,
+.hero.mockup-home .home-pager{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+.hero.mockup-home .mockup-copy{z-index:3!important}
+.hero.mockup-home .mockup-button{
+  position:relative!important;
+  z-index:4!important;
+  cursor:pointer!important;
+  pointer-events:auto!important;
+}
+.main-nav a{cursor:pointer!important}
+@media(max-width:900px){
+  main>.hero.mockup-home{background-position:64% center!important}
+  main>.hero.mockup-home::before{inset:72px 0 0!important;background:linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.78) 58%,rgba(255,255,255,.18))!important}
+  main>.hero.mockup-home::after{inset:72px 0 0!important}
 }
