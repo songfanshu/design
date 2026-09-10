@@ -4,7 +4,7 @@ const main=document.getElementById('pages');
 const pages=[...main.querySelectorAll(':scope > section')];
 const nav=document.getElementById('mainNav');
 const toggle=document.querySelector('.menu-toggle');
-const autoPageIds=['home','research','publications','team','visual','news','contact'];
+const autoPageIds=['home','research','publications','team','laboratory','visual','news','contact'];
 const AUTO_SWITCH_MS=15000;
 let current=0;
 let campusMap=null;
@@ -113,7 +113,7 @@ function addAlumniSection(){
 function installPageDots(){
  const ids=autoPageIds.filter(id=>pages.some(p=>p.id===id));
  if(!ids.length||document.querySelector('.page-dots-controller'))return;
- const labels={home:'首页',research:'研究方向',publications:'科研成果',team:'团队成员',visual:'科研资源',news:'动态',contact:'联系我们'};
+ const labels={home:'首页',research:'研究方向',publications:'科研成果',team:'团队成员',laboratory:'实验室',visual:'科研资源',news:'动态',contact:'联系我们'};
  const controller=document.createElement('div');
  controller.className='page-dots-controller';
  controller.setAttribute('role','navigation');
