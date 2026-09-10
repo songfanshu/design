@@ -45,7 +45,7 @@
   </style>
 <style id="contact-research-styles">
 /* Contact page: text and research image share a balanced first-screen composition. */
-#contact{padding-top:clamp(52px,7vh,92px);background:linear-gradient(120deg,#fff 0%,#fbfdfc 55%,#f2f8f5 100%)}
+#contact{padding-top:clamp(52px,7vh,92px);background:#fff}
 #contact .contact-hero-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(460px,1.08fr);align-items:center;gap:clamp(44px,6vw,96px);max-width:1320px;margin:0 auto 34px}
 #contact .contact-main{min-width:0;padding-left:clamp(0px,1.2vw,18px)}
 #contact .contact-main .section-label{display:block;margin-bottom:18px;font-weight:700;letter-spacing:.12em}
@@ -53,8 +53,8 @@
 #contact .contact-main h2 em{display:block;margin-top:3px;color:var(--green)}
 #contact .contact-main p{max-width:410px;margin:26px 0 0;font-size:17px;line-height:1.85;color:#51645b}
 #contact .contact-research-figure{min-width:0;margin:0;position:relative}
-#contact .contact-research-figure:before{content:"";position:absolute;z-index:0;inset:12% 8% 6%;border-radius:50%;background:radial-gradient(ellipse,rgba(40,164,118,.13),rgba(40,164,118,0) 69%);filter:blur(16px)}
-#contact .contact-research-figure img{position:relative;z-index:1;display:block;width:100%;max-width:650px;height:auto;margin:0 auto;aspect-ratio:3/2;object-fit:contain;background:transparent;mix-blend-mode:multiply;filter:saturate(.94) contrast(.98)}
+#contact .contact-research-figure:before{content:none}
+#contact .contact-research-figure img{position:relative;z-index:1;display:block;width:100%;max-width:650px;height:auto;margin:0 auto;aspect-ratio:3/2;object-fit:contain;background:#fff;mix-blend-mode:normal;filter:none}
 #contact .contact-info{max-width:1320px;margin:0 auto;padding:26px 0 4px;border-top:1px solid rgba(7,91,57,.16)}
 #contact .map-section{max-width:1320px;margin-left:auto;margin-right:auto}
 @media(max-width:1000px){#contact .contact-hero-layout{grid-template-columns:minmax(0,1fr) minmax(380px,1fr);gap:34px}#contact .contact-main h2{font-size:clamp(36px,4.4vw,50px)}}
