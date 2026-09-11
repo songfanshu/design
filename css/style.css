@@ -19,3 +19,7 @@ body.paged #research.research-papers .research-card{border-color:rgba(7,91,57,.1
 #publications .publication:hover,#publications .publication:focus-within{background:transparent!important;transform:translateX(4px)!important}
 #publications .publication:active{transform:translateX(4px)!important}
 #publications .publication a,#publications .publication a:hover,#publications .publication a:active,#publications .publication a:focus{background:transparent!important;-webkit-tap-highlight-color:transparent}
+
+/* Research page typography: enlarge the three research card titles and descriptions proportionally by 10%. */
+body.paged #research.research-papers .research-card h3{font-size:clamp(19.8px,1.65vw,24.2px)!important}
+body.paged #research.research-papers .research-card p{font-size:17.6px!important}
