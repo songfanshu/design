@@ -47,7 +47,7 @@ body.paged #home .lab-cn,body.paged #home .lab-en,body.paged #home .mockup-descr
 body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
-#team .alumni-placeholder{min-height:112px;width:100%;border:1px dashed rgba(7,91,57,.28);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#708079;font-size:14px;letter-spacing:.08em;background:rgba(255,255,255,.34)}
+#team .roster-alumni{grid-column:1/-1}
 #research .section-head .section-label,#publications .section-head .section-label,#laboratory .section-head .section-label,#news .section-head .section-label{display:none}
 .page-dots-controller{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(24,55,46,.34);cursor:pointer;transition:transform .22s ease,background .22s ease}
@@ -175,7 +175,10 @@ function addAlumniSection(){
   if(!team||team.querySelector('.roster-alumni'))return;
   const masters=team.querySelector('.roster-masters');
   if(!masters)return;
-  masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">郭建苗　刘可康　罗致远　江政东</div></div></div>');
+  const names=['郭建苗','刘可康','罗致远','江政东'];
+  const avatar='<span class="roster-avatar" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="13" fill="#c5ccca"/><path d="M15 71v-7a25 25 0 0 1 50 0v7" fill="#c5ccca"/></svg></span>';
+  const people=names.map(name=>`<li class="roster-student">${avatar}<span>${name}</span></li>`).join('');
+  masters.insertAdjacentHTML('afterend',`<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><ul class="roster-students">${people}</ul></div></div>`);
 }
 
 function buildTeamCulturePage(){
