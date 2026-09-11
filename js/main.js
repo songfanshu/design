@@ -57,7 +57,7 @@ body.paged #home .mockup-description{font-weight:700}
  body.paged #research .research-grid{flex:1;min-height:0;align-items:stretch;gap:clamp(14px,1.7vw,24px)}
  body.paged #research .research-card{min-height:0;padding:clamp(16px,2.3vh,26px);overflow:hidden}
  body.paged #research .research-art{height:clamp(78px,16vh,126px);margin:clamp(8px,1.5vh,16px) 0}
- body.paged #research .research-card h3{font-size:clamp(17px,min(1.35vw,2.6vh),21px);line-height:1.35;margin:6px 0}
+ body.paged #research .research-card h3{font-size:clamp(17px,min(1.35vw,2.6vh),21px);line-height:1.35;margin:6px 0;text-align:center}
  body.paged #research .research-card p{font-size:clamp(13px,min(.95vw,1.85vh),15px);line-height:1.55;margin:5px 0}
  body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
 }
