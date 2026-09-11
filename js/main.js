@@ -161,7 +161,7 @@ function buildTeamCulturePage(){
         <article class="team-build-card"><span class="team-build-index">04</span><div class="team-build-icon" aria-hidden="true">＋</div><h3>共同成长</h3><p>尊重每位成员的研究节奏与发展目标，通过经验传承、互助支持和阶段复盘，让个人成长与团队进步彼此促进。</p><small>MENTORSHIP · GROWTH</small></article>
       </div>
     </div>
-    <div class="team-build-footer"><span>AMBIC LABORATORY</span><strong>聚是一团火 · 散是满天星</strong><span>SUN YAT-SEN UNIVERSITY</span></div>`;
+    <div class="team-build-footer"><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></div>`;
 
   if(document.getElementById('team-building-styles'))return;
   const style=document.createElement('style');
