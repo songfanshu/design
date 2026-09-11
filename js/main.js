@@ -168,7 +168,8 @@ function initSharpCampusMap(){
  const script=document.createElement('script');
  script.src='https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js';
  script.onload=()=>{
-   campusMap=new maplibregl.Map({container:'campusVectorMap',style:'https://tiles.openfreemap.org/styles/liberty',center:[113.953099,22.800721],zoom:15.2,maxZoom:19,attributionControl:true});
+   campusMap=new maplibregl.Map({container:'campusVectorMap',style:'https://tiles.openfreemap.org/styles/liberty',center:[113.953099,22.800721],zoom:15.2,maxZoom:19,attributionControl:false});
+   campusMap.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
    campusMap.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
    const marker=document.createElement('div');
    marker.style.cssText='width:20px;height:20px;border-radius:50%;background:#075b39;border:4px solid white;box-shadow:0 2px 10px rgba(0,0,0,.35)';
