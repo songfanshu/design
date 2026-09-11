@@ -1,0 +1,40 @@
+name: Reduce research direction figures slightly once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/reduce-research-images-slightly-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reduce research image sizes slightly
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('css/style.css')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'height:clamp(260px,40vh,400px)!important': 'height:clamp(250px,38vh,380px)!important',
+              'height:330px!important': 'height:315px!important',
+              'height:220px!important': 'height:210px!important',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected CSS not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          Path('.github/workflows/reduce-research-images-slightly-once.yml').unlink()
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Slightly reduce research direction image size"
+          git push
