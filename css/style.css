@@ -12,3 +12,7 @@ body.paged #research.research-papers{
 }
 body.paged #research.research-papers .section-head{position:relative;z-index:1}
 body.paged #research.research-papers .research-card{border-color:rgba(7,91,57,.14);box-shadow:0 14px 34px rgba(20,67,49,.07)}
+
+/* Publications: suppress colored click/focus frame on article rows only. */
+#publications .publication{-webkit-tap-highlight-color:transparent}
+#publications .publication:focus,#publications .publication:focus-visible,#publications .publication:active{outline:none!important;outline-offset:0!important;box-shadow:none!important}
