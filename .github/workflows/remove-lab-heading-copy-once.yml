@@ -1,0 +1,33 @@
+name: Remove laboratory heading and intro copy once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-lab-heading-copy-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove laboratory heading and intro copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<section class="laboratory section" id="laboratory" aria-labelledby="laboratory-title">', '<section class="laboratory section" id="laboratory" aria-label="实验室">', 1)
+          s = s.replace('          <h2 id="laboratory-title">实验室</h2>\n', '', 1)
+          s = s.replace('          <p>围绕材料制备、薄膜沉积、结构表征与光电测试构建实验平台，为新型半导体材料、忆阻器、光电探测器及神经形态器件研究提供完整的实验支撑。</p>\n', '', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Remove laboratory title and intro text"
+          git push
