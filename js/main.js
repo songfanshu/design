@@ -151,22 +151,6 @@ function applyCopyUpdates(){
   }
 }
 
-function matchAmbicBrandColor(){
-  const logo=document.querySelector('.ambic-logo');
-  if(!logo)return;
-  const ns='http://www.w3.org/2000/svg';
-  let svg=document.getElementById('ambic-brand-tone-svg');
-  if(!svg){
-    svg=document.createElementNS(ns,'svg');
-    svg.id='ambic-brand-tone-svg';
-    svg.setAttribute('aria-hidden','true');
-    svg.style.cssText='position:absolute;width:0;height:0;overflow:hidden;pointer-events:none';
-    svg.innerHTML='<filter id="ambic-brand-tone" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.206764 0.695567 0.070218 0 0.027451 0.136731 0.459972 0.046435 0 0.356863 0.165078 0.555332 0.056061 0 0.223529 0 0 0 1 0"/></filter>';
-    document.body.appendChild(svg);
-  }
-  logo.style.filter='url(#ambic-brand-tone)';
-}
-
 function refineResearchSection(){
   const research=document.getElementById('research');
   if(!research)return;
@@ -311,7 +295,6 @@ document.body.classList.add('paged');
 const homePage=document.getElementById('home');
 if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
-matchAmbicBrandColor();
 refineResearchSection();
 addMasterStudents();
 addAlumniSection();
