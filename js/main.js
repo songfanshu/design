@@ -100,13 +100,11 @@ function installPublicationsBackground(){
 #publications{
   background-color:#f3f8f5;
   background-image:
-    linear-gradient(rgba(7,91,57,.026) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(7,91,57,.026) 1px,transparent 1px),
     radial-gradient(circle at 88% 12%,rgba(44,139,108,.17),transparent 30%),
     radial-gradient(circle at 7% 84%,rgba(63,129,164,.13),transparent 31%),
     linear-gradient(135deg,#fcfefd 0%,#f4f9f6 52%,#edf6f3 100%);
-  background-size:48px 48px,48px 48px,auto,auto,auto;
-  background-attachment:local,local,local,local,local;
+  background-size:auto,auto,auto;
+  background-attachment:local,local,local;
 }
 #publications .section-head h2{color:#173b30}
 #publications .publication-list{
@@ -121,7 +119,6 @@ function installPublicationsBackground(){
 #publications .publication{transition:background .22s ease,transform .22s ease}
 #publications .publication:hover{background:rgba(232,245,239,.72);transform:translateX(4px)}
 @media(max-width:650px){
-  #publications{background-size:36px 36px,36px 36px,auto,auto,auto}
   #publications .publication-list{padding:0 16px;border-radius:12px}
   #publications .publication:hover{transform:none}
 }`;
