@@ -141,6 +141,13 @@ function applyCopyUpdates(){
     const pager=home.querySelector('.home-pager');
     if(pager)pager.remove();
   }
+  const contact=document.getElementById('contact');
+  if(contact){
+    const heading=contact.querySelector('.contact-main h2');
+    if(heading)heading.innerHTML=heading.innerHTML.replaceAll('。','');
+    const intro=contact.querySelector('.contact-main p');
+    if(intro)intro.textContent=intro.textContent.replaceAll('。','');
+  }
 }
 
 function refineResearchSection(){
