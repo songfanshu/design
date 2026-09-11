@@ -116,11 +116,16 @@ function installPublicationsBackground(){
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
-#publications .publication{transition:background .22s ease,transform .22s ease}
-#publications .publication:hover{background:rgba(232,245,239,.72);transform:translateX(4px)}
+#publications .publication{transition:none}
+#publications .publication:hover,
+#publications .publication:active,
+#publications .publication:focus-within{background:transparent;transform:none}
+#publications .publication a,
+#publications .publication a:hover,
+#publications .publication a:active,
+#publications .publication a:focus{background:transparent;-webkit-tap-highlight-color:transparent}
 @media(max-width:650px){
   #publications .publication-list{padding:0 16px;border-radius:12px}
-  #publications .publication:hover{transform:none}
 }`;
 }
 
