@@ -36,6 +36,6 @@ body.paged #research.research-papers .paper-source:focus,body.paged #research.re
 @media(prefers-reduced-motion:reduce){#team .roster-avatar{transition:none}}
 
 /* Research direction figures: make paper images slightly larger while preserving the card layout. */
-body.paged #research.research-papers .paper-image-link{height:clamp(220px,34vh,340px)!important}
-@media(max-width:900px){body.paged #research.research-papers .paper-image-link{height:280px!important}}
-@media(min-width:901px) and (max-height:740px){body.paged #research.research-papers .paper-image-link{height:190px!important}}
+body.paged #research.research-papers .paper-image-link{height:clamp(260px,40vh,400px)!important}
+@media(max-width:900px){body.paged #research.research-papers .paper-image-link{height:330px!important}}
+@media(min-width:901px) and (max-height:740px){body.paged #research.research-papers .paper-image-link{height:220px!important}}
