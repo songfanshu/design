@@ -48,6 +48,7 @@ body.paged #home .lab-cn{font-weight:900}
 body.paged #home .lab-en{font-weight:700}
 body.paged #home .mockup-description{font-weight:700}
 #team .roster-alumni{grid-column:1/-1}
+#contact .contact-main .section-label{font-size:16px}
 #research .section-head .section-label,#publications .section-head .section-label,#laboratory .section-head .section-label,#news .section-head .section-label{display:none}
 .page-dots-controller{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(24,55,46,.34);cursor:pointer;transition:transform .22s ease,background .22s ease}
