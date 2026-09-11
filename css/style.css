@@ -24,34 +24,7 @@ body.paged #research.research-papers .research-card{border-color:rgba(7,91,57,.1
 body.paged #research.research-papers .research-card h3{font-size:clamp(19.8px,1.65vw,24.2px)!important}
 body.paged #research.research-papers .research-card p{font-size:17.6px!important}
 
-/* Research paper links: make the DOI/source action visually prominent on hover, keyboard focus and click. */
-#research.research-papers .paper-source{
-  display:inline-flex;
-  align-items:center;
-  align-self:flex-start;
-  padding:10px 14px!important;
-  border:1px solid rgba(7,91,57,.28)!important;
-  border-radius:6px;
-  background:rgba(7,91,57,.055);
-  color:var(--green)!important;
-  font-weight:600;
-  text-decoration:none;
-  transition:background-color .22s ease,color .22s ease,box-shadow .22s ease,transform .22s ease,border-color .22s ease;
-  -webkit-tap-highlight-color:transparent;
-}
-#research.research-papers .paper-source:hover,
-#research.research-papers .paper-source:focus-visible{
-  background:var(--green);
-  color:#fff!important;
-  border-color:var(--green)!important;
-  box-shadow:0 8px 20px rgba(7,91,57,.22);
-  transform:translateY(-2px);
-  outline:none;
-}
-#research.research-papers .paper-source:active{
-  background:#064d31;
-  color:#fff!important;
-  border-color:#064d31!important;
-  box-shadow:0 3px 10px rgba(7,91,57,.18);
-  transform:translateY(0) scale(.98);
-}
+/* Research paper links: use the same restrained interaction as publication rows. */
+body.paged #research.research-papers .paper-source{-webkit-tap-highlight-color:transparent;transition:transform .22s ease!important;background:transparent!important;box-shadow:none!important}
+body.paged #research.research-papers .paper-source:hover,body.paged #research.research-papers .paper-source:focus,body.paged #research.research-papers .paper-source:focus-visible,body.paged #research.research-papers .paper-source:active{background:transparent!important;box-shadow:none!important;transform:translateX(4px)!important}
+body.paged #research.research-papers .paper-source:focus,body.paged #research.research-papers .paper-source:focus-visible,body.paged #research.research-papers .paper-source:active{outline:none!important;outline-offset:0!important}
