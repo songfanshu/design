@@ -4,6 +4,7 @@ const main=document.getElementById('pages');
 const pages=[...main.querySelectorAll(':scope > section')];
 const nav=document.getElementById('mainNav');
 const toggle=document.querySelector('.menu-toggle');
+const pageIds=['home','research','publications','team','laboratory','visual','news','contact'];
 let current=0;
 let campusMap=null;
 if('scrollRestoration' in history) history.scrollRestoration='manual';
@@ -107,7 +108,7 @@ function addAlumniSection(){
  masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">待添加</div></div></div>');
 }
 function installPageDots(){
- const ids=autoPageIds.filter(id=>pages.some(p=>p.id===id));
+ const ids=pageIds.filter(id=>pages.some(p=>p.id===id));
  if(!ids.length||document.querySelector('.page-dots-controller'))return;
  const labels={home:'首页',research:'研究方向',publications:'科研成果',team:'团队成员',laboratory:'实验室',visual:'科研资源',news:'动态',contact:'联系我们'};
  const controller=document.createElement('div');
