@@ -1,0 +1,39 @@
+name: Enlarge research direction figures once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/enlarge-research-images-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  enlarge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Increase research image sizes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('css/style.css')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'height:clamp(220px,34vh,340px)!important': 'height:clamp(260px,40vh,400px)!important',
+              'height:280px!important': 'height:330px!important',
+              'height:190px!important': 'height:220px!important',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected CSS not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          git commit -m "Make research direction images larger"
+          git push
