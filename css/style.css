@@ -14,5 +14,8 @@ body.paged #research.research-papers .section-head{position:relative;z-index:1}
 body.paged #research.research-papers .research-card{border-color:rgba(7,91,57,.14);box-shadow:0 14px 34px rgba(20,67,49,.07)}
 
 /* Publications: suppress colored click/focus frame on article rows only. */
-#publications .publication{-webkit-tap-highlight-color:transparent}
-#publications .publication:focus,#publications .publication:focus-visible,#publications .publication:active{outline:none!important;outline-offset:0!important;box-shadow:none!important}
+#publications .publication{-webkit-tap-highlight-color:transparent;transition:transform .22s ease!important}
+#publications .publication:focus,#publications .publication:focus-visible,#publications .publication:active{outline:none!important;outline-offset:0!important;box-shadow:none!important;background:transparent!important}
+#publications .publication:hover,#publications .publication:focus-within{background:transparent!important;transform:translateX(4px)!important}
+#publications .publication:active{transform:translateX(4px)!important}
+#publications .publication a,#publications .publication a:hover,#publications .publication a:active,#publications .publication a:focus{background:transparent!important;-webkit-tap-highlight-color:transparent}
