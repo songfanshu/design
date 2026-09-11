@@ -175,7 +175,7 @@ function addAlumniSection(){
   if(!team||team.querySelector('.roster-alumni'))return;
   const masters=team.querySelector('.roster-masters');
   if(!masters)return;
-  masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">待添加</div></div></div>');
+  masters.insertAdjacentHTML('afterend','<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><div class="alumni-placeholder">郭建苗　刘可康　罗致远　江政东</div></div></div>');
 }
 
 function buildTeamCulturePage(){
