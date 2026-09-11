@@ -4,13 +4,8 @@ const main=document.getElementById('pages');
 const pages=[...main.querySelectorAll(':scope > section')];
 const nav=document.getElementById('mainNav');
 const toggle=document.querySelector('.menu-toggle');
-const autoPageIds=['home','research','publications','team','laboratory','visual','news','contact'];
-const AUTO_SWITCH_MS=15000;
 let current=0;
 let campusMap=null;
-let autoTimer=null;
-let lastActivityAt=Date.now();
-let lastPointerActivityAt=0;
 if('scrollRestoration' in history) history.scrollRestoration='manual';
 function show(id,push=false){
  let index=pages.findIndex(p=>p.id===id); if(index<0)index=0;
@@ -25,7 +20,6 @@ function show(id,push=false){
  nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');
  if(id==='contact'&&campusMap)setTimeout(()=>campusMap.resize(),80);
  if(push&&location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
- restartAutoSwitch();
 }
 function installViewportFit(){
  const style=document.createElement('style');
@@ -135,23 +129,6 @@ function updatePageDots(id){
    dot.setAttribute('aria-current',active?'page':'false');
  });
 }
-function restartAutoSwitch(){
- clearTimeout(autoTimer);
- autoTimer=null;
- const id=pages[current]?.id;
- if(document.hidden||!autoPageIds.includes(id))return;
- const remaining=Math.max(0,AUTO_SWITCH_MS-(Date.now()-lastActivityAt));
- autoTimer=setTimeout(()=>{
-   if(Date.now()-lastActivityAt<AUTO_SWITCH_MS){restartAutoSwitch();return;}
-   const index=autoPageIds.indexOf(pages[current]?.id);
-   const nextId=autoPageIds[(index+1)%autoPageIds.length];
-   show(nextId,true);
- },remaining);
-}
-function noteUserActivity(){
- lastActivityAt=Date.now();
- restartAutoSwitch();
-}
 function initSharpCampusMap(){
  const frame=document.querySelector('#contact .map-frame');
  if(!frame)return;
@@ -201,17 +178,6 @@ toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');tog
 window.addEventListener('popstate',()=>show(location.hash.slice(1)));
 window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
 window.addEventListener('pageshow',()=>show(location.hash.slice(1)));
-document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(autoTimer);autoTimer=null;}else{noteUserActivity();}});
-['pointerdown','click','wheel','touchstart','touchmove','scroll'].forEach(type=>{
- document.addEventListener(type,noteUserActivity,{passive:true,capture:true});
-});
-document.addEventListener('pointermove',()=>{
- const now=Date.now();
- if(now-lastPointerActivityAt<250)return;
- lastPointerActivityAt=now;
- noteUserActivity();
-},{passive:true});
-document.addEventListener('keydown',noteUserActivity,{capture:true});
 document.addEventListener('keydown',e=>{
  if(e.target.closest('input,textarea,select,[contenteditable="true"]'))return;
  if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
