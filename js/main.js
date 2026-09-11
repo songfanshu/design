@@ -60,6 +60,16 @@ body.paged #home .mockup-description{font-weight:700}
  body.paged #research .research-card h3{font-size:clamp(17px,min(1.35vw,2.6vh),21px);line-height:1.35;margin:6px 0}
  body.paged #research .research-card p{font-size:clamp(13px,min(.95vw,1.85vh),15px);line-height:1.55;margin:5px 0}
  body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
+ body.paged #research.research-papers .section-head{width:min(1320px,100%);margin-left:auto;margin-right:auto;margin-bottom:clamp(16px,2.5vh,26px)}
+ body.paged #research.research-papers .section-head>div{width:100%}
+ body.paged #research.research-papers .section-head h2{margin-top:5px;margin-bottom:0;font-weight:800;letter-spacing:-.025em}
+ body.paged #research.research-papers .research-grid{width:min(1320px,100%);margin:0 auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2vw,30px)}
+ body.paged #research.research-papers .research-card{padding:clamp(18px,2vw,26px);border-radius:14px;box-shadow:0 8px 28px rgba(24,55,46,.055)}
+ body.paged #research.research-papers .paper-figure{margin:0 0 clamp(14px,1.8vh,20px)}
+ body.paged #research.research-papers .paper-image-link{height:clamp(170px,28vh,270px);padding:0;margin:0}
+ body.paged #research.research-papers .research-card h3{font-size:clamp(18px,1.45vw,22px);line-height:1.42;margin:0 0 11px;font-weight:750;letter-spacing:-.012em}
+ body.paged #research.research-papers .research-card p{font-size:clamp(14px,1vw,16px);line-height:1.78;margin:0 0 16px;color:#43564d;text-align:justify;text-justify:inter-ideograph}
+ body.paged #research.research-papers .paper-source{font-size:13px;line-height:1.55;letter-spacing:.01em;padding-top:11px;margin-top:auto;color:#52675b}
 }
 @media (min-width:651px) and (max-height:700px){
  body.paged #home .mockup-copy{top:47%}
@@ -72,6 +82,14 @@ body.paged #home .mockup-description{font-weight:700}
  body.paged #research .research-art{height:72px;margin:7px 0}
  body.paged #research .research-card{padding:14px 18px}
  body.paged #research .research-card p{line-height:1.4}
+ body.paged #research.research-papers .research-card p{line-height:1.55;margin-bottom:10px}
+ body.paged #research.research-papers .paper-image-link{height:150px}
+}
+@media (max-width:900px){
+ body.paged #research.research-papers{overflow-y:auto}
+ body.paged #research.research-papers .research-grid{grid-template-columns:1fr;gap:18px}
+ body.paged #research.research-papers .research-card p{text-align:left}
+ body.paged #research.research-papers .paper-image-link{height:240px}
 }
 `;
  document.head.appendChild(style);
@@ -88,6 +106,13 @@ function applyCopyUpdates(){
    const pager=home.querySelector('.home-pager');
    if(pager)pager.remove();
  }
+}
+function refineResearchSection(){
+ const research=document.getElementById('research');
+ if(!research)return;
+ research.querySelectorAll('.paper-source').forEach(link=>{
+   link.textContent=link.textContent.replace(/\s*·\s*20\d{2}(?=\s*↗)/g,'');
+ });
 }
 function addMasterStudents(){
  const list=document.querySelector('#team .roster-masters .roster-students');
@@ -164,6 +189,7 @@ document.body.classList.add('paged');
 const homePage=document.getElementById('home');
 if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
+refineResearchSection();
 addMasterStudents();
 addAlumniSection();
 installViewportFit();
