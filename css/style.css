@@ -82,3 +82,10 @@ body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,3
 #publications .section-head{margin-bottom:16px}
 #publications .section-head h2{margin-bottom:6px}
 @media(max-width:650px){#publications .section-head{margin-bottom:12px}#publications .section-head h2{margin-bottom:4px}}
+
+
+/* Publications page top aligned */
+#publications{padding-top:0!important}
+#publications .section-head{margin-top:0!important;padding-top:0!important}
+#publications .section-head h2{margin-top:0!important}
+@media(max-width:650px){#publications{padding-top:0!important}}
