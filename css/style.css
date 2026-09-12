@@ -76,3 +76,9 @@ body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,3
 #team .roster-phd .roster-avatar svg,#team .roster-masters .roster-avatar svg{display:none}
 
 #team .roster-masters .roster-student:nth-child(10) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/jiang-zhengd.jpg')}
+
+
+/* Publications title-to-list spacing: tightened */
+#publications .section-head{margin-bottom:16px}
+#publications .section-head h2{margin-bottom:6px}
+@media(max-width:650px){#publications .section-head{margin-bottom:12px}#publications .section-head h2{margin-bottom:4px}}
