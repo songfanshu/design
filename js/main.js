@@ -339,4 +339,24 @@ main.addEventListener('touchend',e=>{
     show(pages[next].id,true);
   }
 },{passive:true});
+const portraitLightbox=document.createElement('div');
+portraitLightbox.className='portrait-lightbox';
+portraitLightbox.innerHTML='<button class="portrait-lightbox-close" type="button" aria-label="关闭原图预览">×</button><img alt="教师原图预览">';
+document.body.appendChild(portraitLightbox);
+const portraitPreview=portraitLightbox.querySelector('img');
+const closePortrait=()=>portraitLightbox.classList.remove('is-open');
+document.querySelectorAll('#team .roster-pi .roster-avatar,#team .roster-faculty .roster-person .roster-avatar').forEach(avatar=>{
+  avatar.addEventListener('dblclick',event=>{
+    const image=(getComputedStyle(avatar).backgroundImage.match(/url\(["']?(.*?)["']?\)/)||[])[1];
+    if(!image)return;
+    event.preventDefault();
+    event.stopPropagation();
+    portraitPreview.src=image;
+    portraitPreview.alt=avatar.closest('.roster-person')?.querySelector('.roster-person-name strong')?.textContent.trim()+'老师原图';
+    portraitLightbox.classList.add('is-open');
+  });
+});
+portraitLightbox.addEventListener('click',event=>{if(event.target===portraitLightbox||event.target.closest('.portrait-lightbox-close'))closePortrait();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closePortrait();});
+
 })();

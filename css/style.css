@@ -46,3 +46,11 @@ body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,3
 #team .roster-faculty .roster-person:nth-child(1) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/styles/image_style_2/public/%E5%9B%BE%E7%89%871_7.png?itok=5FKwV4U6')}
 #team .roster-faculty .roster-person:nth-child(2) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/%E6%B1%AA%20%E5%AE%8F%20%E5%89%AF%E6%95%99%E6%8E%88.jpg')}
 #team .roster-pi .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(1) .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(2) .roster-avatar svg{display:none}
+
+/* Double-click a faculty avatar to view its original rectangular portrait. */
+#team .roster-pi .roster-avatar,#team .roster-faculty .roster-person .roster-avatar{cursor:zoom-in}
+.portrait-lightbox{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:28px;background:rgba(8,22,17,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.portrait-lightbox.is-open{display:grid}
+.portrait-lightbox img{display:block;max-width:min(92vw,760px);max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:5px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.48)}
+.portrait-lightbox-close{position:fixed;top:20px;right:26px;width:44px;height:44px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(10,27,20,.45);color:white;font-size:32px;line-height:1;cursor:pointer}
+.portrait-lightbox-close:hover{background:#075b39}
