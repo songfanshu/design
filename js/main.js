@@ -222,7 +222,7 @@ function buildTeamCulturePage(){
       </div>
       <div class="team-build-carousel" data-culture-carousel tabindex="0" aria-label="团队建设板块横向切换">
         <div class="team-build-track">
-          <article class="team-build-slide is-active" style="--culture-image:url('assets/team-academic-photo.png')">
+          <article class="team-build-slide is-active" style="--culture-image:url('assets/team-academic-photo.jpg')">
             <div class="team-build-slide-copy">
               <h3>学术共进</h3>
               <p>通过组会研讨、文献分享与阶段汇报，建立高质量讨论机制，在持续交流中提升科研判断力与表达能力。</p>
