@@ -213,55 +213,115 @@ function buildTeamCulturePage(){
   if(navLink)navLink.textContent='团队建设';
   news.className='news section team-building-page';
   news.innerHTML=`
-    <div class="team-build-watermark" aria-hidden="true">AMBIC</div>
-    <div class="team-build-orbit orbit-a" aria-hidden="true"></div>
-    <div class="team-build-orbit orbit-b" aria-hidden="true"></div>
-    <div class="team-build-wrap">
-      <div class="team-build-intro">
-        <div class="team-build-kicker">团队建设 <span>TEAM CULTURE</span></div>
-        <h2>在共同成长中，<br><em>建立有温度的科研团队。</em></h2>
-        <p>我们希望课题组不仅是开展科研工作的地方，也是一支彼此支持、开放交流、长期共同成长的团队。严谨做研究，真诚做伙伴。</p>
-        <div class="team-build-values" aria-label="团队价值观">
-          <span>严谨</span><span>开放</span><span>协作</span><span>成长</span>
+    <div class="team-build-shell">
+      <div class="team-build-heading">
+        <div>
+          <div class="team-build-kicker">团队建设 <span>TEAM CULTURE</span></div>
+          <h2>交流 · 协作 · 活力</h2>
+        </div>
+        <p>以学术交流凝聚共识，以跨方向协作推动创新，也在科研之外保持开放、积极、有温度的团队氛围。</p>
+      </div>
+      <div class="team-build-carousel" data-culture-carousel tabindex="0" aria-label="团队建设板块横向切换">
+        <div class="team-build-track">
+          <article class="team-build-slide is-active" style="--culture-image:url('assets/home-campus-clean.png')">
+            <div class="team-build-slide-copy">
+              <span class="team-build-number">01 / ACADEMIC</span>
+              <h3>学术共进</h3>
+              <p>通过组会研讨、文献分享与阶段汇报，建立高质量讨论机制，在持续交流中提升科研判断力与表达能力。</p>
+              <a href="team-culture/academic.html">了解详情 <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="team-build-slide" style="--culture-image:url('assets/contact-neuromorphic-soft.webp')">
+            <div class="team-build-slide-copy">
+              <span class="team-build-number">02 / COLLABORATION</span>
+              <h3>协同创新</h3>
+              <p>鼓励材料、器件、电路与计算方向交叉协作，让不同研究背景围绕共同问题形成新的思路与解决方案。</p>
+              <a href="team-culture/collaboration.html">了解详情 <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="team-build-slide" style="--culture-image:url('assets/home-campus-new.jpg')">
+            <div class="team-build-slide-copy">
+              <span class="team-build-number">03 / COMMUNITY</span>
+              <h3>文体交流</h3>
+              <p>以轻松而有凝聚力的团队活动连接科研之外的日常，在运动、交流与集体活动中建立默契与归属感。</p>
+              <a href="team-culture/community.html">了解详情 <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+        <button class="team-build-arrow team-build-prev" type="button" aria-label="上一个团队建设板块">‹</button>
+        <button class="team-build-arrow team-build-next" type="button" aria-label="下一个团队建设板块">›</button>
+        <div class="team-build-tabs" role="tablist" aria-label="团队建设板块">
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-culture-slide="0">学术共进</button>
+          <button type="button" role="tab" aria-selected="false" data-culture-slide="1">协同创新</button>
+          <button type="button" role="tab" aria-selected="false" data-culture-slide="2">文体交流</button>
         </div>
       </div>
-      <div class="team-build-grid">
-        <a class="team-build-card" href="team-culture/academic.html"><span class="team-build-index">01</span><div class="team-build-icon" aria-hidden="true">◎</div><h3>学术共进</h3><p>通过组会研讨、文献分享与阶段汇报，建立高质量讨论机制，在持续交流中提升科研判断力与表达能力。</p><small>GROUP MEETING · DISCUSSION</small><span class="team-build-enter">探索更多 <span aria-hidden="true">→</span></span></a>
-        <a class="team-build-card" href="team-culture/collaboration.html"><span class="team-build-index">02</span><div class="team-build-icon" aria-hidden="true">↗</div><h3>协同创新</h3><p>鼓励材料、器件、电路与计算方向交叉协作，让不同研究背景在共同问题中形成新的思路与解决方案。</p><small>COLLABORATION · INNOVATION</small><span class="team-build-enter">探索更多 <span aria-hidden="true">→</span></span></a>
-        <a class="team-build-card" href="team-culture/community.html"><span class="team-build-index">03</span><div class="team-build-icon" aria-hidden="true">◇</div><h3>文体交流</h3><p>以轻松而有凝聚力的团队活动连接科研之外的日常，让成员在运动、交流与集体活动中建立更好的默契。</p><small>SPORTS · COMMUNITY</small><span class="team-build-enter">探索更多 <span aria-hidden="true">→</span></span></a>
-        <a class="team-build-card" href="team-culture/growth.html"><span class="team-build-index">04</span><div class="team-build-icon" aria-hidden="true">＋</div><h3>共同成长</h3><p>尊重每位成员的研究节奏与发展目标，通过经验传承、互助支持和阶段复盘，让个人成长与团队进步彼此促进。</p><small>MENTORSHIP · GROWTH</small><span class="team-build-enter">探索更多 <span aria-hidden="true">→</span></span></a>
-      </div>
-    </div>
-    <div class="team-build-footer"><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></div>`;
+      <div class="team-build-footer"><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></div>
+    </div>`;
 
-  if(document.getElementById('team-building-styles'))return;
-  const style=document.createElement('style');
-  style.id='team-building-styles';
+  let style=document.getElementById('team-building-styles');
+  if(!style){style=document.createElement('style');style.id='team-building-styles';document.head.appendChild(style);}
   style.textContent=`
-#news.team-building-page{position:relative;isolation:isolate;overflow:hidden;background:
-linear-gradient(rgba(14,91,64,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(14,91,64,.035) 1px,transparent 1px),
-radial-gradient(circle at 82% 16%,rgba(64,153,139,.22),transparent 29%),radial-gradient(circle at 6% 88%,rgba(77,134,170,.16),transparent 33%),
-linear-gradient(135deg,#fbfdfc 0%,#f2f8f5 54%,#edf5f3 100%);background-size:46px 46px,46px 46px,auto,auto,auto;color:#17372d;padding:clamp(38px,6vh,72px) clamp(52px,7vw,108px) clamp(34px,5vh,58px)}
-#news.team-building-page:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(110deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.82) 42%,rgba(255,255,255,.2) 72%,transparent 100%)}
-#news.team-building-page:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-220px;top:-210px;border:1px solid rgba(7,91,57,.13);box-shadow:0 0 0 54px rgba(7,91,57,.028),0 0 0 108px rgba(42,125,104,.018);z-index:-1}
-.team-build-watermark{position:absolute;right:4vw;bottom:-2.2vw;font-size:clamp(110px,17vw,270px);font-weight:900;letter-spacing:-.075em;color:rgba(7,91,57,.035);line-height:.8;user-select:none;z-index:-1}
-.team-build-orbit{position:absolute;border:1px solid rgba(7,91,57,.13);border-radius:50%;z-index:-1}.orbit-a{width:190px;height:190px;right:19%;top:9%}.orbit-b{width:96px;height:96px;right:12%;top:32%;border-color:rgba(55,122,157,.18)}
-.team-build-wrap{width:min(1380px,100%);margin:auto;display:grid;grid-template-columns:minmax(310px,.82fr) minmax(620px,1.5fr);gap:clamp(46px,6vw,100px);align-items:center;min-height:calc(100% - 38px)}
-.team-build-intro{max-width:510px;position:relative;z-index:2}.team-build-kicker{display:flex;align-items:center;gap:13px;color:#075b39;font-size:13px;font-weight:800;letter-spacing:.12em}.team-build-kicker:before{content:"";width:36px;height:2px;background:#075b39}.team-build-kicker span{font-size:11px;font-weight:600;color:#6b7d75;letter-spacing:.16em}
-.team-build-intro h2{font-size:clamp(38px,4.2vw,66px);line-height:1.12;letter-spacing:-.045em;margin:24px 0 22px;color:#18382e}.team-build-intro h2 em{font-style:normal;color:#075b39}.team-build-intro>p{max-width:470px;font-size:16px;line-height:1.9;color:#52675e;margin:0}
-.team-build-values{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.team-build-values span{display:inline-flex;align-items:center;justify-content:center;min-width:66px;height:34px;padding:0 16px;border:1px solid rgba(7,91,57,.2);border-radius:999px;background:rgba(255,255,255,.72);color:#285744;font-size:13px;font-weight:700;box-shadow:0 8px 22px rgba(24,55,46,.035)}
-.team-build-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;position:relative;z-index:2}.team-build-card{position:relative;min-height:224px;padding:27px 26px 23px;background:rgba(255,255,255,.78);border:1px solid rgba(7,91,57,.13);border-radius:18px;box-shadow:0 18px 45px rgba(30,79,62,.07);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}.team-build-card:hover{transform:translateY(-5px);border-color:rgba(7,91,57,.3);box-shadow:0 22px 50px rgba(30,79,62,.11)}
-.team-build-card{display:block;text-decoration:none;color:inherit}.team-build-enter{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid rgba(7,91,57,.14);font-size:14px;font-weight:700;color:#075b39}.team-build-enter span{transition:transform .25s}.team-build-card:hover .team-build-enter span{transform:translateX(5px)}.team-build-card:focus-visible{outline:3px solid #075b39;outline-offset:4px}
-#news.team-building-page{overflow-y:auto}.team-build-wrap{grid-template-columns:minmax(0,.82fr) minmax(0,1.5fr)}#news .team-build-footer{position:relative;left:auto;right:auto;bottom:auto;margin-top:28px}
-@media(max-width:1050px){.team-build-wrap{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.team-build-card,.team-build-enter span{transition:none}}
-.team-build-index{position:absolute;top:20px;right:22px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#789187}.team-build-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#0b6946,#2c8d72);color:#fff;font-size:20px;box-shadow:0 10px 24px rgba(7,91,57,.18)}.team-build-card h3{font-size:22px;line-height:1.3;margin:18px 0 10px;color:#18372e}.team-build-card p{font-size:14px;line-height:1.72;color:#5b6f66;margin:0 0 16px}.team-build-card small{font-size:10px;font-weight:800;letter-spacing:.12em;color:#779087}
-.team-build-footer{position:absolute;left:clamp(52px,7vw,108px);right:clamp(52px,7vw,108px);bottom:20px;display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(7,91,57,.13);font-size:10px;letter-spacing:.12em;color:#7b8f86}.team-build-footer strong{font-size:13px;letter-spacing:.08em;color:#315d4b;font-weight:700}
-@media(max-width:1050px){#news.team-building-page{overflow-y:auto;padding:34px 38px 74px}.team-build-wrap{grid-template-columns:1fr;gap:30px;align-items:start}.team-build-intro{max-width:760px}.team-build-intro h2{font-size:clamp(38px,7vw,58px)}.team-build-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.team-build-footer{left:38px;right:38px}.team-build-card{min-height:0}}
-@media(max-width:650px){#news.team-building-page{padding:30px 26px 92px}.team-build-intro h2{font-size:36px;margin-top:18px}.team-build-intro>p{font-size:15px;line-height:1.75}.team-build-grid{grid-template-columns:1fr}.team-build-card{padding:22px}.team-build-footer{left:26px;right:26px;display:block}.team-build-footer span{display:none}.team-build-footer strong{font-size:12px}.team-build-watermark{font-size:110px;right:-8px;bottom:16px}}
-@media(min-width:1051px) and (max-height:760px){#news.team-building-page{padding-top:28px;padding-bottom:46px}.team-build-wrap{gap:52px}.team-build-intro h2{font-size:46px;margin:16px 0 14px}.team-build-intro>p{font-size:14px;line-height:1.65}.team-build-values{margin-top:18px}.team-build-card{min-height:190px;padding:20px 22px}.team-build-card h3{font-size:19px;margin:12px 0 7px}.team-build-card p{font-size:13px;line-height:1.55;margin-bottom:10px}.team-build-icon{width:36px;height:36px}.team-build-footer{bottom:12px}}
+#news.team-building-page{position:relative;overflow-y:auto;background:linear-gradient(135deg,#f8fbf9 0%,#eef5f1 100%);padding:clamp(30px,4.6vh,50px) clamp(28px,5vw,78px) 34px;color:#17372d}
+#news .team-build-shell{width:min(1380px,100%);margin:0 auto}
+#news .team-build-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:42px;margin-bottom:22px}
+#news .team-build-heading>div{min-width:0}
+#news .team-build-kicker{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.12em;color:#075b39}
+#news .team-build-kicker:before{content:"";width:36px;height:2px;background:#075b39}
+#news .team-build-kicker span{font-size:11px;font-weight:600;letter-spacing:.16em;color:#6d8177}
+#news .team-build-heading h2{margin:10px 0 0;font-size:clamp(34px,3.6vw,54px);line-height:1.08;letter-spacing:-.035em;color:#17372d}
+#news .team-build-heading>p{max-width:610px;margin:0 0 5px;font-size:15px;line-height:1.8;color:#5b6f66}
+#news .team-build-carousel{position:relative;height:clamp(430px,62vh,650px);overflow:hidden;border-radius:28px;background:#18372e;box-shadow:0 24px 60px rgba(24,55,46,.16);outline:none}
+#news .team-build-carousel:focus-visible{box-shadow:0 24px 60px rgba(24,55,46,.16),0 0 0 3px rgba(7,91,57,.28)}
+#news .team-build-track{display:flex;width:100%;height:100%;transform:translate3d(0,0,0);transition:transform .58s cubic-bezier(.2,.75,.25,1);will-change:transform}
+#news .team-build-slide{position:relative;flex:0 0 100%;height:100%;background-image:linear-gradient(90deg,rgba(8,31,24,.82) 0%,rgba(8,31,24,.58) 42%,rgba(8,31,24,.16) 72%,rgba(8,31,24,.08) 100%),var(--culture-image);background-size:cover;background-position:center;isolation:isolate}
+#news .team-build-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,18,14,.35),transparent 48%);z-index:-1}
+#news .team-build-slide-copy{position:absolute;left:clamp(34px,5vw,72px);bottom:clamp(70px,10vh,118px);width:min(620px,66%);color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.18)}
+#news .team-build-number{display:block;margin-bottom:14px;font-size:12px;font-weight:800;letter-spacing:.17em;color:rgba(255,255,255,.76)}
+#news .team-build-slide h3{margin:0 0 15px;font-size:clamp(38px,4.4vw,68px);line-height:1.02;color:#fff;letter-spacing:-.04em}
+#news .team-build-slide p{max-width:590px;margin:0 0 25px;font-size:clamp(15px,1.18vw,18px);line-height:1.8;color:rgba(255,255,255,.9);font-weight:500}
+#news .team-build-slide a{display:inline-flex;align-items:center;gap:16px;padding:11px 20px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:14px;font-weight:700;transition:background .22s ease,transform .22s ease}
+#news .team-build-slide a:hover{background:rgba(255,255,255,.22);transform:translateX(3px)}
+#news .team-build-arrow{position:absolute;top:50%;z-index:4;width:50px;height:50px;margin-top:-25px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(12,36,28,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:36px;line-height:1;display:grid;place-items:center;cursor:pointer;transition:background .2s ease,transform .2s ease}
+#news .team-build-arrow:hover{background:rgba(12,36,28,.48);transform:scale(1.04)}
+#news .team-build-prev{left:20px}#news .team-build-next{right:20px}
+#news .team-build-tabs{position:absolute;right:26px;bottom:24px;z-index:4;display:flex;gap:8px;padding:7px;border-radius:999px;background:rgba(8,27,21,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#news .team-build-tabs button{border:0;border-radius:999px;padding:9px 16px;background:transparent;color:rgba(255,255,255,.72);font:600 13px/1 Arial,"Microsoft YaHei",sans-serif;cursor:pointer;transition:background .2s ease,color .2s ease}
+#news .team-build-tabs button.is-active{background:#fff;color:#17372d}
+#news .team-build-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid rgba(7,91,57,.13);font-size:10px;letter-spacing:.12em;color:#7b8f86}
+@media(max-width:800px){#news.team-building-page{padding:26px 18px 32px}#news .team-build-heading{display:block;margin-bottom:16px}#news .team-build-heading>p{margin-top:10px;font-size:14px}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:18px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-footer span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){#news .team-build-track,#news .team-build-slide a,#news .team-build-arrow{transition:none}}
 `;
-  document.head.appendChild(style);
+
+  const carousel=news.querySelector('[data-culture-carousel]');
+  const track=carousel?.querySelector('.team-build-track');
+  const slides=[...(carousel?.querySelectorAll('.team-build-slide')||[])];
+  const tabs=[...(carousel?.querySelectorAll('[data-culture-slide]')||[])];
+  if(!carousel||!track||!slides.length)return;
+  let cultureIndex=0;
+  const renderCulture=index=>{
+    cultureIndex=(index+slides.length)%slides.length;
+    track.style.transform=`translate3d(-${cultureIndex*100}%,0,0)`;
+    slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===cultureIndex));
+    tabs.forEach((tab,i)=>{const active=i===cultureIndex;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',String(active));});
+  };
+  carousel.querySelector('.team-build-prev')?.addEventListener('click',event=>{event.stopPropagation();renderCulture(cultureIndex-1);});
+  carousel.querySelector('.team-build-next')?.addEventListener('click',event=>{event.stopPropagation();renderCulture(cultureIndex+1);});
+  tabs.forEach(tab=>tab.addEventListener('click',event=>{event.stopPropagation();renderCulture(Number(tab.dataset.cultureSlide));}));
+  carousel.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+      event.preventDefault();event.stopPropagation();renderCulture(cultureIndex+(event.key==='ArrowRight'?1:-1));
+    }
+  });
+  let cultureTouch=null;
+  carousel.addEventListener('touchstart',event=>{if(event.touches.length===1)cultureTouch={x:event.touches[0].clientX,y:event.touches[0].clientY};},{passive:true});
+  carousel.addEventListener('touchend',event=>{
+    if(!cultureTouch)return;
+    const dx=event.changedTouches[0].clientX-cultureTouch.x,dy=event.changedTouches[0].clientY-cultureTouch.y;
+    cultureTouch=null;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.35){event.stopPropagation();renderCulture(cultureIndex+(dx<0?1:-1));}
+  },{passive:true});
+  renderCulture(0);
 }
 
 function installPageDots(){
