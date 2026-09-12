@@ -178,7 +178,7 @@ function applyStudentPortraits(){
     '焦培城':'jiao-peicheng.jpg','熊宇涛':'xiong-yutao.jpg','于明珂':'yu-mingke.jpg','杨松松':'yang-songsong.jpg','何志豪':'he-zhihao.jpg',
     '蒋茂才':'jiang-maocai.jpg','严威':'yan-wei.jpg','谭子康':'tan-zikang.jpg','赵梓妍':'zhao-ziyan.jpg',
     '朱丹':'zhu-dan.jpg','孙艳姿':'sun-yanzi.jpg','尹越檐':'yin-yueyan.jpg','胡松':'hu-song.jpg','张宇迪':'zhang-yudi.jpg',
-    '赵安欣':'zhao-anxin.jpg','程现':'cheng-xian.jpg'
+    '赵安欣':'zhao-anxin.jpg','程现':'cheng-xian.jpg','江政东':'jiang-zhengd.jpg'
   };
   document.querySelectorAll('#team .roster-student').forEach(person=>{
     const name=person.querySelector('span:last-child')?.textContent.trim();
@@ -325,8 +325,8 @@ if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
 refineResearchSection();
 addMasterStudents();
-applyStudentPortraits();
 addAlumniSection();
+applyStudentPortraits();
 buildTeamCulturePage();
 installViewportFit();
 installPublicationsBackground();
