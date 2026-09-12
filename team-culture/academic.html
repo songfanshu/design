@@ -1,9 +1,124 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>学术共进 · 团队建设 | AMBIC</title><meta name="description" content="围绕先进半导体材料、光电器件与神经形态计算，我们倡导以问题为起点的学术交流，在阅读、讨论与验证中形成独立判断。"><link rel="stylesheet" href="culture.css"></head>
-<body><header><a class="brand" href="../index.html#home" aria-label="AMBIC 首页">AMBIC</a><a class="back" href="../index.html#news">← 返回团队建设</a></header><main>
-<nav class="breadcrumb" aria-label="当前位置"><a href="../index.html#home">首页</a> / <a href="../index.html#news">团队建设</a> / 学术共进</nav>
-<section class="hero" aria-labelledby="title"><span class="eyebrow">团队建设 · 01</span><h1 id="title">学术共进</h1><h2>让每一次讨论，推动研究向前。</h2><p>围绕先进半导体材料、光电器件与神经形态计算，我们倡导以问题为起点的学术交流，在阅读、讨论与验证中形成独立判断。</p><div class="tags"><span>文献共读</span><span>问题研讨</span><span>学术表达</span></div></section>
-<h2 class="section-heading">我们倡导的学术交流</h2><div class="topics"><article class="topic"><span class="number">01</span><h3>文献精读与前沿分享</h3><p>从科学问题、实验设计、关键证据与研究局限四个角度阅读论文。关注材料结构与器件性能之间的联系，也讨论结论成立的条件，让文献阅读转化为可验证的研究思路。</p></article><article class="topic"><span class="number">02</span><h3>组会研讨与阶段汇报</h3><p>用清晰的问题、完整的实验记录和可比较的数据汇报进展。对异常结果与尚未解决的困难展开讨论，通过相互提问明确下一步验证方向。</p></article><article class="topic"><span class="number">03</span><h3>报告训练与学术交流</h3><p>围绕研究背景、方法、结果和机制组织报告，练习图表表达与现场问答。鼓励跨方向交流，在不同研究视角中拓展对材料、器件和系统的理解。</p></article></div>
-<section class="practice"><h2>从一个问题开始</h2><ol><li>提出具体问题与已有证据</li><li>共同阅读、讨论不同解释</li><li>设计验证方案并复盘结果</li></ol></section>
-<h2 class="section-heading">继续了解团队建设</h2><nav class="related" aria-label="其他团队建设板块"><a href="collaboration.html">协同创新 →</a><a href="community.html">文体交流 →</a></nav></main>
-<footer><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></footer></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学术共进 · 团队建设 | AMBIC</title>
+  <meta name="description" content="先进集成电路材料与类脑芯片课题组学术共进活动影像。">
+  <link rel="stylesheet" href="culture.css">
+</head>
+<body class="academic-gallery-page">
+  <header>
+    <a class="brand" href="../index.html#home" aria-label="AMBIC 首页">AMBIC</a>
+    <a class="back" href="../index.html#news">← 返回团队建设</a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="当前位置">
+      <a href="../index.html#home">首页</a> /
+      <a href="../index.html#news">团队建设</a> / 学术共进
+    </nav>
+
+    <section class="gallery-intro" aria-labelledby="gallery-title">
+      <span class="eyebrow">团队建设</span>
+      <h1 id="gallery-title">学术共进</h1>
+    </section>
+
+    <section class="academic-carousel" aria-label="学术共进活动照片轮播" aria-roledescription="轮播图">
+      <div class="academic-carousel__viewport">
+        <div class="academic-carousel__track">
+          <figure class="academic-carousel__slide is-active">
+            <img src="../assets/academic-gallery-01.jpg" alt="课题组成员在中山大学材料学院合影" fetchpriority="high">
+          </figure>
+          <figure class="academic-carousel__slide">
+            <img src="../assets/academic-gallery-02.jpg" alt="课题组成员在中山大学材料学院互动合影" loading="lazy">
+          </figure>
+          <figure class="academic-carousel__slide">
+            <img src="../assets/academic-gallery-03.jpg" alt="课题组成员在教学楼前合影" loading="lazy">
+          </figure>
+          <figure class="academic-carousel__slide">
+            <img src="../assets/academic-gallery-04.jpg" alt="课题组成员在教学楼前点赞合影" loading="lazy">
+          </figure>
+        </div>
+
+        <button class="academic-carousel__arrow academic-carousel__arrow--prev" type="button" aria-label="上一张图片">‹</button>
+        <button class="academic-carousel__arrow academic-carousel__arrow--next" type="button" aria-label="下一张图片">›</button>
+      </div>
+
+      <div class="academic-carousel__dots" aria-label="选择图片">
+        <button class="is-active" type="button" aria-label="查看第 1 张图片" aria-current="true"></button>
+        <button type="button" aria-label="查看第 2 张图片"></button>
+        <button type="button" aria-label="查看第 3 张图片"></button>
+        <button type="button" aria-label="查看第 4 张图片"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>AMBIC LABORATORY</span>
+    <span>SUN YAT-SEN UNIVERSITY</span>
+  </footer>
+
+  <script>
+    (() => {
+      const carousel = document.querySelector('.academic-carousel');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.academic-carousel__track');
+      const slides = [...carousel.querySelectorAll('.academic-carousel__slide')];
+      const dots = [...carousel.querySelectorAll('.academic-carousel__dots button')];
+      const prev = carousel.querySelector('.academic-carousel__arrow--prev');
+      const next = carousel.querySelector('.academic-carousel__arrow--next');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let index = 0;
+      let timer;
+      let touchStartX = 0;
+
+      const show = (nextIndex, userInitiated = false) => {
+        index = (nextIndex + slides.length) % slides.length;
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+          if (i === index) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+        if (userInitiated) restart();
+      };
+
+      const stop = () => window.clearInterval(timer);
+      const start = () => {
+        stop();
+        if (!reduceMotion) timer = window.setInterval(() => show(index + 1), 3000);
+      };
+      const restart = () => start();
+
+      prev.addEventListener('click', () => show(index - 1, true));
+      next.addEventListener('click', () => show(index + 1, true));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => show(i, true)));
+
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', start);
+      carousel.addEventListener('touchstart', event => {
+        touchStartX = event.changedTouches[0].clientX;
+        stop();
+      }, { passive: true });
+      carousel.addEventListener('touchend', event => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 45) show(index + (distance < 0 ? 1 : -1));
+        start();
+      }, { passive: true });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') show(index - 1, true);
+        if (event.key === 'ArrowRight') show(index + 1, true);
+      });
+      document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+      show(0);
+      start();
+    })();
+  </script>
+</body>
+</html>
