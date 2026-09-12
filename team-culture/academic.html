@@ -28,13 +28,7 @@
       <div class="academic-carousel__viewport">
         <div class="academic-carousel__track">
           <figure class="academic-carousel__slide is-active">
-            <img src="../assets/academic-gallery-01.jpg" alt="课题组成员在中山大学材料学院合影" fetchpriority="high">
-          </figure>
-          <figure class="academic-carousel__slide">
-            <img src="../assets/academic-gallery-05.jpg" alt="课题组成员在中山大学材料学院室内合影" loading="lazy">
-          </figure>
-          <figure class="academic-carousel__slide">
-            <img src="../assets/academic-gallery-06.jpg" alt="课题组成员在教学楼前合影" loading="lazy">
+            <img src="../assets/academic-gallery-06.jpg" alt="课题组成员在教学楼前合影" fetchpriority="high">
           </figure>
         </div>
         <button class="academic-carousel__arrow academic-carousel__arrow--prev" type="button" aria-label="上一张">&#8249;</button>
@@ -56,6 +50,12 @@
       const dots = carousel.querySelector('.academic-carousel__dots');
       let current = 0;
       let timer;
+
+      if (slides.length <= 1) {
+        carousel.querySelectorAll('.academic-carousel__arrow, .academic-carousel__dots')
+          .forEach(control => control.hidden = true);
+        return;
+      }
 
       slides.forEach((_, index) => {
         const dot = document.createElement('button');
