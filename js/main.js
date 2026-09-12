@@ -267,7 +267,7 @@ function buildTeamCulturePage(){
 #news .team-build-shell{width:min(1380px,100%);margin:0 auto}
 #news .team-build-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:42px;margin-bottom:18px}
 #news .team-build-heading>div{min-width:0}
-#news .team-build-kicker{display:flex;align-items:center;gap:14px;font-size:clamp(21px,2.1vw,32px);line-height:1;font-weight:900;letter-spacing:.04em;color:#075b39}
+#news .team-build-kicker{display:flex;align-items:center;gap:14px;font-size:clamp(21px,2.1vw,32px);line-height:1;font-weight:900;letter-spacing:.04em;color:#075b39;transform:translateY(6px)}
 #news .team-build-kicker:before{content:"";width:44px;height:4px;border-radius:999px;background:#075b39}
 #news .team-build-kicker span{font-size:12px;font-weight:800;letter-spacing:.18em;color:#6d8177}
 #news .team-build-art-title{max-width:720px;margin:2px 0 0;text-align:right;font-family:"STKaiti","KaiTi","FZKai-Z03","Microsoft YaHei",serif;font-size:clamp(23px,2.6vw,38px);font-weight:900;line-height:1.15;letter-spacing:.06em;color:#17372d;background:linear-gradient(110deg,#075b39 0%,#2b7d5e 48%,#b28a3d 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 5px 12px rgba(7,91,57,.12))}
