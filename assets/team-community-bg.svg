@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">文体交流背景</title><desc id="desc">融合跑道、球场、羽毛球与团队剪影的活力场景</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123b32"/><stop offset=".5" stop-color="#24765c"/><stop offset="1" stop-color="#e6a95c"/></linearGradient>
+  <radialGradient id="sun"><stop stop-color="#fff3c9" stop-opacity=".86"/><stop offset="1" stop-color="#fff3c9" stop-opacity="0"/></radialGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1290" cy="175" r="330" fill="url(#sun)" opacity=".66"/>
+<path d="M690 900C920 620 1140 535 1600 470V900Z" fill="#f4c982" opacity=".18"/>
+<g fill="none" stroke="#fff9ea" opacity=".38">
+  <path d="M670 900C900 642 1136 548 1600 490" stroke-width="5"/>
+  <path d="M800 900c202-190 423-270 800-322" stroke-width="3"/>
+  <path d="M940 900c184-130 386-196 660-230" stroke-width="3"/>
+</g>
+<g transform="translate(980 255)" fill="none" stroke="#fff7df" stroke-width="4" opacity=".72">
+  <circle cx="225" cy="210" r="155"/><path d="M70 210h310M225 55v310M108 103c73 53 161 53 234 0M108 317c73-53 161-53 234 0"/>
+</g>
+<g transform="translate(1360 165) rotate(24)" fill="none" stroke="#fff9ed" stroke-width="4" opacity=".82">
+  <path d="M0 0l80 105"/><path d="M80 105l15 58 34-23z"/><path d="M95 163l20 36M129 140l32 24M105 151l41 30"/>
+</g>
+<g transform="translate(760 520)" fill="#fff7e5" opacity=".76">
+  <circle cx="82" cy="42" r="22"/><path d="M62 69l38 2 35 91-22 9-25-58-11 69H52l4-88-36 44-18-15z"/>
+  <circle cx="238" cy="20" r="22"/><path d="M216 48l41 3 45 72-20 13-35-48-6 94h-28l-4-83-48 33-14-20z"/>
+  <circle cx="396" cy="50" r="22"/><path d="M373 79l43-3 50 55-17 16-38-35-7 70h-27l-6-66-44 37-17-17z"/>
+</g>
+<g opacity=".18" fill="#fff">
+  <circle cx="160" cy="130" r="7"/><circle cx="230" cy="190" r="4"/><circle cx="305" cy="110" r="5"/><circle cx="410" cy="205" r="8"/><circle cx="520" cy="128" r="5"/>
+  <circle cx="1460" cy="410" r="7"/><circle cx="1510" cy="350" r="4"/>
+</g>
+<path d="M0 730c180-75 355-92 542-50s315 24 466-34" fill="none" stroke="#dff0e6" stroke-width="70" opacity=".09" filter="url(#blur)"/>
+</svg>
