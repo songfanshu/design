@@ -30,8 +30,17 @@
           <figure class="academic-carousel__slide is-active">
             <img src="../assets/academic-gallery-01.jpg" alt="课题组成员在中山大学材料学院合影" fetchpriority="high">
           </figure>
+          <figure class="academic-carousel__slide">
+            <img src="../assets/academic-gallery-05.jpg" alt="课题组成员在中山大学材料学院室内合影" loading="lazy">
+          </figure>
+          <figure class="academic-carousel__slide">
+            <img src="../assets/academic-gallery-06.jpg" alt="课题组成员在教学楼前合影" loading="lazy">
+          </figure>
         </div>
+        <button class="academic-carousel__arrow academic-carousel__arrow--prev" type="button" aria-label="上一张">&#8249;</button>
+        <button class="academic-carousel__arrow academic-carousel__arrow--next" type="button" aria-label="下一张">&#8250;</button>
       </div>
+      <div class="academic-carousel__dots" aria-label="选择照片"></div>
     </section>
   </main>
 
@@ -39,5 +48,43 @@
     <span>AMBIC LABORATORY</span>
     <span>SUN YAT-SEN UNIVERSITY</span>
   </footer>
+  <script>
+    (() => {
+      const carousel = document.querySelector('.academic-carousel');
+      const track = carousel.querySelector('.academic-carousel__track');
+      const slides = [...carousel.querySelectorAll('.academic-carousel__slide')];
+      const dots = carousel.querySelector('.academic-carousel__dots');
+      let current = 0;
+      let timer;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `查看第 ${index + 1} 张照片`);
+        dot.addEventListener('click', () => show(index, true));
+        dots.appendChild(dot);
+      });
+
+      const dotButtons = [...dots.children];
+      function show(index, restart = false) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translate3d(-${current * 100}%,0,0)`;
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+        dotButtons.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+        if (restart) start();
+      }
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(() => show(current + 1), 3000);
+      }
+
+      carousel.querySelector('.academic-carousel__arrow--prev').addEventListener('click', () => show(current - 1, true));
+      carousel.querySelector('.academic-carousel__arrow--next').addEventListener('click', () => show(current + 1, true));
+      carousel.addEventListener('mouseenter', () => clearInterval(timer));
+      carousel.addEventListener('mouseleave', start);
+      show(0);
+      start();
+    })();
+  </script>
 </body>
 </html>
