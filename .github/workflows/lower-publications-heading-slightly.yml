@@ -1,0 +1,36 @@
+name: Lower publications heading slightly
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  adjust-spacing:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add slight top spacing to publications
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('css/style.css')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('#publications{padding-top:0!important}', '#publications{padding-top:18px!important}')
+          text = text.replace('@media(max-width:650px){#publications{padding-top:0!important}}', '@media(max-width:650px){#publications{padding-top:14px!important}}')
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          if ! git diff --cached --quiet; then
+            git commit -m "Lower representative publications slightly"
+            git push
+          fi
