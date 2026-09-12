@@ -46,3 +46,6 @@ body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,3
 #team .roster-faculty .roster-person:nth-child(1) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/styles/image_style_2/public/%E5%9B%BE%E7%89%871_7.png?itok=5FKwV4U6')}
 #team .roster-faculty .roster-person:nth-child(2) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/%E6%B1%AA%20%E5%AE%8F%20%E5%89%AF%E6%95%99%E6%8E%88.jpg')}
 #team .roster-pi .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(1) .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(2) .roster-avatar svg{display:none}
+
+#team .roster-faculty .roster-person:nth-child(3) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/styles/image_style_2/public/%E6%9B%BE%E5%89%91%E6%95%8F_1.jpg?itok=rcew7UtD')}
+#team .roster-faculty .roster-person:nth-child(3) .roster-avatar svg{display:none}
