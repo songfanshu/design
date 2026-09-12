@@ -222,7 +222,7 @@ function buildTeamCulturePage(){
       </div>
       <div class="team-build-carousel" data-culture-carousel tabindex="0" aria-label="团队建设板块横向切换">
         <div class="team-build-track">
-          <article class="team-build-slide is-active" style="--culture-image:url('assets/team-academic-bg.svg')">
+          <article class="team-build-slide is-active" style="--culture-image:url('assets/team-academic-photo.png')">
             <div class="team-build-slide-copy">
               <h3>学术共进</h3>
               <p>通过组会研讨、文献分享与阶段汇报，建立高质量讨论机制，在持续交流中提升科研判断力与表达能力。</p>
@@ -236,7 +236,7 @@ function buildTeamCulturePage(){
               <a href="team-culture/collaboration.html">了解详情 <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="team-build-slide" style="--culture-image:url('assets/team-community-bg.svg')">
+          <article class="team-build-slide" style="--culture-image:url('assets/team-community-photo.png')">
             <div class="team-build-slide-copy">
               <h3>文体交流</h3>
               <p>以轻松而有凝聚力的团队活动连接科研之外的日常，在运动、交流与集体活动中建立默契与归属感。</p>
