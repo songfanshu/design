@@ -1,0 +1,44 @@
+name: Remove avatar border once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  remove-avatar-border:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove team avatar borders
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('css/style.css')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              'border:2px solid #111;border-radius:50%': 'border:none;border-radius:50%',
+              'border-color:#111;box-shadow:0 8px 20px rgba(7,91,57,.16)': 'border-color:transparent;box-shadow:0 8px 20px rgba(7,91,57,.16)',
+              'border-color:#111;box-shadow:0 16px 34px rgba(7,91,57,.28)': 'border-color:transparent;box-shadow:0 16px 34px rgba(7,91,57,.28)',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing expected CSS: {old}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          if ! git diff --cached --quiet; then
+            git commit -m "Remove team avatar borders"
+            git push
+          fi
