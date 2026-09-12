@@ -217,9 +217,8 @@ function buildTeamCulturePage(){
       <div class="team-build-heading">
         <div>
           <div class="team-build-kicker">团队建设 <span>TEAM CULTURE</span></div>
-          
         </div>
-        <p>以学术交流凝聚共识，以跨方向协作推动创新，也在科研之外保持开放、积极、有温度的团队氛围。</p>
+        <h2 class="team-build-art-title">在共同成长中建立有温度的科研团队</h2>
       </div>
       <div class="team-build-carousel" data-culture-carousel tabindex="0" aria-label="团队建设板块横向切换">
         <div class="team-build-track">
@@ -262,15 +261,14 @@ function buildTeamCulturePage(){
   let style=document.getElementById('team-building-styles');
   if(!style){style=document.createElement('style');style.id='team-building-styles';document.head.appendChild(style);}
   style.textContent=`
-#news.team-building-page{position:relative;overflow-y:auto;background:linear-gradient(135deg,#f8fbf9 0%,#eef5f1 100%);padding:clamp(30px,4.6vh,50px) clamp(28px,5vw,78px) 34px;color:#17372d}
+#news.team-building-page{position:relative;overflow-y:auto;background:linear-gradient(135deg,#f8fbf9 0%,#eef5f1 100%);padding:10px clamp(28px,5vw,78px) 34px;color:#17372d}
 #news .team-build-shell{width:min(1380px,100%);margin:0 auto}
-#news .team-build-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:42px;margin-bottom:22px}
+#news .team-build-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:42px;margin-bottom:18px}
 #news .team-build-heading>div{min-width:0}
-#news .team-build-kicker{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.12em;color:#075b39}
-#news .team-build-kicker:before{content:"";width:36px;height:2px;background:#075b39}
-#news .team-build-kicker span{font-size:11px;font-weight:600;letter-spacing:.16em;color:#6d8177}
-#news .team-build-heading h2{margin:10px 0 0;font-size:clamp(34px,3.6vw,54px);line-height:1.08;letter-spacing:-.035em;color:#17372d}
-#news .team-build-heading>p{max-width:610px;margin:0 0 5px;font-size:15px;line-height:1.8;color:#5b6f66}
+#news .team-build-kicker{display:flex;align-items:center;gap:14px;font-size:clamp(26px,2.6vw,40px);line-height:1;font-weight:900;letter-spacing:.04em;color:#075b39}
+#news .team-build-kicker:before{content:"";width:44px;height:4px;border-radius:999px;background:#075b39}
+#news .team-build-kicker span{font-size:12px;font-weight:800;letter-spacing:.18em;color:#6d8177}
+#news .team-build-art-title{max-width:720px;margin:2px 0 0;text-align:right;font-family:"STKaiti","KaiTi","FZKai-Z03","Microsoft YaHei",serif;font-size:clamp(28px,3.2vw,48px);font-weight:900;line-height:1.15;letter-spacing:.06em;color:#17372d;background:linear-gradient(110deg,#075b39 0%,#2b7d5e 48%,#b28a3d 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 5px 12px rgba(7,91,57,.12))}
 #news .team-build-carousel{position:relative;height:clamp(430px,62vh,650px);overflow:hidden;border-radius:28px;background:#18372e;box-shadow:0 24px 60px rgba(24,55,46,.16);outline:none}
 #news .team-build-carousel:focus-visible{box-shadow:0 24px 60px rgba(24,55,46,.16),0 0 0 3px rgba(7,91,57,.28)}
 #news .team-build-track{display:flex;width:100%;height:100%;transform:translate3d(0,0,0);transition:transform .58s cubic-bezier(.2,.75,.25,1);will-change:transform}
@@ -289,7 +287,7 @@ function buildTeamCulturePage(){
 #news .team-build-tabs button{border:0;border-radius:999px;padding:9px 16px;background:transparent;color:rgba(255,255,255,.72);font:600 13px/1 Arial,"Microsoft YaHei",sans-serif;cursor:pointer;transition:background .2s ease,color .2s ease}
 #news .team-build-tabs button.is-active{background:#fff;color:#17372d}
 #news .team-build-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid rgba(7,91,57,.13);font-size:10px;letter-spacing:.12em;color:#7b8f86}
-@media(max-width:800px){#news.team-building-page{padding:26px 18px 32px}#news .team-build-heading{display:block;margin-bottom:16px}#news .team-build-heading>p{margin-top:10px;font-size:14px}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:18px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-footer span:last-child{display:none}}
+@media(max-width:800px){#news.team-building-page{padding:8px 18px 32px}#news .team-build-heading{display:block;margin-bottom:14px}#news .team-build-kicker{font-size:clamp(26px,8vw,36px)}#news .team-build-kicker:before{width:30px;height:3px}#news .team-build-art-title{margin-top:12px;text-align:left;font-size:clamp(25px,7vw,34px);line-height:1.2;letter-spacing:.035em}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:18px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-footer span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){#news .team-build-track,#news .team-build-slide a,#news .team-build-arrow{transition:none}}
 `;
 
