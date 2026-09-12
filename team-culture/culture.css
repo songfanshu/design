@@ -154,3 +154,59 @@
   .academic-carousel{padding:0;border-radius:14px}
   .academic-carousel__viewport{border:0;outline-width:1px;border-radius:14px}
 }
+
+/* Fit the complete academic gallery inside one viewport */
+.academic-gallery-page{
+  height:100vh;
+  height:100svh;
+  min-height:0;
+  overflow:hidden;
+}
+.academic-gallery-page header{padding:12px max(24px,6vw)}
+.academic-gallery-page main{
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  padding:10px 32px 8px;
+}
+.academic-gallery-page .breadcrumb{margin-bottom:4px;line-height:1.5}
+.academic-gallery-page .gallery-intro{flex:0 0 auto;margin-bottom:8px}
+.academic-gallery-page .gallery-intro h1{font-size:clamp(27px,3vw,40px)}
+.academic-gallery-page .academic-carousel{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
+  min-height:0;
+  width:min(100%,1180px);
+}
+.academic-gallery-page .academic-carousel__viewport{
+  flex:1 1 auto;
+  min-height:0;
+  border:5px solid rgba(255,255,255,.92);
+  outline:1px solid rgba(28,92,67,.45);
+  border-radius:18px;
+  background:rgba(238,245,241,.78);
+  box-shadow:0 12px 36px rgba(10,58,41,.16),0 0 0 1px rgba(255,255,255,.8);
+}
+.academic-gallery-page .academic-carousel__track,
+.academic-gallery-page .academic-carousel__slide{height:100%}
+.academic-gallery-page .academic-carousel__slide{aspect-ratio:auto}
+.academic-gallery-page .academic-carousel__slide img{
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+}
+.academic-gallery-page .academic-carousel__dots{flex:0 0 auto;margin-top:8px}
+.academic-gallery-page footer{flex:0 0 auto;padding:8px 0;line-height:1.4}
+
+@media(max-width:760px){
+  .academic-gallery-page header{padding:10px 16px}
+  .academic-gallery-page main{padding:8px 12px 6px}
+  .academic-gallery-page .breadcrumb{font-size:12px}
+  .academic-gallery-page .gallery-intro{gap:10px;margin-bottom:6px}
+  .academic-gallery-page .gallery-intro h1{font-size:25px}
+  .academic-gallery-page .gallery-intro .eyebrow{font-size:11px}
+  .academic-gallery-page .academic-carousel__viewport{border-width:3px;border-radius:12px}
+  .academic-gallery-page .academic-carousel__dots{margin-top:6px}
+  .academic-gallery-page footer{margin:0 16px;padding:6px 0;font-size:10px}
+}
