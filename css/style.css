@@ -39,3 +39,10 @@ body.paged #research.research-papers .paper-source:focus,body.paged #research.re
 body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,380px)!important}
 @media(max-width:900px){body.paged #research.research-papers .paper-image-link{height:315px!important}}
 @media(min-width:901px) and (max-height:740px){body.paged #research.research-papers .paper-image-link{height:210px!important}}
+
+
+/* Official faculty portraits from the SYSU Materials School directory. */
+#team .roster-pi .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250107153808%281%29.jpg')}
+#team .roster-faculty .roster-person:nth-child(1) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/styles/image_style_2/public/%E5%9B%BE%E7%89%871_7.png?itok=5FKwV4U6')}
+#team .roster-faculty .roster-person:nth-child(2) .roster-avatar{background:center/cover no-repeat url('https://materials.sysu.edu.cn/sites/default/files/%E6%B1%AA%20%E5%AE%8F%20%E5%89%AF%E6%95%99%E6%8E%88.jpg')}
+#team .roster-pi .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(1) .roster-avatar svg,#team .roster-faculty .roster-person:nth-child(2) .roster-avatar svg{display:none}
