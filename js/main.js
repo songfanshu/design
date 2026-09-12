@@ -171,6 +171,30 @@ function addMasterStudents(){
   });
 }
 
+
+function applyStudentPortraits(){
+  const portraits={
+    '胡杰':'hu-jie.jpg','徐烨松':'xu-yesong.jpg','张金秋':'zhang-jinqiu.jpg','曾舫':'zeng-fang.jpg','康子和':'kang-zihe.jpg',
+    '焦培城':'jiao-peicheng.jpg','熊宇涛':'xiong-yutao.jpg','于明珂':'yu-mingke.jpg','杨松松':'yang-songsong.jpg','何志豪':'he-zhihao.jpg',
+    '蒋茂才':'jiang-maocai.jpg','严威':'yan-wei.jpg','谭子康':'tan-zikang.jpg','赵梓妍':'zhao-ziyan.jpg',
+    '朱丹':'zhu-dan.jpg','孙艳姿':'sun-yanzi.jpg','尹越檐':'yin-yueyan.jpg','胡松':'hu-song.jpg','张宇迪':'zhang-yudi.jpg',
+    '赵安欣':'zhao-anxin.jpg','程现':'cheng-xian.jpg'
+  };
+  document.querySelectorAll('#team .roster-student').forEach(person=>{
+    const name=person.querySelector('span:last-child')?.textContent.trim();
+    const file=portraits[name];
+    const avatar=person.querySelector('.roster-avatar');
+    if(!file||!avatar)return;
+    avatar.innerHTML='';
+    avatar.style.backgroundImage=`url("assets/people/students/${file}")`;
+    avatar.style.backgroundSize='cover';
+    avatar.style.backgroundPosition='center';
+    avatar.style.backgroundRepeat='no-repeat';
+    avatar.setAttribute('aria-label',name+'头像');
+    avatar.removeAttribute('aria-hidden');
+  });
+}
+
 function addAlumniSection(){
   const team=document.getElementById('team');
   if(!team||team.querySelector('.roster-alumni'))return;
@@ -301,6 +325,7 @@ if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
 applyCopyUpdates();
 refineResearchSection();
 addMasterStudents();
+applyStudentPortraits();
 addAlumniSection();
 buildTeamCulturePage();
 installViewportFit();
