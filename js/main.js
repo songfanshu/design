@@ -254,6 +254,11 @@ function buildTeamCulturePage(){
           <button type="button" role="tab" aria-selected="false" data-culture-slide="1">协同创新</button>
           <button type="button" role="tab" aria-selected="false" data-culture-slide="2">文体交流</button>
         </div>
+        <div class="team-build-dots" role="tablist" aria-label="轮播图切换">
+          <button class="is-active" type="button" role="tab" aria-label="第 1 张" aria-selected="true" data-culture-dot="0"></button>
+          <button type="button" role="tab" aria-label="第 2 张" aria-selected="false" data-culture-dot="1"></button>
+          <button type="button" role="tab" aria-label="第 3 张" aria-selected="false" data-culture-dot="2"></button>
+        </div>
       </div>
       <div class="team-build-footer"><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></div>
     </div>`;
@@ -286,8 +291,12 @@ function buildTeamCulturePage(){
 #news .team-build-tabs{position:absolute;right:26px;bottom:24px;z-index:4;display:flex;gap:8px;padding:7px;border-radius:999px;background:rgba(8,27,21,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #news .team-build-tabs button{border:0;border-radius:999px;padding:9px 16px;background:transparent;color:rgba(255,255,255,.72);font:600 13px/1 Arial,"Microsoft YaHei",sans-serif;cursor:pointer;transition:background .2s ease,color .2s ease}
 #news .team-build-tabs button.is-active{background:#fff;color:#17372d}
+#news .team-build-dots{position:absolute;left:50%;bottom:28px;z-index:5;display:flex;align-items:center;gap:10px;transform:translateX(-50%)}
+#news .team-build-dots button{width:9px;height:9px;padding:0;border:1px solid rgba(255,255,255,.9);border-radius:50%;background:rgba(255,255,255,.28);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.16);transition:width .22s ease,background .22s ease,transform .22s ease}
+#news .team-build-dots button:hover{transform:scale(1.2);background:rgba(255,255,255,.68)}
+#news .team-build-dots button.is-active{width:24px;border-radius:999px;background:#fff}
 #news .team-build-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid rgba(7,91,57,.13);font-size:10px;letter-spacing:.12em;color:#7b8f86}
-@media(max-width:800px){#news.team-building-page{padding:8px 18px 32px}#news .team-build-heading{display:block;margin-bottom:14px}#news .team-build-kicker{font-size:clamp(22px,6.8vw,30px)}#news .team-build-kicker:before{width:30px;height:3px}#news .team-build-art-title{margin-top:10px;text-align:left;font-size:clamp(21px,6vw,29px);line-height:1.2;letter-spacing:.035em}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:18px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-footer span:last-child{display:none}}
+@media(max-width:800px){#news.team-building-page{padding:8px 18px 32px}#news .team-build-heading{display:block;margin-bottom:14px}#news .team-build-kicker{font-size:clamp(22px,6.8vw,30px)}#news .team-build-kicker:before{width:30px;height:3px}#news .team-build-art-title{margin-top:10px;text-align:left;font-size:clamp(21px,6vw,29px);line-height:1.2;letter-spacing:.035em}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:46px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-dots{bottom:18px}#news .team-build-footer span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){#news .team-build-track,#news .team-build-slide a,#news .team-build-arrow{transition:none}}
 `;
 
@@ -295,6 +304,7 @@ function buildTeamCulturePage(){
   const track=carousel?.querySelector('.team-build-track');
   const slides=[...(carousel?.querySelectorAll('.team-build-slide')||[])];
   const tabs=[...(carousel?.querySelectorAll('[data-culture-slide]')||[])];
+  const dots=[...(carousel?.querySelectorAll('[data-culture-dot]')||[])];
   if(!carousel||!track||!slides.length)return;
   let cultureIndex=0;
   const renderCulture=index=>{
@@ -302,10 +312,12 @@ function buildTeamCulturePage(){
     track.style.transform=`translate3d(-${cultureIndex*100}%,0,0)`;
     slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===cultureIndex));
     tabs.forEach((tab,i)=>{const active=i===cultureIndex;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',String(active));});
+    dots.forEach((dot,i)=>{const active=i===cultureIndex;dot.classList.toggle('is-active',active);dot.setAttribute('aria-selected',String(active));});
   };
   carousel.querySelector('.team-build-prev')?.addEventListener('click',event=>{event.stopPropagation();renderCulture(cultureIndex-1);});
   carousel.querySelector('.team-build-next')?.addEventListener('click',event=>{event.stopPropagation();renderCulture(cultureIndex+1);});
   tabs.forEach(tab=>tab.addEventListener('click',event=>{event.stopPropagation();renderCulture(Number(tab.dataset.cultureSlide));}));
+  dots.forEach(dot=>dot.addEventListener('click',event=>{event.stopPropagation();renderCulture(Number(dot.dataset.cultureDot));}));
   carousel.addEventListener('keydown',event=>{
     if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
       event.preventDefault();event.stopPropagation();renderCulture(cultureIndex+(event.key==='ArrowRight'?1:-1));
@@ -320,7 +332,7 @@ function buildTeamCulturePage(){
     if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.35){event.stopPropagation();renderCulture(cultureIndex+(dx<0?1:-1));}
   },{passive:true});
 
-  const cultureAutoplayDelay=10000;
+  const cultureAutoplayDelay=3000;
   let cultureAutoplay=null;
   const stopCultureAutoplay=()=>{
     if(cultureAutoplay!==null){
