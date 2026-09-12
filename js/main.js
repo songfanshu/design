@@ -18,14 +18,11 @@ if(teamCulturePage){
 const teamCultureNav=document.querySelector('#mainNav a[href="#news"]');
 if(teamCultureNav)teamCultureNav.textContent='团队建设';
 
-// Make the main Research section match the full research.html presentation:
-// no preview state, no extra click, and no separate "view overview" link.
+// Use the live research poster so both poster columns align exactly.
 const researchPage=document.getElementById('research');
 if(researchPage){
   researchPage.className='research section research-direct-poster-page';
-  researchPage.innerHTML=`<div class="research-direct-poster" aria-label="研究方向">
-    <img src="assets/research/ambic-research-poster.png" alt="先进集成电路材料与类脑芯片课题组研究方向总览">
-  </div>`;
+  researchPage.innerHTML='<iframe class="research-live-frame" src="research.html?embedded=1" title="先进集成电路材料与类脑芯片课题组研究方向总览" loading="eager"></iframe>';
 }
 
 document.querySelectorAll('#mainNav a[href="research.html"]').forEach(link=>{
@@ -40,32 +37,24 @@ body.paged #research.research-direct-poster-page{
   min-height:0!important;
   display:block!important;
   padding:0!important;
-  overflow-x:hidden!important;
-  overflow-y:auto!important;
+  overflow:hidden!important;
   background:#fff!important;
 }
-#research.research-direct-poster-page .research-direct-poster{
+#research.research-direct-poster-page .research-live-frame{
+  display:block;
   width:100%;
+  height:100%;
+  border:0;
   margin:0;
   padding:0;
   background:#fff;
-  overflow:hidden;
-}
-#research.research-direct-poster-page .research-direct-poster img{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:none;
-  margin:0;
-  padding:0;
-  object-fit:initial;
 }
 `;
 document.head.appendChild(researchDirectStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=cleanup-legacy-news-1';
+script.src='js/main-original.js?v=research-live-aligned-1';
 script.async=false;
 document.body.appendChild(script);
 })();
