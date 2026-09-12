@@ -24,32 +24,13 @@
       <h1 id="gallery-title">学术共进</h1>
     </section>
 
-    <section class="academic-carousel" aria-label="学术共进活动照片轮播" aria-roledescription="轮播图">
+    <section class="academic-carousel" aria-label="学术共进活动照片">
       <div class="academic-carousel__viewport">
         <div class="academic-carousel__track">
           <figure class="academic-carousel__slide is-active">
             <img src="../assets/academic-gallery-01.jpg" alt="课题组成员在中山大学材料学院合影" fetchpriority="high">
           </figure>
-          <figure class="academic-carousel__slide">
-            <img src="../assets/academic-gallery-02.jpg" alt="课题组成员在中山大学材料学院互动合影" loading="lazy">
-          </figure>
-          <figure class="academic-carousel__slide">
-            <img src="../assets/academic-gallery-03.jpg" alt="课题组成员在教学楼前合影" loading="lazy">
-          </figure>
-          <figure class="academic-carousel__slide">
-            <img src="../assets/academic-gallery-04.jpg" alt="课题组成员在教学楼前点赞合影" loading="lazy">
-          </figure>
         </div>
-
-        <button class="academic-carousel__arrow academic-carousel__arrow--prev" type="button" aria-label="上一张图片">‹</button>
-        <button class="academic-carousel__arrow academic-carousel__arrow--next" type="button" aria-label="下一张图片">›</button>
-      </div>
-
-      <div class="academic-carousel__dots" aria-label="选择图片">
-        <button class="is-active" type="button" aria-label="查看第 1 张图片" aria-current="true"></button>
-        <button type="button" aria-label="查看第 2 张图片"></button>
-        <button type="button" aria-label="查看第 3 张图片"></button>
-        <button type="button" aria-label="查看第 4 张图片"></button>
       </div>
     </section>
   </main>
@@ -58,67 +39,5 @@
     <span>AMBIC LABORATORY</span>
     <span>SUN YAT-SEN UNIVERSITY</span>
   </footer>
-
-  <script>
-    (() => {
-      const carousel = document.querySelector('.academic-carousel');
-      if (!carousel) return;
-
-      const track = carousel.querySelector('.academic-carousel__track');
-      const slides = [...carousel.querySelectorAll('.academic-carousel__slide')];
-      const dots = [...carousel.querySelectorAll('.academic-carousel__dots button')];
-      const prev = carousel.querySelector('.academic-carousel__arrow--prev');
-      const next = carousel.querySelector('.academic-carousel__arrow--next');
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let index = 0;
-      let timer;
-      let touchStartX = 0;
-
-      const show = (nextIndex, userInitiated = false) => {
-        index = (nextIndex + slides.length) % slides.length;
-        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
-        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('is-active', i === index);
-          if (i === index) dot.setAttribute('aria-current', 'true');
-          else dot.removeAttribute('aria-current');
-        });
-        if (userInitiated) restart();
-      };
-
-      const stop = () => window.clearInterval(timer);
-      const start = () => {
-        stop();
-        if (!reduceMotion) timer = window.setInterval(() => show(index + 1), 3000);
-      };
-      const restart = () => start();
-
-      prev.addEventListener('click', () => show(index - 1, true));
-      next.addEventListener('click', () => show(index + 1, true));
-      dots.forEach((dot, i) => dot.addEventListener('click', () => show(i, true)));
-
-      carousel.addEventListener('mouseenter', stop);
-      carousel.addEventListener('mouseleave', start);
-      carousel.addEventListener('focusin', stop);
-      carousel.addEventListener('focusout', start);
-      carousel.addEventListener('touchstart', event => {
-        touchStartX = event.changedTouches[0].clientX;
-        stop();
-      }, { passive: true });
-      carousel.addEventListener('touchend', event => {
-        const distance = event.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(distance) > 45) show(index + (distance < 0 ? 1 : -1));
-        start();
-      }, { passive: true });
-      document.addEventListener('keydown', event => {
-        if (event.key === 'ArrowLeft') show(index - 1, true);
-        if (event.key === 'ArrowRight') show(index + 1, true);
-      });
-      document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-
-      show(0);
-      start();
-    })();
-  </script>
 </body>
 </html>
