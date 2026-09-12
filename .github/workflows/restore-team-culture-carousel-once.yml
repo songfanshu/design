@@ -1,0 +1,38 @@
+name: Restore team culture carousel once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  restore-team-culture:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore previous carousel layout and update heading
+        run: |
+          git show 6012649361a2886832e5d38f334d65af2e8db3b0:js/main.js > js/main.js
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('js/main.js')
+          s = p.read_text(encoding='utf-8')
+          old = '交流 · 协作 · 活力'
+          new = '在共同成长中建立有温度的科研团队'
+          if old not in s:
+              raise SystemExit('Expected previous heading not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/main.js
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Restore full-width team culture carousel'
+          git push
