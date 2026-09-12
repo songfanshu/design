@@ -224,7 +224,6 @@ function buildTeamCulturePage(){
         <div class="team-build-track">
           <article class="team-build-slide is-active" style="--culture-image:url('assets/home-campus-clean.png')">
             <div class="team-build-slide-copy">
-              <span class="team-build-number">01 / ACADEMIC</span>
               <h3>学术共进</h3>
               <p>通过组会研讨、文献分享与阶段汇报，建立高质量讨论机制，在持续交流中提升科研判断力与表达能力。</p>
               <a href="team-culture/academic.html">了解详情 <span aria-hidden="true">→</span></a>
@@ -232,7 +231,6 @@ function buildTeamCulturePage(){
           </article>
           <article class="team-build-slide" style="--culture-image:url('assets/contact-neuromorphic-soft.webp')">
             <div class="team-build-slide-copy">
-              <span class="team-build-number">02 / COLLABORATION</span>
               <h3>协同创新</h3>
               <p>鼓励材料、器件、电路与计算方向交叉协作，让不同研究背景围绕共同问题形成新的思路与解决方案。</p>
               <a href="team-culture/collaboration.html">了解详情 <span aria-hidden="true">→</span></a>
@@ -240,7 +238,6 @@ function buildTeamCulturePage(){
           </article>
           <article class="team-build-slide" style="--culture-image:url('assets/home-campus-new.jpg')">
             <div class="team-build-slide-copy">
-              <span class="team-build-number">03 / COMMUNITY</span>
               <h3>文体交流</h3>
               <p>以轻松而有凝聚力的团队活动连接科研之外的日常，在运动、交流与集体活动中建立默契与归属感。</p>
               <a href="team-culture/community.html">了解详情 <span aria-hidden="true">→</span></a>
