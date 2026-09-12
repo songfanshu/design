@@ -217,7 +217,7 @@ function buildTeamCulturePage(){
       <div class="team-build-heading">
         <div>
           <div class="team-build-kicker">团队建设 <span>TEAM CULTURE</span></div>
-          <h2>在共同成长中建立有温度的科研团队</h2>
+          
         </div>
         <p>以学术交流凝聚共识，以跨方向协作推动创新，也在科研之外保持开放、积极、有温度的团队氛围。</p>
       </div>
@@ -291,33 +291,6 @@ function buildTeamCulturePage(){
 #news .team-build-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid rgba(7,91,57,.13);font-size:10px;letter-spacing:.12em;color:#7b8f86}
 @media(max-width:800px){#news.team-building-page{padding:26px 18px 32px}#news .team-build-heading{display:block;margin-bottom:16px}#news .team-build-heading>p{margin-top:10px;font-size:14px}#news .team-build-carousel{height:clamp(430px,64vh,580px);border-radius:20px}#news .team-build-slide{background-image:linear-gradient(0deg,rgba(7,29,22,.78) 0%,rgba(7,29,22,.44) 56%,rgba(7,29,22,.12) 100%),var(--culture-image);background-position:center}#news .team-build-slide-copy{left:24px;right:24px;bottom:92px;width:auto}#news .team-build-slide h3{font-size:42px}#news .team-build-slide p{font-size:15px;line-height:1.65}#news .team-build-arrow{width:42px;height:42px;margin-top:-21px;font-size:30px}#news .team-build-prev{left:10px}#news .team-build-next{right:10px}#news .team-build-tabs{left:50%;right:auto;bottom:18px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px)}#news .team-build-tabs button{padding:8px 11px;font-size:12px}#news .team-build-footer span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){#news .team-build-track,#news .team-build-slide a,#news .team-build-arrow{transition:none}}
-`;
-
-  style.textContent += `
-/* Team culture viewport-fit text layout v1 */
-@media(min-width:801px){
-  #news.team-building-page{overflow:hidden!important;padding-top:clamp(18px,2.8vh,30px)!important;padding-bottom:18px!important}
-  #news .team-build-shell{height:100%!important;min-height:0!important;display:flex!important;flex-direction:column!important}
-  #news .team-build-heading{flex:0 0 auto!important;align-items:flex-start!important;gap:clamp(24px,3vw,44px)!important;margin-bottom:12px!important}
-  #news .team-build-heading>div{flex:1 1 auto!important;min-width:0!important}
-  #news .team-build-kicker{font-size:12px!important;line-height:1.2!important}
-  #news .team-build-heading h2{max-width:760px!important;margin:8px 0 0!important;font-size:clamp(30px,3vw,44px)!important;line-height:1.12!important;letter-spacing:-.025em!important}
-  #news .team-build-heading>p{flex:0 1 500px!important;max-width:500px!important;margin:3px 0 0!important;font-size:14px!important;line-height:1.6!important}
-  #news .team-build-carousel{flex:1 1 auto!important;min-height:0!important;height:auto!important;max-height:none!important}
-  #news .team-build-footer{flex:0 0 auto!important;margin-top:8px!important;padding-top:7px!important}
-}
-@media(min-width:801px) and (max-height:760px){
-  #news.team-building-page{padding-top:14px!important;padding-bottom:12px!important}
-  #news .team-build-heading{margin-bottom:8px!important;gap:24px!important}
-  #news .team-build-kicker{font-size:11px!important}
-  #news .team-build-heading h2{font-size:clamp(27px,2.55vw,36px)!important;margin-top:5px!important;line-height:1.08!important}
-  #news .team-build-heading>p{font-size:13px!important;line-height:1.45!important;max-width:460px!important;margin-top:0!important}
-  #news .team-build-footer{margin-top:5px!important;padding-top:5px!important}
-}
-@media(max-width:800px){
-  #news .team-build-heading h2{font-size:clamp(31px,8.5vw,42px)!important;line-height:1.12!important}
-  #news .team-build-heading>p{font-size:14px!important;line-height:1.65!important}
-}
 `;
 
   const carousel=news.querySelector('[data-culture-carousel]');
