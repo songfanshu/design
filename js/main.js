@@ -319,7 +319,33 @@ function buildTeamCulturePage(){
     cultureTouch=null;
     if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.35){event.stopPropagation();renderCulture(cultureIndex+(dx<0?1:-1));}
   },{passive:true});
+
+  const cultureAutoplayDelay=10000;
+  let cultureAutoplay=null;
+  const stopCultureAutoplay=()=>{
+    if(cultureAutoplay!==null){
+      window.clearInterval(cultureAutoplay);
+      cultureAutoplay=null;
+    }
+  };
+  const startCultureAutoplay=()=>{
+    stopCultureAutoplay();
+    if(document.hidden)return;
+    cultureAutoplay=window.setInterval(()=>renderCulture(cultureIndex+1),cultureAutoplayDelay);
+  };
+  carousel.addEventListener('mouseenter',stopCultureAutoplay);
+  carousel.addEventListener('mouseleave',startCultureAutoplay);
+  carousel.addEventListener('focusin',stopCultureAutoplay);
+  carousel.addEventListener('focusout',event=>{
+    if(!carousel.contains(event.relatedTarget))startCultureAutoplay();
+  });
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)stopCultureAutoplay();
+    else startCultureAutoplay();
+  });
+
   renderCulture(0);
+  startCultureAutoplay();
 }
 
 function installPageDots(){
