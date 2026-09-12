@@ -1,0 +1,37 @@
+name: Set avatar border black once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-avatar-border:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Change team avatar border to black
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('css/style.css')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('border:2px solid #277450;border-radius:50%', 'border:2px solid #111;border-radius:50%')
+          text = text.replace('#team .roster-avatar:hover{transform:scale(1.08);border-color:#075b39;', '#team .roster-avatar:hover{transform:scale(1.08);border-color:#111;')
+          text = text.replace('#team .roster-avatar:active{transform:scale(1.34);z-index:30;border-color:#075b39;', '#team .roster-avatar:active{transform:scale(1.34);z-index:30;border-color:#111;')
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          if ! git diff --cached --quiet; then
+            git commit -m "Change team avatar border to black"
+            git push
+          fi
