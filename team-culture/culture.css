@@ -124,3 +124,33 @@
   .academic-carousel::before,.academic-carousel::after{width:28px;height:28px}
   .academic-carousel::after{bottom:40px}
 }
+
+
+/* Keep the frame flush with the photograph and allow balanced cropping */
+.academic-carousel{
+  padding:0;
+  border:0;
+  border-radius:22px;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.academic-carousel::before,
+.academic-carousel::after{display:none}
+.academic-carousel__viewport{
+  border:0;
+  outline:2px solid rgba(28,92,67,.48);
+  outline-offset:0;
+  border-radius:22px;
+  box-shadow:0 22px 60px rgba(10,58,41,.18);
+}
+.academic-carousel__slide img{
+  object-fit:cover;
+  object-position:center center;
+}
+.academic-carousel__slide:nth-child(1) img,
+.academic-carousel__slide:nth-child(2) img{object-position:center 48%}
+@media(max-width:760px){
+  .academic-carousel{padding:0;border-radius:14px}
+  .academic-carousel__viewport{border:0;outline-width:1px;border-radius:14px}
+}
