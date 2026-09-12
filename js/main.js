@@ -345,14 +345,14 @@ portraitLightbox.innerHTML='<button class="portrait-lightbox-close" type="button
 document.body.appendChild(portraitLightbox);
 const portraitPreview=portraitLightbox.querySelector('img');
 const closePortrait=()=>portraitLightbox.classList.remove('is-open');
-document.querySelectorAll('#team .roster-pi .roster-avatar,#team .roster-faculty .roster-person .roster-avatar').forEach(avatar=>{
+document.querySelectorAll('#team .roster-pi .roster-avatar,#team .roster-faculty .roster-person .roster-avatar,#team .roster-student .roster-avatar').forEach(avatar=>{
   avatar.addEventListener('dblclick',event=>{
     const image=(getComputedStyle(avatar).backgroundImage.match(/url\(["']?(.*?)["']?\)/)||[])[1];
     if(!image)return;
     event.preventDefault();
     event.stopPropagation();
     portraitPreview.src=image;
-    portraitPreview.alt=(avatar.closest('.roster-person')?.querySelector('.roster-person-name strong')?.textContent.trim()||'教师')+'老师原图';
+    portraitPreview.alt=(avatar.closest('.roster-person')?.querySelector('.roster-person-name strong')?.textContent.trim()||avatar.closest('.roster-student')?.querySelector('span:last-child')?.textContent.trim()||'成员')+'老师原图';
     portraitLightbox.classList.add('is-open');
   });
 });

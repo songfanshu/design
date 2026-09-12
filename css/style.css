@@ -57,3 +57,20 @@ body.paged #research.research-papers .paper-image-link{height:clamp(250px,38vh,3
 .portrait-lightbox img{display:block;max-width:min(92vw,760px);max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:5px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.48)}
 .portrait-lightbox-close{position:fixed;top:20px;right:26px;width:44px;height:44px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(10,27,20,.45);color:white;font-size:32px;line-height:1;cursor:pointer}
 .portrait-lightbox-close:hover{background:#075b39}
+
+/* Student portraits extracted from the submitted introduction decks. */
+#team .roster-phd .roster-student:nth-child(1) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/hu-jie.jpg')}
+#team .roster-phd .roster-student:nth-child(2) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/xu-yesong.jpg')}
+#team .roster-phd .roster-student:nth-child(3) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/zhang-jinqiu.jpg')}
+#team .roster-phd .roster-student:nth-child(4) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/zeng-fang.jpg')}
+#team .roster-phd .roster-student:nth-child(5) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/kang-zihe.jpg')}
+#team .roster-masters .roster-student:nth-child(1) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/jiao-peicheng.jpg')}
+#team .roster-masters .roster-student:nth-child(2) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/xiong-yutao.jpg')}
+#team .roster-masters .roster-student:nth-child(3) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/yu-mingke.jpg')}
+#team .roster-masters .roster-student:nth-child(4) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/yang-songsong.jpg')}
+#team .roster-masters .roster-student:nth-child(5) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/he-zhihao.jpg')}
+#team .roster-masters .roster-student:nth-child(6) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/jiang-maocai.jpg')}
+#team .roster-masters .roster-student:nth-child(7) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/yan-wei.jpg')}
+#team .roster-masters .roster-student:nth-child(8) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/tan-zikang.jpg')}
+#team .roster-masters .roster-student:nth-child(9) .roster-avatar{background:center/cover no-repeat url('../assets/people/students/zhao-ziyan.jpg')}
+#team .roster-phd .roster-avatar svg,#team .roster-masters .roster-avatar svg{display:none}
