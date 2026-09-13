@@ -24,3 +24,11 @@ header{background:rgba(255,255,255,.94)}
 .carousel{box-shadow:0 22px 60px rgba(28,66,48,.09)}
 .article{box-shadow:0 20px 65px rgba(28,66,48,.06);border-radius:8px}
 @media(max-width:760px){body::before{opacity:.55}.article{border-radius:0;box-shadow:none}}
+
+/* Scale carousel text to its available column width. */
+.slide-copy{min-width:0;container-type:inline-size;padding:clamp(22px,3vw,38px)}
+.slide-copy h2{font-size:clamp(22px,8cqw,34px);line-height:1.45;overflow-wrap:break-word;text-wrap:balance}
+.slide-copy p{font-size:clamp(14px,4.3cqw,17px);line-height:1.85;overflow-wrap:break-word}
+.slide-copy small{font-size:clamp(10px,3cqw,12px);overflow-wrap:break-word}
+.intro{font-size:clamp(14px,1.15vw,17px);line-height:1.85;margin-top:14px}
+@media(max-width:760px){.slide-copy h2{font-size:clamp(22px,7cqw,28px)}.slide-copy p{font-size:clamp(14px,4.2cqw,16px)}}
