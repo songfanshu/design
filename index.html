@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script>
+(() => {
+  const requested=new URLSearchParams(location.search).get('page')||location.hash.slice(1);
+  if(requested==='news'){
+    document.documentElement.classList.add('initial-team-culture');
+    if(location.hash!=='#news')history.replaceState(null,'',location.pathname+location.search+'#news');
+  }
+})();
+</script>
+<style>
+html.initial-team-culture body.page-initializing #pages>#home{visibility:hidden!important;pointer-events:none!important;transform:translateX(-100%)!important}
+html.initial-team-culture body.page-initializing #pages>#news{visibility:visible!important;pointer-events:auto!important;transform:none!important}
+html.initial-team-culture body.page-initializing #mainNav a{border-bottom-color:transparent}
+html.initial-team-culture body.page-initializing #mainNav a[href="#news"]{color:var(--green);border-bottom-color:var(--green);font-weight:700}
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="先进集成电路材料与类脑芯片实验室｜中山大学材料学院深圳校区">
   <meta name="theme-color" content="#ffffff">
   <title>先进集成电路材料与类脑芯片实验室｜中山大学</title>
   <link rel="preload" as="image" href="assets/home-campus-new.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.css?v=immediate-home-20260913">
+  <link rel="stylesheet" href="css/style.css?v=return-direct-20260913">
   
 
   <style id="laboratory-styles">
@@ -204,6 +219,6 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
   }
 })();
 </script>
-  <script src="js/main.js?v=immediate-home-20260913"></script>
+  <script src="js/main.js?v=return-direct-20260913"></script>
 </body>
 </html>
