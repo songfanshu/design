@@ -155,26 +155,5 @@ document.head.appendChild(researchDirectStyle);
 const script=document.createElement('script');
 script.src='js/main-original.js?v=return-direct-20260913';
 script.async=false;
-
-// Match the English signatures used on the research and publication pages.
-script.addEventListener('load',()=>{
-  ['news'].forEach(id=>{
-    const page=document.getElementById(id);
-    if(!page)return;
-    page.querySelectorAll('.team-build-footer').forEach(footer=>footer.remove());
-    if(!page.querySelector('.page-signature'))page.append(createPageSignature());
-  });
-});
-const teamSignatureStyle=document.createElement('style');
-teamSignatureStyle.textContent=`
-body.paged #news.team-building-page{position:absolute!important;inset:0!important;height:100%!important;display:flex!important;flex-direction:column!important;padding-bottom:20px!important}
-#news .team-build-shell{display:flex;flex-direction:column;width:min(1380px,100%);flex:1;min-height:0}
-#news .team-build-heading{flex:0 0 auto}
-#news .team-build-carousel{flex:1 1 auto;height:calc(100dvh - var(--header) - 180px)!important;min-height:180px!important;max-height:650px;width:min(1280px,100%)}
-#news>.page-signature{flex:0 0 auto;max-width:1380px;margin-top:20px;padding-top:14px}
-@media(max-width:800px){#news .team-build-carousel{height:calc(100dvh - var(--header) - 220px)!important;max-height:580px}#news .team-build-slide-copy{bottom:70px}#news .team-build-slide h3{font-size:clamp(28px,5vh,42px)}#news .team-build-slide p{font-size:clamp(12px,1.8vh,15px)}}
-`;
-document.head.append(teamSignatureStyle);
-
 document.body.appendChild(script);
 })();
