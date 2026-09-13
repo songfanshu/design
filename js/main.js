@@ -46,7 +46,7 @@ if(researchPage){
       const scale=host.clientWidth/1500;
       poster.style.transform='scale('+scale+')';
       panel.style.width=(1500*scale)+'px';
-      panel.style.height=(1125*scale)+'px';
+      panel.style.height=(poster.offsetHeight*scale)+'px';
     };
     new ResizeObserver(fit).observe(host);
     fit();
