@@ -137,7 +137,7 @@ main.article{background:#fff;box-shadow:none;border-color:#ededed}
 
 /* Lab identity fills the center of the research-page masthead. */
 header::after{
- content:"先进集成电路材料与类脑芯片课题组\A材料创新 · 光电感知 · 类脑计算";
+ content:"材料创新 · 光电感知 · 类脑计算";
  order:1;flex:1;min-width:0;white-space:pre-line;text-align:center;
  font-size:clamp(12px,1.2vw,17px);font-weight:500;line-height:1.85;
  letter-spacing:.1em;color:#365648;
@@ -166,4 +166,14 @@ body.collaboration-library header{
  top:0;
  z-index:20;
  background:#fff;
+}
+
+/* Center the single-line research motto and match the AMBIC font size. */
+header{display:grid;grid-template-columns:minmax(90px,1fr) minmax(0,auto) minmax(90px,1fr)}
+header .brand{grid-column:1;grid-row:1;justify-self:start}
+header::after{grid-column:2;grid-row:1;text-align:center;font-size:21px;white-space:normal}
+header>a:last-child{grid-column:3;grid-row:1;justify-self:end}
+@media(max-width:760px){
+ header{grid-template-columns:minmax(65px,1fr) minmax(0,auto) minmax(65px,1fr);gap:8px}
+ header::after{font-size:17px;line-height:1.5;white-space:normal}
 }
