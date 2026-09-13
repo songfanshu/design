@@ -150,3 +150,12 @@ header>a:last-child{order:2;flex-shrink:0}
  header .brand{font-size:17px}
  header>a:last-child{font-size:12px}
 }
+
+/* Keep the article masthead visible while the paper scrolls. */
+body:has(main.article) header{
+ position:sticky;
+ top:0;
+ z-index:20;
+ background:#fff;
+}
+.article section{scroll-margin-top:120px}
