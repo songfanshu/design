@@ -38,61 +38,7 @@ function show(id,push=false){
   if(push&&location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
 }
 
-function installViewportFit(){
-  const style=document.createElement('style');
-  style.id='viewport-fit-home-research';
-  style.textContent=`
-body.paged #home:before{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.66) 32%,rgba(255,255,255,.08) 72%)}
-body.paged #home .lab-cn,body.paged #home .lab-en,body.paged #home .mockup-description,body.paged #home .home-slogan strong,body.paged #home .home-slogan small{color:#18372e;font-weight:700}
-body.paged #home .lab-cn{font-weight:900}
-body.paged #home .lab-en{font-weight:700}
-body.paged #home .mockup-description{font-weight:700}
-#team .roster-alumni{grid-column:1/-1}
-#contact .contact-main .section-label{font-size:16px}
-#research .section-head .section-label,#publications .section-head .section-label,#laboratory .section-head .section-label,#news .section-head .section-label{display:none}
-.page-dots-controller{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-.page-dot{appearance:none;-webkit-appearance:none;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(24,55,46,.34);cursor:pointer;transition:transform .22s ease,background .22s ease}
-.page-dot:hover{transform:scale(1.16);background:rgba(24,55,46,.58)}
-.page-dot.active{background:#18372e;transform:scale(1.25)}
-.page-dot:focus-visible{outline:2px solid #18372e;outline-offset:3px}
-@media(max-width:650px){.page-dots-controller{right:10px;top:50%;gap:8px;padding:0}.page-dot{width:8px;height:8px}}
-@media(min-width:651px){
-body.paged #home{height:100%;min-height:0;overflow:hidden;padding-top:0;padding-bottom:0;gap:0;display:block}
-body.paged #home .mockup-copy{max-width:920px;padding-top:0;position:absolute;left:11.3vw;top:48%;transform:translateY(-50%);z-index:2}
-body.paged #home .lab-cn{font-size:41px;line-height:1.25;letter-spacing:.02em;margin:0 0 8px;white-space:nowrap}
-body.paged #home .lab-en{font-size:clamp(13px,min(1.15vw,2vh),18px);line-height:1.45;letter-spacing:.035em;margin:0 0 clamp(18px,3vh,30px)}
-body.paged #home .mockup-description{font-size:clamp(14px,min(1.02vw,2vh),17px);line-height:1.85;margin:0 0 14px;max-width:600px}
-body.paged #home .mockup-button{padding:10px 24px;margin-top:8px;font-weight:700}
-body.paged #home .home-slogan{position:absolute;left:11.3vw;top:calc(48% + 205px);bottom:auto;padding-top:0;max-width:680px;z-index:2}
-body.paged #home .home-slogan strong{font-size:clamp(13px,1vw,16px)}
-body.paged #home .home-slogan small{font-size:11px;margin-top:4px}
-body.paged #home .home-pager{padding:5px 13px}
-body.paged #research{height:100%;overflow:hidden;padding-top:clamp(20px,3.5vh,38px);padding-bottom:clamp(18px,3vh,32px);display:flex;flex-direction:column}
-body.paged #research .section-head{margin-bottom:clamp(14px,2.6vh,28px);flex:0 0 auto}
-body.paged #research .section-head h2{font-size:clamp(28px,min(2.7vw,4.8vh),44px);margin:4px 0 8px;line-height:1.15}
-body.paged #research .section-head p{font-size:clamp(13px,min(1vw,1.9vh),16px);margin-bottom:4px}
-body.paged #research .section-label{font-size:12px}
-body.paged #research .research-grid{flex:1;min-height:0;align-items:stretch;gap:clamp(14px,1.7vw,24px)}
-body.paged #research .research-card{min-height:0;padding:clamp(16px,2.3vh,26px);overflow:hidden}
-body.paged #research .research-art{height:clamp(78px,16vh,126px);margin:clamp(8px,1.5vh,16px) 0}
-body.paged #research .research-card h3{font-size:clamp(17px,min(1.35vw,2.6vh),21px);line-height:1.35;margin:6px 0;text-align:center}
-body.paged #research .research-card p{font-size:clamp(13px,min(.95vw,1.85vh),15px);line-height:1.55;margin:5px 0}
-body.paged #research .research-card a{font-size:14px;padding-top:8px;margin-top:auto}
-}
-@media(min-width:651px) and (max-height:700px){
-body.paged #home .mockup-copy{top:47%}
-body.paged #home .home-slogan{top:calc(47% + 180px)}
-body.paged #home .lab-cn{font-size:41px}
-body.paged #home .lab-en{margin-bottom:14px}
-body.paged #home .mockup-description{line-height:1.55}
-body.paged #research{padding-top:14px;padding-bottom:14px}
-body.paged #research .section-head{margin-bottom:10px}
-body.paged #research .research-art{height:72px;margin:7px 0}
-body.paged #research .research-card{padding:14px 18px}
-body.paged #research .research-card p{line-height:1.4}
-}`;
-  document.head.appendChild(style);
-}
+function installViewportFit(){}
 
 function installPublicationsBackground(){
   let style=document.getElementById('publications-white-styles');
@@ -414,7 +360,7 @@ function initSharpCampusMap(){
 
 document.body.classList.add('paged');
 const homePage=document.getElementById('home');
-if(homePage)homePage.style.backgroundImage='url("assets/home-campus-new.jpg")';
+// Homepage background is defined in CSS for the first render.
 applyCopyUpdates();
 refineResearchSection();
 addMasterStudents();
@@ -426,6 +372,7 @@ installPublicationsBackground();
 installPageDots();
 initSharpCampusMap();
 show(location.hash.slice(1));
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remove('page-initializing')));
 
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[href^="#"]');if(!a)return;
