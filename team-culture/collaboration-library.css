@@ -5,7 +5,7 @@ body.collaboration-library{height:auto;min-height:100dvh;display:block;overflow-
 .paper-search input,.paper-search select{width:100%;padding:10px 8px;border:1px solid #d6d6d6;border-radius:6px;background:#fff;color:#000;font:inherit;font-size:13px}
 .paper-search button{padding:7px 18px;margin:18px 6px 0 0;border:1px solid #ccc;border-radius:6px;background:#fff;color:#000;font-size:14px}.paper-search button[type=submit]{background:#000;color:#fff;border-color:#000}.paper-search p{font-size:13px}
 .collaboration-library .paper-entry{margin:0 0 64px;scroll-margin-top:24px}.collaboration-library .paper-entry[hidden],#search-empty[hidden]{display:none!important}
-.collaboration-library .paper-heading{font-size:clamp(21px,2vw,28px);margin:0 0 16px;line-height:1.4}
+.collaboration-library .paper-heading{text-align:center;width:100%;font-size:clamp(21px,2vw,28px);margin:0 0 16px;line-height:1.4}
 .collaboration-library .carousel{height:clamp(420px,67vh,690px);width:100%;margin:12px auto 0;transform:none!important;display:flex}
 .collaboration-library .paper-note{transform:none!important;font-size:12px;gap:18px;line-height:1.7;overflow-wrap:anywhere}
 .collaboration-library main>.eyebrow,.collaboration-library .intro,.collaboration-library .signature{transform:none!important}
