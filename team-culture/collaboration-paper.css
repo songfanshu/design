@@ -62,3 +62,33 @@ body.collaboration-overview{height:100dvh;min-height:0;display:flex;flex-directi
  .collaboration-overview .paper-note{flex-direction:row;align-items:center;gap:8px;font-size:9px}
  .collaboration-overview .signature{font-size:9px}
 }
+
+/* Collaboration overview: pure white canvas and pure black typography. */
+body.collaboration-overview{background:#fff;color:#000}
+body.collaboration-overview::before{display:none}
+.collaboration-overview header{background:#fff;border-bottom-color:#e5e5e5;color:#000}
+.collaboration-overview header a,
+.collaboration-overview .brand,
+.collaboration-overview main,
+.collaboration-overview .eyebrow,
+.collaboration-overview .intro,
+.collaboration-overview .slide-copy,
+.collaboration-overview .slide-copy small,
+.collaboration-overview .slide-copy h2,
+.collaboration-overview .slide-copy p,
+.collaboration-overview .paper-note,
+.collaboration-overview .paper-note a,
+.collaboration-overview .signature{color:#000}
+.collaboration-overview .carousel,
+.collaboration-overview .slides,
+.collaboration-overview .slide,
+.collaboration-overview .slide-copy,
+.collaboration-overview .slide-image,
+.collaboration-overview .controls{background:#fff}
+.collaboration-overview .slide-copy{background:#fff}
+.collaboration-overview .carousel{border-color:#dedede;box-shadow:none}
+.collaboration-overview .controls{border-top-color:#e5e5e5}
+.collaboration-overview .controls>button{color:#000;border-color:#cfcfcf;background:#fff}
+.collaboration-overview .dots button{background:#bdbdbd}
+.collaboration-overview .dots button.active{background:#000;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+.collaboration-overview .signature{border-top-color:#dedede}
