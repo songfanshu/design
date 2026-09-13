@@ -1,12 +1,5 @@
 (()=>{
 'use strict';
-document.addEventListener('click', event => {
-  const link=event.target.closest('#news a[href="team-culture/academic.html"]');
-  if(link && event.button===0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey){
-    history.replaceState(null,'','#news');
-    try{sessionStorage.setItem('ambic-academic-return','news');}catch{}
-  }
-});
 
 // Laboratory page removed from the public site.
 const laboratoryPage=document.getElementById('laboratory');
@@ -116,7 +109,7 @@ document.head.appendChild(researchDirectStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=immediate-home-20260913';
+script.src='js/main-original.js?v=return-direct-20260913';
 script.async=false;
 document.body.appendChild(script);
 })();
