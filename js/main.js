@@ -18,6 +18,22 @@ if(teamCulturePage){
 const teamCultureNav=document.querySelector('#mainNav a[href="#news"]');
 if(teamCultureNav)teamCultureNav.textContent='团队建设';
 
+
+function createPageSignature(){
+  const signature=document.createElement('div');
+  signature.className='page-signature';
+  signature.innerHTML='<span>AMBIC Laboratory</span><span>SUN YAT-SEN UNIVERSITY</span>';
+  return signature;
+}
+const signatureCss='.page-signature{display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;max-width:none;box-sizing:border-box;margin:40px auto 0;padding:22px 0 0;border-top:1px solid rgba(7,91,57,.16);color:#49675a;font-family:Arial,sans-serif;font-size:12px;line-height:1.5;letter-spacing:.12em}.page-signature span:last-child{text-align:right;font-size:11px;letter-spacing:.16em}@media(max-width:560px){.page-signature{gap:12px;font-size:10px;letter-spacing:.06em}.page-signature span:last-child{font-size:9px;letter-spacing:.08em}}';
+const signatureStyle=document.createElement('style');
+signatureStyle.textContent=signatureCss;
+document.head.append(signatureStyle);
+['publications','contact'].forEach(id=>{
+  const page=document.getElementById(id);
+  if(page)page.append(createPageSignature());
+});
+
 // Use the live research poster so both poster columns align exactly.
 const researchPage=document.getElementById('research');
 if(researchPage){
@@ -39,7 +55,9 @@ if(researchPage){
     source.querySelectorAll('style').forEach(style=>root.append(style.cloneNode(true)));
     const base=document.createElement('style');
     base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0 auto} .poster{padding-left:16px;padding-right:16px} .second-research-poster{max-width:none;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}';
-    root.append(base,stage.cloneNode(true),second.cloneNode(true));
+    const signatureStyle=document.createElement('style');
+    signatureStyle.textContent=signatureCss+' .page-signature{width:calc(100% - 40px);margin-top:20px;margin-bottom:28px}';
+    root.append(base,signatureStyle,stage.cloneNode(true),second.cloneNode(true),createPageSignature());
     const poster=root.querySelector('.poster');
     const panel=root.querySelector('.stage');
     const fit=()=>{
