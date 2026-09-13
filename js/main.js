@@ -22,7 +22,37 @@ if(teamCultureNav)teamCultureNav.textContent='团队建设';
 const researchPage=document.getElementById('research');
 if(researchPage){
   researchPage.className='research section research-direct-poster-page';
-  researchPage.innerHTML='<iframe class="research-live-frame" src="research.html?embedded=1" title="先进集成电路材料与类脑芯片课题组研究方向总览" loading="eager"></iframe>';
+  // Render the research content in this document, without a nested page.
+  researchPage.innerHTML='<div class="research-inline-poster" aria-label="课题组研究方向"></div>';
+  const host=researchPage.querySelector('.research-inline-poster');
+  const root=host.attachShadow({mode:'open'});
+  root.innerHTML='<p style="padding:24px">研究方向加载中…</p>';
+  fetch('research.html').then(response=>{
+    if(!response.ok)throw new Error('Research page unavailable');
+    return response.text();
+  }).then(html=>{
+    const source=new DOMParser().parseFromString(html,'text/html');
+    const stage=source.querySelector('.stage');
+    const second=source.querySelector('.second-research-poster');
+    if(!stage||!second)throw new Error('Research content missing');
+    root.replaceChildren();
+    source.querySelectorAll('style').forEach(style=>root.append(style.cloneNode(true)));
+    const base=document.createElement('style');
+    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0}';
+    root.append(base,stage.cloneNode(true),second.cloneNode(true));
+    const poster=root.querySelector('.poster');
+    const panel=root.querySelector('.stage');
+    const fit=()=>{
+      const scale=Math.min(1,host.clientWidth/1500);
+      poster.style.transform='scale('+scale+')';
+      panel.style.width=(1500*scale)+'px';
+      panel.style.height=(1125*scale)+'px';
+    };
+    new ResizeObserver(fit).observe(host);
+    fit();
+  }).catch(()=>{
+    root.innerHTML='<p style="padding:24px">研究方向暂时无法加载，请刷新页面或<a href="research.html">打开研究方向页面</a>。</p>';
+  });
 }
 
 document.querySelectorAll('#mainNav a[href="research.html"]').forEach(link=>{
@@ -40,13 +70,14 @@ body.paged #research.research-direct-poster-page{
   overflow:hidden!important;
   background:#fff!important;
 }
-#research.research-direct-poster-page .research-live-frame{
+#research.research-direct-poster-page .research-inline-poster{
   display:block;
   width:100%;
   height:100%;
   border:0;
   margin:0;
   padding:0;
+  overflow:auto;
   background:#fff;
 }
 `;
