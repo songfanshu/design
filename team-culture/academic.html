@@ -6,19 +6,19 @@
   <title>学术共进 · 团队建设 | AMBIC</title>
   <meta name="description" content="先进集成电路材料与类脑芯片课题组学术共进活动影像。">
   <link rel="stylesheet" href="culture.css">
-  <link rel="stylesheet" href="academic-layout.css">
+  <link rel="stylesheet" href="academic-layout.css?v=return-direct-20260913">
 <style>
 .academic-carousel__slide img{cursor:zoom-in}
 .academic-image-viewer{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:48px 20px 20px;border:0;background:rgba(10,18,15,.96);overflow:hidden}
 .academic-image-viewer::backdrop{background:rgba(0,0,0,.8)}
 .academic-image-viewer img{display:block;width:100%;height:100%;object-fit:contain;border:0;border-radius:0}
 .academic-image-viewer__close{position:absolute;right:16px;top:8px;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:#fff;color:#182520;font-size:28px;cursor:pointer}
-</style><link rel="prefetch" href="../index.html">
+</style><link rel="prefetch" href="../index.html?page=news">
 </head>
 <body class="academic-gallery-page">
   <header>
     <a class="brand" href="../index.html#home" aria-label="AMBIC 首页">AMBIC</a>
-    <a class="back" href="../index.html#news">← 返回团队建设</a>
+    <a class="back" href="../index.html?page=news#news">← 返回团队建设</a>
   </header>
 
   <main>
@@ -126,18 +126,11 @@
   </script>
 <script>
 (() => {
-  const back = document.querySelector('.back');
-  const parent = new URL('../index.html', location.href);
-  back.addEventListener('click', event => {
-    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    let previous;
-    try { previous = new URL(document.referrer); } catch { return; }
-    if (previous.origin === parent.origin && previous.pathname === parent.pathname &&
-        sessionStorage.getItem('ambic-academic-return') === 'news' && history.length > 1) {
-      event.preventDefault();
-      sessionStorage.removeItem('ambic-academic-return');
-      history.back();
-    }
+  const back=document.querySelector('.back');
+  back.addEventListener('click',event=>{
+    if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+    event.preventDefault();
+    location.assign(back.href);
   });
 })();
 </script>
