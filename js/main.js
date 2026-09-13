@@ -20,6 +20,30 @@ if(teamCulturePage){
 const teamCultureNav=document.querySelector('#mainNav a[href="#news"]');
 if(teamCultureNav)teamCultureNav.textContent='团队建设';
 
+// Team culture carousel: remove the visible "了解详情" CTA and make the image slide itself the detail-page entry.
+const teamBuildLinkStyle=document.createElement('style');
+teamBuildLinkStyle.textContent=`
+#news .team-build-slide-copy>a{display:none!important}
+#news .team-build-slide{cursor:pointer}
+#news .team-build-slide:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:-5px}
+`;
+document.head.appendChild(teamBuildLinkStyle);
+document.querySelectorAll('#news .team-build-slide').forEach(slide=>{
+  const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
+  if(!detailLink)return;
+  const href=detailLink.getAttribute('href');
+  slide.setAttribute('role','link');
+  slide.setAttribute('tabindex','0');
+  const title=slide.querySelector('h3')?.textContent?.trim()||'团队建设';
+  slide.setAttribute('aria-label',`查看${title}详情`);
+  slide.addEventListener('click',()=>{location.href=href;});
+  slide.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){
+      event.preventDefault();
+      location.href=href;
+    }
+  });
+});
 
 function createPageSignature(){
   const signature=document.createElement('div');
