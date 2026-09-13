@@ -72,11 +72,13 @@
 html{scroll-padding-bottom:100px}
 body{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 </style>
-<style id="memory-side-by-side-layout">
-.memory .columns>div{display:grid;grid-template-columns:minmax(0,.22fr) minmax(0,.78fr);gap:12px;align-items:stretch}
-.memory .columns>div>p{align-self:center;margin:0;padding:12px 9px;line-height:1.8}
-.memory .columns>div>figure{height:100%;min-height:0}
-.memory .columns>div>figure>a{flex:1 1 0;min-height:0}
+<style id="memory-larger-figures">
+/* Give both original stacked figures more space without cropping them. */
+.poster{height:1225px}
+.board{grid-template-rows:460px 335px minmax(0,1fr)}
+.memory .columns>div{display:flex;flex-direction:column;min-height:0}
+.memory .columns>div>p{margin:0 0 7px}
+.memory figure>a img{object-fit:contain}
 </style></head>
 <body>
   <header>
@@ -151,7 +153,7 @@ body{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
       const scale=Math.min(1,available/1500);
       poster.style.transform=`scale(${scale})`;
       stage.style.width=(1500*scale)+'px';
-      stage.style.height=(1125*scale)+'px';
+      stage.style.height=(poster.offsetHeight*scale)+'px';
     }
     fit();
     addEventListener('resize',fit);
