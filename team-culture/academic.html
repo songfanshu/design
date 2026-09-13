@@ -7,7 +7,13 @@
   <meta name="description" content="先进集成电路材料与类脑芯片课题组学术共进活动影像。">
   <link rel="stylesheet" href="culture.css">
   <link rel="stylesheet" href="academic-layout.css">
-</head>
+<style>
+.academic-carousel__slide img{cursor:zoom-in}
+.academic-image-viewer{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:48px 20px 20px;border:0;background:rgba(10,18,15,.96);overflow:hidden}
+.academic-image-viewer::backdrop{background:rgba(0,0,0,.8)}
+.academic-image-viewer img{display:block;width:100%;height:100%;object-fit:contain;border:0;border-radius:0}
+.academic-image-viewer__close{position:absolute;right:16px;top:8px;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:#fff;color:#182520;font-size:28px;cursor:pointer}
+</style></head>
 <body class="academic-gallery-page">
   <header>
     <a class="brand" href="../index.html#home" aria-label="AMBIC 首页">AMBIC</a>
@@ -49,6 +55,10 @@
     <span>AMBIC LABORATORY</span>
     <span>SUN YAT-SEN UNIVERSITY</span>
   </footer>
+  <dialog class="academic-image-viewer" aria-label="查看活动照片大图">
+    <button class="academic-image-viewer__close" type="button" aria-label="关闭大图">×</button>
+    <img alt="">
+  </dialog>
   <script>
     (() => {
       const carousel = document.querySelector('.academic-carousel');
@@ -57,6 +67,25 @@
       const dots = carousel.querySelector('.academic-carousel__dots');
       let current = 0;
       let timer;
+      const viewer = document.querySelector('.academic-image-viewer');
+      const largeImage = viewer.querySelector('img');
+      carousel.querySelectorAll('.academic-carousel__slide img').forEach(image => {
+        image.addEventListener('dblclick', () => {
+          largeImage.src = image.currentSrc || image.src;
+          largeImage.alt = image.alt;
+          clearInterval(timer);
+          viewer.showModal();
+        });
+      });
+      viewer.querySelector('button').addEventListener('click', () => viewer.close());
+      viewer.addEventListener('click', event => {
+        if (event.target === viewer) viewer.close();
+      });
+      largeImage.addEventListener('dblclick', () => viewer.close());
+      viewer.addEventListener('close', () => {
+        largeImage.removeAttribute('src');
+        start();
+      });
 
       if (slides.length <= 1) {
         carousel.querySelectorAll('.academic-carousel__arrow, .academic-carousel__dots')
@@ -82,6 +111,7 @@
       }
       function start() {
         clearInterval(timer);
+        if (viewer.open || slides.length <= 1) return;
         timer = setInterval(() => show(current + 1), 3000);
       }
 
