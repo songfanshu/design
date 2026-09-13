@@ -140,7 +140,7 @@ header::after{
  content:"材料创新 · 光电感知 · 类脑计算";
  order:1;flex:1;min-width:0;white-space:pre-line;text-align:center;
  font-size:clamp(12px,1.2vw,17px);font-weight:500;line-height:1.85;
- letter-spacing:.1em;color:#365648;
+ letter-spacing:.1em;color:inherit;
 }
 header .brand{order:0;flex-shrink:0}
 header>a:last-child{order:2;flex-shrink:0}
