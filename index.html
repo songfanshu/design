@@ -3,7 +3,7 @@
 <head>
 <script>
 (() => {
-  const requested=new URLSearchParams(location.search).get('page')||location.hash.slice(1);
+  const requested=location.hash.slice(1)||new URLSearchParams(location.search).get('page');
   if(requested==='news'){
     document.documentElement.classList.add('initial-team-culture');
     if(location.hash!=='#news')history.replaceState(null,'',location.pathname+location.search+'#news');
