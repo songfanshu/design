@@ -155,5 +155,19 @@ document.head.appendChild(researchDirectStyle);
 const script=document.createElement('script');
 script.src='js/main-original.js?v=return-direct-20260913';
 script.async=false;
+
+// Match the English signatures used on the research and publication pages.
+script.addEventListener('load',()=>{
+  ['news','team'].forEach(id=>{
+    const page=document.getElementById(id);
+    if(!page)return;
+    page.querySelectorAll('.team-build-footer').forEach(footer=>footer.remove());
+    if(!page.querySelector('.page-signature'))page.append(createPageSignature());
+  });
+});
+const teamSignatureStyle=document.createElement('style');
+teamSignatureStyle.textContent='#team>.page-signature{width:calc(100% - 7.6vw);margin:28px auto 0;padding-bottom:28px}#news>.page-signature{max-width:1380px;margin-top:24px}@media(max-width:650px){#team>.page-signature{width:calc(100% - 36px)}}';
+document.head.append(teamSignatureStyle);
+
 document.body.appendChild(script);
 })();
