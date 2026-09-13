@@ -73,7 +73,7 @@ body.paged #research.research-direct-poster-page{
 }
 #research.research-direct-poster-page .research-inline-poster{
   display:block;
-  width:calc(100% - 42px);
+  width:100%;
   max-width:none;
   height:100%;
   border:0;
