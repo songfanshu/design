@@ -159,3 +159,11 @@ body:has(main.article) header{
  background:#fff;
 }
 .article section{scroll-margin-top:120px}
+
+/* Keep the collaboration library masthead above scrolling results. */
+body.collaboration-library header{
+ position:sticky;
+ top:0;
+ z-index:20;
+ background:#fff;
+}
