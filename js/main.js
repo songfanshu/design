@@ -3,6 +3,7 @@
 document.addEventListener('click', event => {
   const link=event.target.closest('#news a[href="team-culture/academic.html"]');
   if(link && event.button===0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey){
+    history.replaceState(null,'','#news');
     try{sessionStorage.setItem('ambic-academic-return','news');}catch{}
   }
 });
@@ -18,8 +19,10 @@ if(location.hash==='#laboratory')history.replaceState(null,'','#home');
 // Keep only the #news container because main-original.js reuses it for 团队建设.
 const teamCulturePage=document.getElementById('news');
 if(teamCulturePage){
-  teamCulturePage.innerHTML='';
-  teamCulturePage.className='news section';
+  if(!teamCulturePage.querySelector('.team-build-shell')){
+    teamCulturePage.innerHTML='';
+    teamCulturePage.className='news section';
+  }
 }
 const teamCultureNav=document.querySelector('#mainNav a[href="#news"]');
 if(teamCultureNav)teamCultureNav.textContent='团队建设';
