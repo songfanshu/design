@@ -92,3 +92,28 @@ body.collaboration-overview::before{display:none}
 .collaboration-overview .dots button{background:#bdbdbd}
 .collaboration-overview .dots button.active{background:#000;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
 .collaboration-overview .signature{border-top-color:#dedede}
+
+/* Center the collaboration intro and carousel as one visual group. */
+.collaboration-overview .intro{
+  width:min(100%,1200px);
+  max-width:none;
+  margin:8px auto 14px;
+  text-align:center;
+  font-size:clamp(20px,2vw,30px);
+  line-height:1.45;
+  font-weight:600;
+}
+.collaboration-overview .carousel{
+  width:min(100%,1200px);
+  align-self:center;
+  margin:0 auto;
+}
+@media(max-width:760px){
+  .collaboration-overview .intro{
+    width:100%;
+    margin:6px auto 10px;
+    font-size:clamp(18px,5vw,23px);
+    line-height:1.4;
+  }
+  .collaboration-overview .carousel{width:100%}
+}
