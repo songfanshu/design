@@ -85,7 +85,7 @@ document.head.appendChild(researchDirectStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=research-live-aligned-1';
+script.src='js/main-original.js?v=immediate-home-20260913';
 script.async=false;
 document.body.appendChild(script);
 })();
