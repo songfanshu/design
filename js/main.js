@@ -28,22 +28,42 @@ teamBuildLinkStyle.textContent=`
 #news .team-build-slide:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:-5px}
 `;
 document.head.appendChild(teamBuildLinkStyle);
-document.querySelectorAll('#news .team-build-slide').forEach(slide=>{
+
+const decorateTeamBuildSlides=()=>{
+  document.querySelectorAll('#news .team-build-slide').forEach(slide=>{
+    const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
+    if(!detailLink)return;
+    slide.setAttribute('role','link');
+    slide.setAttribute('tabindex','0');
+    const title=slide.querySelector('h3')?.textContent?.trim()||'团队建设';
+    slide.setAttribute('aria-label',`查看${title}详情`);
+  });
+};
+decorateTeamBuildSlides();
+
+// Use event delegation because main-original.js rebuilds the team-culture carousel after this file loads.
+document.addEventListener('click',event=>{
+  const slide=event.target.closest?.('#news .team-build-slide');
+  if(!slide)return;
+  if(event.target.closest('.team-build-arrow,.team-build-tabs,.team-build-dots,button'))return;
   const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
   if(!detailLink)return;
-  const href=detailLink.getAttribute('href');
-  slide.setAttribute('role','link');
-  slide.setAttribute('tabindex','0');
-  const title=slide.querySelector('h3')?.textContent?.trim()||'团队建设';
-  slide.setAttribute('aria-label',`查看${title}详情`);
-  slide.addEventListener('click',()=>{location.href=href;});
-  slide.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){
-      event.preventDefault();
-      location.href=href;
-    }
-  });
+  event.preventDefault();
+  location.assign(detailLink.href);
 });
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Enter'&&event.key!==' ')return;
+  const slide=event.target.closest?.('#news .team-build-slide');
+  if(!slide)return;
+  if(event.target.closest('button'))return;
+  const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
+  if(!detailLink)return;
+  event.preventDefault();
+  location.assign(detailLink.href);
+});
+if(teamCulturePage){
+  new MutationObserver(decorateTeamBuildSlides).observe(teamCulturePage,{childList:true,subtree:true});
+}
 
 function createPageSignature(){
   const signature=document.createElement('div');
