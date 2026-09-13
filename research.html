@@ -71,6 +71,12 @@
 .panel figcaption{flex:0 0 auto}
 html{scroll-padding-bottom:100px}
 body{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+</style>
+<style id="memory-side-by-side-layout">
+.memory .columns>div{display:grid;grid-template-columns:minmax(0,.22fr) minmax(0,.78fr);gap:12px;align-items:stretch}
+.memory .columns>div>p{align-self:center;margin:0;padding:12px 9px;line-height:1.8}
+.memory .columns>div>figure{height:100%;min-height:0}
+.memory .columns>div>figure>a{flex:1 1 0;min-height:0}
 </style></head>
 <body>
   <header>
