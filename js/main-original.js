@@ -303,30 +303,7 @@ function buildTeamCulturePage(){
   startCultureAutoplay();
 }
 
-function installPageDots(){
-  const ids=pageIds.filter(id=>pages.some(p=>p.id===id));
-  if(!ids.length||document.querySelector('.page-dots-controller'))return;
-  const labels={home:'首页',research:'研究方向',publications:'科研成果',team:'团队成员',laboratory:'实验室',news:'团队建设',contact:'联系我们'};
-  const controller=document.createElement('div');
-  controller.className='page-dots-controller';
-  controller.setAttribute('role','navigation');
-  controller.setAttribute('aria-label','页面切换');
-  controller.innerHTML=ids.map(id=>`<button class="page-dot" type="button" data-page="${id}" aria-label="切换到${labels[id]||id}" title="${labels[id]||id}"></button>`).join('');
-  controller.addEventListener('click',e=>{
-    const dot=e.target.closest('.page-dot');
-    if(!dot)return;
-    show(dot.dataset.page,true);
-  });
-  document.body.appendChild(controller);
-}
-
-function updatePageDots(id){
-  document.querySelectorAll('.page-dot').forEach(dot=>{
-    const active=dot.dataset.page===id;
-    dot.classList.toggle('active',active);
-    dot.setAttribute('aria-current',active?'page':'false');
-  });
-}
+function updatePageDots(){}
 
 function initSharpCampusMap(){
   const frame=document.querySelector('#contact .map-frame');
@@ -369,7 +346,6 @@ applyStudentPortraits();
 buildTeamCulturePage();
 installViewportFit();
 installPublicationsBackground();
-installPageDots();
 initSharpCampusMap();
 show(location.hash.slice(1));
 requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remove('page-initializing')));
