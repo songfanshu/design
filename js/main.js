@@ -1,5 +1,11 @@
 (()=>{
 'use strict';
+document.addEventListener('click', event => {
+  const link=event.target.closest('#news a[href="team-culture/academic.html"]');
+  if(link && event.button===0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey){
+    try{sessionStorage.setItem('ambic-academic-return','news');}catch{}
+  }
+});
 
 // Laboratory page removed from the public site.
 const laboratoryPage=document.getElementById('laboratory');
