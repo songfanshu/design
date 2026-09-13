@@ -149,3 +149,7 @@ body.paged #research .research-card{padding:14px 18px}
 body.paged #research .research-card p{line-height:1.4}
 }
 body.paged.page-initializing main>section{transition:none!important}
+
+/* Navigation focus uses an underline instead of a surrounding frame. */
+.main-nav a:focus,.main-nav a:focus-visible,.main-nav a:active{outline:none;box-shadow:none}
+.main-nav a:focus-visible{text-decoration:underline;text-underline-offset:8px}
