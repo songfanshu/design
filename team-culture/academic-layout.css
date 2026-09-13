@@ -158,3 +158,20 @@
     padding:0!important;
   }
 }
+
+/* Keep photos, dots and footer in separate rows within the available height. */
+@media(min-width:981px){
+  .academic-gallery-page main{flex:1 1 0;min-height:0;grid-template-rows:minmax(0,1fr);overflow-y:auto;padding-bottom:24px}
+  .academic-gallery-page .academic-carousel{height:100%;max-height:746px;min-height:0}
+  .academic-gallery-page .academic-carousel__viewport{height:auto;min-height:0;flex:1 1 0}
+  .academic-gallery-page .academic-carousel__dots{min-height:18px;margin-top:12px;flex:0 0 18px}
+  .academic-gallery-page footer{position:relative;flex:0 0 auto;margin-top:0;padding:12px 0;z-index:1}
+}
+@media(min-width:981px) and (max-height:720px){
+  .academic-copy{padding:0}
+  .academic-copy h1{font-size:42px}
+  .academic-copy__rule{margin:14px 0 16px}
+  .academic-copy h2{font-size:20px;margin-bottom:12px}
+  .academic-copy p{font-size:13px;line-height:1.65;margin-bottom:10px}
+  .academic-copy__quote{margin-top:14px!important}
+}
