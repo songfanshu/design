@@ -38,12 +38,12 @@ if(researchPage){
     root.replaceChildren();
     source.querySelectorAll('style').forEach(style=>root.append(style.cloneNode(true)));
     const base=document.createElement('style');
-    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0}';
+    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0 auto} .second-research-poster{max-width:none}';
     root.append(base,stage.cloneNode(true),second.cloneNode(true));
     const poster=root.querySelector('.poster');
     const panel=root.querySelector('.stage');
     const fit=()=>{
-      const scale=Math.min(1,host.clientWidth/1500);
+      const scale=host.clientWidth/1500;
       poster.style.transform='scale('+scale+')';
       panel.style.width=(1500*scale)+'px';
       panel.style.height=(1125*scale)+'px';
@@ -69,10 +69,12 @@ body.paged #research.research-direct-poster-page{
   padding:0!important;
   overflow:hidden!important;
   background:#fff!important;
+  scrollbar-gutter:auto;
 }
 #research.research-direct-poster-page .research-inline-poster{
   display:block;
-  width:100%;
+  width:calc(100% - 42px);
+  max-width:none;
   height:100%;
   border:0;
   margin:0;
