@@ -38,7 +38,7 @@ if(researchPage){
     root.replaceChildren();
     source.querySelectorAll('style').forEach(style=>root.append(style.cloneNode(true)));
     const base=document.createElement('style');
-    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0 auto} .second-research-poster{max-width:none}';
+    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0 auto} .poster{padding-right:0} .second-research-poster{max-width:none;padding-right:0}';
     root.append(base,stage.cloneNode(true),second.cloneNode(true));
     const poster=root.querySelector('.poster');
     const panel=root.querySelector('.stage');
@@ -80,8 +80,10 @@ body.paged #research.research-direct-poster-page{
   margin:0;
   padding:0;
   overflow:auto;
+  scrollbar-width:none;
   background:#fff;
 }
+#research.research-direct-poster-page .research-inline-poster::-webkit-scrollbar{display:none}
 `;
 document.head.appendChild(researchDirectStyle);
 
