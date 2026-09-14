@@ -94,3 +94,58 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
 .rd-sidebar nav a{transform-origin:left center;transition:transform .18s ease,background-color .18s ease,color .18s ease,text-shadow .18s ease}
 .rd-sidebar nav a:hover,.rd-sidebar nav a:focus-visible{transform:translateX(3px) scale(1.025);background:#ffffff18;color:#fff;text-shadow:0 0 .5px currentColor,0 0 .5px currentColor;border-left-color:#fff}
 @media(prefers-reduced-motion:reduce){.rd-sidebar nav a{transition:none}.rd-sidebar nav a:hover,.rd-sidebar nav a:focus-visible{transform:none}}
+
+/* Low-dimensional page: three-column research poster inspired by Bao Group. */
+.rd-lowdim-poster .rd-shell{max-width:1500px;padding-bottom:24px}
+.rd-lowdim-poster .rd-layout{display:block;padding:12px;background:#f9eeee;border:1px solid #efdcdc}
+.rd-poster-heading{background:#92221e;color:#fff;display:grid;grid-template-columns:1fr 1.6fr .65fr;align-items:center;gap:20px;padding:20px 22px}
+.rd-poster-logo{display:flex;align-items:center;gap:12px;color:#fff}
+.rd-poster-logo img{width:78px;height:60px;object-fit:contain;background:white;padding:5px}
+.rd-poster-logo span{font-size:29px;font-weight:700;letter-spacing:1px}
+.rd-poster-logo small{display:block;font-size:10px;font-weight:400;letter-spacing:0;line-height:1.7;margin-top:3px}
+.rd-poster-title{text-align:center}
+.rd-poster-title h1{font-size:clamp(23px,2.1vw,32px);line-height:1.35;margin:0 0 7px;color:#fff}
+.rd-poster-title p{font-size:10px;letter-spacing:.09em;line-height:1.5;margin:0 0 5px;color:#f6ded9}
+.rd-poster-title>span{font-size:12px;color:#f6ded9}
+.rd-poster-university{max-width:100%;width:160px;height:60px;object-fit:contain;background:#fff;padding:8px;justify-self:end}
+.rd-poster-tools nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;padding:11px 6px;border-bottom:1px solid #dfc2c0;font-size:12px;color:#92221e;line-height:1.7}
+.rd-poster-tools nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.rd-poster-tools nav a:hover{text-decoration:underline}
+.rd-lowdim-poster .rd-scope{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:12px 0;margin:0}
+.rd-lowdim-poster .rd-scope section{margin:0;padding:9px 12px;background:#fff;border-left:3px solid #92221e}
+.rd-lowdim-poster .rd-scope h2{font-size:14px;color:#92221e;margin:0 0 4px}
+.rd-lowdim-poster .rd-scope p{font-size:12px;line-height:1.65;margin:0;color:#444}
+.rd-lowdim-poster .rd-studies.rd-three-panels{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.rd-lowdim-poster .rd-three-panels>.rd-study{grid-column:auto;--panel-color:#92221e;--panel-tint:#fff;border:1px solid #92221e;border-radius:3px;background:#fff;padding:0 12px 12px;overflow:hidden}
+.rd-lowdim-poster .rd-study h2{background:#92221e;color:#fff;margin:0 -12px 10px;padding:9px 12px;font-size:18px;line-height:1.45;text-align:left;min-height:70px;display:flex;align-items:center}
+.rd-lowdim-poster .rd-journal{font-size:11px;text-align:left;color:#92221e;margin-bottom:8px}
+.rd-lowdim-poster .rd-study p{font-size:13px;line-height:1.75;padding:0;margin:0 0 9px;background:none;text-align:justify}
+.rd-lowdim-poster .rd-figures{grid-template-columns:1fr;gap:13px;margin-top:7px}
+.rd-lowdim-poster .rd-study .rd-figure>a,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure>a{min-height:0}
+.rd-lowdim-poster .rd-study .rd-figure img,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:230px;object-fit:contain}
+.rd-lowdim-poster .rd-figure figcaption{font-size:10px;line-height:1.5}
+.rd-lowdim-poster .rd-figure-credit{font-size:9px;color:#888}
+.rd-lowdim-poster .rd-paper-links{font-size:11px;padding-top:12px;gap:8px 14px}
+.rd-lowdim-poster .rd-reference{padding:18px 6px 12px;margin-top:12px;border-top:2px solid #92221e;border-bottom:0}
+.rd-lowdim-poster .rd-reference h2{font-size:16px;margin-bottom:8px}
+.rd-lowdim-poster .rd-reference ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:0;padding-left:20px}
+.rd-lowdim-poster .rd-reference li{font-size:11px;line-height:1.6;margin:0;overflow-wrap:anywhere}
+.rd-lowdim-poster .rd-reference small{font-size:10px;margin-top:4px}
+.rd-lowdim-poster .rd-direction-nav{margin-top:16px;padding:12px 6px;border-top:1px solid #dfc2c0;font-size:12px}
+@media(max-width:1100px){
+.rd-poster-heading{grid-template-columns:1fr 1.6fr;padding:16px}
+.rd-poster-university{display:none}
+.rd-lowdim-poster .rd-study h2{font-size:16px}
+.rd-lowdim-poster .rd-study p{font-size:12px}
+.rd-lowdim-poster .rd-study .rd-figure img,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:200px}
+}
+@media(max-width:800px){
+.rd-poster-heading{grid-template-columns:1fr;gap:16px}
+.rd-poster-logo{justify-content:center}
+.rd-lowdim-poster .rd-scope,.rd-lowdim-poster .rd-studies.rd-three-panels,.rd-lowdim-poster .rd-reference ol{grid-template-columns:1fr}
+.rd-lowdim-poster .rd-study h2{min-height:0;font-size:19px}
+.rd-lowdim-poster .rd-study p{font-size:14px}
+.rd-lowdim-poster .rd-study .rd-figure img,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:auto;max-height:420px}
+.rd-lowdim-poster .rd-layout{padding:10px}
+.rd-lowdim-poster .rd-reference ol{gap:12px}
+}
