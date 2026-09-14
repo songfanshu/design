@@ -153,7 +153,7 @@ document.head.appendChild(researchDirectStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=return-direct-20260913';
+script.src='js/main-original.js?v=20260914-new-portraits';
 script.async=false;
 document.body.appendChild(script);
 })();

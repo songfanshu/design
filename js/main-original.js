@@ -132,7 +132,8 @@ function applyStudentPortraits(){
     const avatar=person.querySelector('.roster-avatar');
     if(!file||!avatar)return;
     avatar.innerHTML='';
-    avatar.style.backgroundImage=`url("assets/people/students/${file}")`;
+    const portraitRevision=(name==='徐烨松'||name==='焦培城')?'?v=20260914-new-portraits':'';
+    avatar.style.backgroundImage=`url("assets/people/students/${file}${portraitRevision}")`;
     avatar.style.backgroundSize='cover';
     avatar.style.backgroundPosition='center';
     avatar.style.backgroundRepeat='no-repeat';

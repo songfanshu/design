@@ -79,3 +79,12 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
 .rd-overview-board .rd-study{transition:border-color .15s ease}
 .rd-overview-board .rd-study:hover .rd-entry-label{text-decoration:underline}
 @media(max-width:720px){.rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:auto;max-height:420px}.rd-three-panels .rd-study:nth-child(n+3) .rd-figure>a{min-height:0}.rd-study{scroll-margin-top:150px}}
+
+/* Overview: title, original figure and entry form one compact column. */
+.rd-overview-board .rd-study{display:flex;flex-direction:column;padding:18px 18px 16px;gap:12px}
+.rd-overview-board h2{margin:0!important}
+.rd-overview-board .rd-figure{margin:0;flex:1;display:flex;flex-direction:column;justify-content:center}
+.rd-overview-board img{height:285px}
+.rd-overview-board figcaption{margin-top:8px;line-height:1.5}
+.rd-overview-board .rd-entry-label{padding-top:2px;margin-top:0}
+@media(max-width:720px){.rd-overview-board .rd-study{padding:16px 12px;gap:10px}.rd-overview-board img{height:250px}}
