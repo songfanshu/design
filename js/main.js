@@ -82,7 +82,7 @@ document.head.append(signatureStyle);
 
 // Use the live research poster so both poster columns align exactly.
 const researchPage=document.getElementById('research');
-if(researchPage){
+if(researchPage&&!researchPage.querySelector('.rd-poster')){
   researchPage.className='research section research-direct-poster-page';
   // Render the research content in this document, without a nested page.
   researchPage.innerHTML='<div class="research-inline-poster" aria-label="课题组研究方向"></div>';
