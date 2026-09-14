@@ -149,3 +149,45 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
 .rd-lowdim-poster .rd-layout{padding:10px}
 .rd-lowdim-poster .rd-reference ol{gap:12px}
 }
+
+/* More spacious poster: two studies above one full-width study. */
+.rd-lowdim-poster .rd-layout{padding:22px;background:#fff}
+.rd-lowdim-poster .rd-poster-heading{padding:26px 24px;gap:26px}
+.rd-lowdim-poster .rd-poster-tools nav{padding:16px 8px;gap:10px 24px;font-size:14px}
+.rd-lowdim-poster .rd-scope{padding:22px 0;gap:22px}
+.rd-lowdim-poster .rd-scope section{padding:14px 16px;background:#fcf7f6}
+.rd-lowdim-poster .rd-scope h2{font-size:16px;margin-bottom:7px}
+.rd-lowdim-poster .rd-scope p{font-size:14px;line-height:1.8}
+.rd-lowdim-poster .rd-studies.rd-three-panels{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.rd-lowdim-poster .rd-three-panels>.rd-study{padding:0 22px 22px}
+.rd-lowdim-poster .rd-three-panels>.rd-study:last-child{grid-column:1/-1}
+.rd-lowdim-poster .rd-study h2{margin:0 -22px 18px;padding:15px 22px;font-size:21px;min-height:0;line-height:1.5}
+.rd-lowdim-poster .rd-journal{font-size:13px;margin-bottom:16px}
+.rd-lowdim-poster .rd-study p{font-size:15px;line-height:1.9;margin-bottom:15px}
+.rd-lowdim-poster .rd-figures{gap:24px;margin-top:16px}
+.rd-lowdim-poster .rd-study .rd-figure img,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:320px}
+.rd-lowdim-poster .rd-three-panels>.rd-study:last-child .rd-figures{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.rd-lowdim-poster .rd-figure figcaption{font-size:12px;line-height:1.7;margin-top:10px}
+.rd-lowdim-poster .rd-figure-credit{font-size:11px;margin-top:4px}
+.rd-lowdim-poster .rd-paper-links{font-size:13px;padding-top:20px;gap:12px 24px}
+.rd-lowdim-poster .rd-reference{padding:26px 8px 20px;margin-top:28px}
+.rd-lowdim-poster .rd-reference h2{font-size:20px;margin-bottom:16px}
+.rd-lowdim-poster .rd-reference ol{grid-template-columns:1fr;gap:16px}
+.rd-lowdim-poster .rd-reference li{font-size:13px;line-height:1.8}
+.rd-lowdim-poster .rd-reference small{font-size:12px}
+.rd-lowdim-poster .rd-direction-nav{padding:18px 8px;margin-top:22px;font-size:14px}
+@media(max-width:900px){
+.rd-lowdim-poster .rd-studies.rd-three-panels{grid-template-columns:1fr}
+.rd-lowdim-poster .rd-three-panels>.rd-study:last-child{grid-column:auto}
+.rd-lowdim-poster .rd-study .rd-figures{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rd-lowdim-poster .rd-layout{padding:16px}
+}
+@media(max-width:600px){
+.rd-lowdim-poster .rd-scope{grid-template-columns:1fr;gap:12px}
+.rd-lowdim-poster .rd-study .rd-figures,.rd-lowdim-poster .rd-three-panels>.rd-study:last-child .rd-figures{grid-template-columns:1fr}
+.rd-lowdim-poster .rd-three-panels>.rd-study{padding:0 16px 20px}
+.rd-lowdim-poster .rd-study h2{margin-left:-16px;margin-right:-16px;padding:13px 16px;font-size:20px}
+.rd-lowdim-poster .rd-study .rd-figure img,.rd-lowdim-poster .rd-three-panels .rd-study:nth-child(n+3) .rd-figure img{height:auto;max-height:450px}
+.rd-lowdim-poster .rd-poster-heading{padding:22px 16px}
+.rd-lowdim-poster .rd-layout{padding:10px}
+}
