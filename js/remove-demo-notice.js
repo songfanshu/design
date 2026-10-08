@@ -32,11 +32,22 @@ function clean(root) {
     if (notice.test(root.data)) hideNotice(root);
     return;
   }
+  // The hosting notice may split its sentence across nested spans. Check the
+  // smallest matching element as well as individual text nodes.
+  if (root.nodeType === Node.ELEMENT_NODE &&
+      !root.matches('html,body,main,header,footer,section,#pages,script,style,textarea') &&
+      notice.test(root.textContent || '')) {
+    hideNotice({parentElement: root});
+  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) clean(node);
   if (root.querySelectorAll) {
-    root.querySelectorAll('*').forEach(element => {
+    [...root.querySelectorAll('*')].reverse().forEach(element => {
+      if (!element.matches('main,header,footer,section,#pages,script,style,textarea') &&
+          notice.test(element.textContent || '')) {
+        hideNotice({parentElement: element});
+      }
       if (element.shadowRoot) watch(element.shadowRoot);
     });
   }
