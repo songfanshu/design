@@ -1,6 +1,7 @@
 (() => {
 'use strict';
 const notice = /For\s+demonstration\s+and\s+testing\s+purposes\s+only\.\s*Please\s+do\s+not\s+enter\s+any\s+sensitive\s+data\./;
+const noticeContainers = '[role="alert"],[class*="banner" i],[class*="notice" i],[class*="disclaimer" i],[class*="toast" i]';
 const observed = new WeakSet();
 const hidden = new WeakSet();
 function parent(element) {
@@ -32,22 +33,18 @@ function clean(root) {
     if (notice.test(root.data)) hideNotice(root);
     return;
   }
-  // The hosting notice may split its sentence across nested spans. Check the
-  // smallest matching element as well as individual text nodes.
-  if (root.nodeType === Node.ELEMENT_NODE &&
-      !root.matches('html,body,main,header,footer,section,#pages,script,style,textarea') &&
-      notice.test(root.textContent || '')) {
-    hideNotice({parentElement: root});
-  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) clean(node);
   if (root.querySelectorAll) {
-    [...root.querySelectorAll('*')].reverse().forEach(element => {
-      if (!element.matches('main,header,footer,section,#pages,script,style,textarea') &&
-          notice.test(element.textContent || '')) {
+    // Only inspect likely notice containers for split text. Avoid repeatedly
+    // reading textContent from every page element, which is costly on long pages.
+    root.querySelectorAll(noticeContainers).forEach(element => {
+      if (notice.test(element.textContent || '')) {
         hideNotice({parentElement: element});
       }
+    });
+    root.querySelectorAll('*').forEach(element => {
       if (element.shadowRoot) watch(element.shadowRoot);
     });
   }
@@ -70,6 +67,6 @@ window.addEventListener('pageshow', () => clean(document.documentElement));
 let passes = 0;
 const startupCheck = setInterval(() => {
   clean(document.documentElement);
-  if (++passes === 20) clearInterval(startupCheck);
+  if (++passes === 8) clearInterval(startupCheck);
 }, 250);
 })();
