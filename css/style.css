@@ -153,3 +153,23 @@ body.paged.page-initializing main>section{transition:none!important}
 /* Keep navigation focus free of extra frames and text underlines. */
 .main-nav a:focus,.main-nav a:focus-visible,.main-nav a:active{outline:none;box-shadow:none}
 .main-nav a:focus,.main-nav a:focus-visible,.main-nav a:active{text-decoration:none}
+
+/* Contact external links: a clear, tactile hover cue for the two arrow links. */
+.contact-info>div:nth-child(3) a{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  margin:1px -10px;
+  border-radius:7px;
+  transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease,color .2s ease;
+}
+.contact-info>div:nth-child(3) a:hover{
+  color:#06472e;
+  background:rgba(7,91,57,.09);
+  box-shadow:0 8px 18px rgba(7,91,57,.12);
+  transform:translate(7px,-2px);
+}
+.contact-info>div:nth-child(3) a:active{transform:translate(4px,0)}
+@media(prefers-reduced-motion:reduce){
+  .contact-info>div:nth-child(3) a{transition:none}
+}
