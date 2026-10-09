@@ -34,6 +34,12 @@ a[href]{
     box-shadow:0 14px 32px rgba(7,91,57,.2);
     filter:saturate(1.04) contrast(1.02);
   }
+  /* Header identity logos stay completely still on hover. */
+  .home-branding a:hover img{
+    transform:none;
+    box-shadow:none;
+    filter:none;
+  }
   /* Research overview: keep figures still and enlarge only the direction title. */
   .rd-overview-board .rd-study:hover{
     transform:none;
