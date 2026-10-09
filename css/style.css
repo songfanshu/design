@@ -164,9 +164,6 @@ body.paged.page-initializing main>section{transition:none!important}
   transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease,color .2s ease;
 }
 .contact-info>div:nth-child(3) a:hover{
-  color:#06472e;
-  box-shadow:none;
-  text-shadow:0 2px 7px rgba(7,91,57,.24);
   transform:translate(7px,-2px);
 }
 .contact-info>div:nth-child(3) a:active{transform:translate(4px,0)}

@@ -10,17 +10,11 @@ a[href]{
     transform .2s ease,filter .2s ease,border-color .2s ease;
 }
 @media (hover:hover) and (pointer:fine){
-  a[href]:hover{
-    color:#075b39;
-    filter:drop-shadow(0 5px 8px rgba(7,91,57,.14));
-  }
-  /* Navigation and ordinary text links receive a compact highlighted surface. */
+  /* Navigation and ordinary text links only rise slightly. */
   .main-nav a[href]:hover,.rd-nav a[href]:hover,.rd-sidebar a[href]:hover,
   .paper-nav a[href]:hover,.paper-toc a[href]:hover,
   a.text-link:hover,a.profile-link:hover,a.roster-email:hover,
   .contact-info a[href]:hover{
-    box-shadow:none;
-    text-shadow:0 2px 7px rgba(7,91,57,.24);
     transform:translateY(-2px);
   }
   /* Buttons, detail links, publication rows and clickable cards lift as a unit. */
