@@ -19,7 +19,8 @@ a[href]{
   .paper-nav a[href]:hover,.paper-toc a[href]:hover,
   a.text-link:hover,a.profile-link:hover,a.roster-email:hover,
   .contact-info a[href]:hover{
-    box-shadow:0 7px 18px rgba(7,91,57,.12);
+    box-shadow:none;
+    text-shadow:0 2px 7px rgba(7,91,57,.24);
     transform:translateY(-2px);
   }
   /* Buttons, detail links, publication rows and clickable cards lift as a unit. */
