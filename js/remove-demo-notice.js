@@ -19,7 +19,7 @@ a[href]{
   }
   /* Buttons, detail links, publication rows and clickable cards lift as a unit. */
   a.mockup-button:hover,a.button:hover,a.back-bottom:hover,a.rd-paper:hover,
-  a.rd-study:hover,a.publication:hover,.team-build-slide a[href]:hover,
+  .team-build-slide a[href]:hover,
   a[class*="card" i]:hover,a[class*="item" i]:hover{
     transform:translateY(-4px);
     box-shadow:0 14px 30px rgba(7,91,57,.18);
@@ -34,6 +34,31 @@ a[href]{
     box-shadow:0 14px 32px rgba(7,91,57,.2);
     filter:saturate(1.04) contrast(1.02);
   }
+  /* Research overview: keep figures still and enlarge only the direction title. */
+  .rd-overview-board .rd-study:hover{
+    transform:none;
+    box-shadow:none;
+    filter:none;
+  }
+  .rd-overview-board .rd-study h2{
+    transition:transform .2s ease;
+    transform-origin:center;
+  }
+  .rd-overview-board .rd-study:hover h2{transform:scale(1.06)}
+  .rd-overview-board .rd-study:hover img{
+    transform:none;
+    box-shadow:none;
+    filter:none;
+  }
+  /* Publication rows should never gain a white or floating background panel. */
+  #publications .publication:hover,
+  #publications .publication:focus,
+  #publications .publication:focus-visible{
+    background:transparent!important;
+    box-shadow:none!important;
+    filter:none!important;
+    outline:none!important;
+  }
 }
 a[href]:active{transform:translateY(0) scale(.985)}
 a[href]:focus-visible{
@@ -42,7 +67,7 @@ a[href]:focus-visible{
   border-radius:6px;
 }
 @media (prefers-reduced-motion:reduce){
-  a[href],a[href] img{transition:none!important}
+  a[href],a[href] img,.rd-overview-board .rd-study h2{transition:none!important}
 }
 `;
 (document.head || document.documentElement).appendChild(interactionStyle);
