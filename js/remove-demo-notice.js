@@ -19,7 +19,6 @@ a[href]{
   .paper-nav a[href]:hover,.paper-toc a[href]:hover,
   a.text-link:hover,a.profile-link:hover,a.roster-email:hover,
   .contact-info a[href]:hover{
-    background:rgba(7,91,57,.09);
     box-shadow:0 7px 18px rgba(7,91,57,.12);
     transform:translateY(-2px);
   }

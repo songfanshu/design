@@ -165,7 +165,6 @@ body.paged.page-initializing main>section{transition:none!important}
 }
 .contact-info>div:nth-child(3) a:hover{
   color:#06472e;
-  background:rgba(7,91,57,.09);
   box-shadow:0 8px 18px rgba(7,91,57,.12);
   transform:translate(7px,-2px);
 }
