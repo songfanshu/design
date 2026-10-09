@@ -40,15 +40,7 @@ a[href]{
     box-shadow:none;
     filter:none;
   }
-  /* Collaborative innovation: keep paper figures still and emphasize the
-     matching title on the left when its figure is hovered. */
-  .collaboration-overview .slide-copy h2{
-    transition:transform .2s ease;
-    transform-origin:left center;
-  }
-  .collaboration-overview .slide:has(.slide-image:hover) .slide-copy h2{
-    transform:scale(1.06)!important;
-  }
+  /* Collaborative innovation: paper figures stay completely still. */
   .collaboration-overview .slide-image:hover img{
     transform:none;
     box-shadow:none;
@@ -87,8 +79,7 @@ a[href]:focus-visible{
   border-radius:6px;
 }
 @media (prefers-reduced-motion:reduce){
-  a[href],a[href] img,.rd-overview-board .rd-study h2,
-  .collaboration-overview .slide-copy h2{transition:none!important}
+  a[href],a[href] img,.rd-overview-board .rd-study h2{transition:none!important}
 }
 `;
 (document.head || document.documentElement).appendChild(interactionStyle);
