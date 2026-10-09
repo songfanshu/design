@@ -1,1 +1,59 @@
-<!doctype html><html lang="zh-CN"><head><script defer src="../js/remove-demo-notice.js?v=20261009-static-collaboration-v8"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>仿视网膜前端连接感知与运动决策｜AMBIC</title><link href="collaboration-paper.css?v=20260913-research-background" rel="stylesheet"></head><body><header><a class="brand" href="../index.html#home">AMBIC</a><a href="collaboration.html#perovskite-retina">返回</a></header><main class="article"><span class="eyebrow">RESEARCH INSIGHT</span><h1>仿视网膜前端连接感知与运动决策</h1><p class="meta">Science Advances 11 (2025), eads2834</p><div class="lead">仿视网膜阵列采用一个光探测器–一个晶体管的像素结构，通过可重构光响应执行自适应成像和原位特征提取，降低视觉信息表达的冗余。</div><nav class="toc" aria-label="文章目录"><a href="#section-1">材料与器件</a><a href="#paper-source">论文来源</a></nav><section id="section-1"><span class="number">01 / 材料与器件</span><h2>钙钛矿仿视网膜感知与具身智能视觉系统</h2><p>仿视网膜阵列采用一个光探测器–一个晶体管的像素结构，通过可重构光响应执行自适应成像和原位特征提取，降低视觉信息表达的冗余。系统把感知前端、特征编码与机器人运动决策连接起来，是由材料与器件性能走向感知—计算—行为闭环的智能微系统示范。</p><figure><a href="../assets/research/second-retina.jpg" target="_blank" rel="noopener" aria-label="查看钙钛矿仿视网膜感知与具身智能视觉系统大图"><img src="../assets/research/second-retina.jpg" loading="lazy" alt="钙钛矿仿视网膜感知与具身智能视觉系统"></a><figcaption>钙钛矿仿视网膜感知与具身智能视觉系统</figcaption></figure></section><section class="reference" id="paper-source"><h2>论文来源</h2><p>Perovskite retinomorphic image sensor for embodied intelligent vision</p><p>Zhilong He, Hongxiao Duan, Jianmin Zeng, Jie Zhou, Xiaolong Zhong, Zhixin Wu, Shenzhou Ni, Ze Jiang, Guangjun Xie, Jung-Yong Lee, Yi Lu, Yonghong Zeng, Biao Zhang, Wu Bin Ying, Zhibin Yang, Zhang Zhang, Gang Liu</p><p>Science Advances 11 (2025), eads2834</p><a href="https://doi.org/10.1126/sciadv.ads2834" target="_blank" rel="noopener">DOI：10.1126/sciadv.ads2834</a></section><a class="back-bottom" href="collaboration.html#perovskite-retina">返回协同创新</a><div class="signature"><span>AMBIC Laboratory</span><span>SUN YAT-SEN UNIVERSITY</span></div></main></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<script defer src="../js/remove-demo-notice.js?v=20261009-static-collaboration-v8">
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仿视网膜前端连接感知与运动决策｜AMBIC</title>
+<link href="collaboration-paper.css?v=20260913-research-background" rel="stylesheet">
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html#home">AMBIC</a>
+<a href="collaboration.html#perovskite-retina">返回</a>
+</header>
+<main class="article">
+<span class="eyebrow">RESEARCH INSIGHT</span>
+<h1>仿视网膜前端连接感知与运动决策</h1>
+<p class="meta">Science Advances 11 (2025), eads2834</p>
+<div class="lead">该研究把 4096 像素钙钛矿图像传感阵列、1T–1PD 可重构像素、原位特征提取算法、MCU/FPGA 控制器与外骨骼机器人连接起来，使视觉前端不只“拍到图像”，还能够在传感阶段完成光适应、特征压缩、识别与运动决策。</div>
+<div class="metrics"><div><strong>64 × 64</strong><span>4096 像素仿视网膜阵列</span></div><div><strong>≈620%</strong><span>暗光自适应对比度提升</span></div><div><strong>400–1000 nm</strong><span>宽谱光响应范围</span></div></div>
+<nav class="toc" aria-label="文章目录">
+<a href="#section-1">系统设计</a>
+<a href="#section-2">阵列与像素</a>
+<a href="#section-3">自适应成像</a>
+<a href="#section-4">原位计算</a>
+<a href="#section-5">运动决策</a>
+<a href="#paper-source">论文来源</a>
+</nav>
+<section id="section-1">
+<span class="number">01 / 系统设计</span>
+<h2>用器件阵列复现视网膜的感知与调制层级</h2>
+<p>生物视网膜由感光细胞、水平细胞、双极细胞、无长突细胞和神经节细胞协同完成感知、光适应与特征提取。论文将这些功能简化映射为钙钛矿光探测器、a-Si TFT 调制像素和 MCU/FPGA“类皮层”控制器：阵列负责光电转换与加权累加，外围硬件负责寻址、读出、识别和行为控制。</p>
+<figure>
+<a href="../assets/research/second-retina.jpg" target="_blank" rel="noopener" aria-label="查看钙钛矿仿视网膜感知与具身智能视觉系统大图">
+<img src="../assets/research/second-retina.jpg" loading="lazy" alt="钙钛矿仿视网膜感知与具身智能视觉系统">
+</a>
+<figcaption>图 1｜生物视网膜层级与钙钛矿仿视网膜计算系统的对应关系。</figcaption>
+</figure>
+</section>
+<section id="section-2"><span class="number">02 / 阵列与像素</span><h2>4096 像素 1T–1PD 阵列实现独立寻址</h2><p>每个像素由一个 a-Si TFT 和一个窄带隙钙钛矿光探测器组成，像素面积为 500 μm × 500 μm，探测器底部 ITO 电极通过通孔与 TFT 漏极连接。FA₀.₈Cs₀.₂Pb₀.₅Sn₀.₅I₃ 将吸收扩展到近红外，器件采用 ITO/PEDOT:PSS/钙钛矿/C₆₀/BCP/Au 倒置结构；TFT 同时承担像素选择、光响应放大和权重调节。</p><figure><a href="../assets/research/retina-fig2.jpg" target="_blank" rel="noopener" aria-label="查看4096像素钙钛矿阵列与器件性能大图"><img src="../assets/research/retina-fig2.jpg" loading="lazy" alt="4096像素钙钛矿仿视网膜阵列和可重构器件性能"></a><figcaption>图 2｜64 × 64 TFT 面板、单片集成 1T–1PD 阵列及可重构光响应。</figcaption></figure></section>
+<section id="section-3"><span class="number">03 / 自适应成像</span><h2>从强光到暗光，像素灵敏度可按需放大</h2><p>单器件在 400–1000 nm 范围内实现宽谱探测，最大外量子效率约 90%、响应度 0.56 A/W、比探测率 9.11 × 10¹² Jones，线性动态范围达到 168 dB。通过电压诱导卤素离子迁移，可连续、可逆地调整像素光响应度。在 10 μW·cm⁻² 暗光下，阵列放大响应后图像对比度提高约 620%，使原本模糊的目标重新清晰。</p><figure><a href="../assets/research/retina-fig3.jpg" target="_blank" rel="noopener" aria-label="查看暗光自适应成像结果大图"><img src="../assets/research/retina-fig3.jpg" loading="lazy" alt="4096像素阵列的均匀性与暗光自适应成像"></a><figcaption>图 3｜阵列像素均匀性、宽谱成像与暗光条件下的自适应增强。</figcaption></figure></section>
+<section id="section-4"><span class="number">04 / 原位计算</span><h2>在传感端直接提取一维特征</h2><p>论文提出瞬时一维特征提取方法，将训练得到的权重写入像素响应度。入射图像在光电转换过程中直接完成按行选择、按列电流求和与加权累加，把二维图像压缩成更精炼的时空特征，再交给 FPGA 上的全连接网络或循环网络。这样可减少原始图像在传感器与处理器之间的搬运和冗余计算。</p><figure><a href="../assets/research/retina-fig4.jpg" target="_blank" rel="noopener" aria-label="查看原位特征提取和识别硬件大图"><img src="../assets/research/retina-fig4.jpg" loading="lazy" alt="仿视网膜阵列原位特征提取与FPGA识别系统"></a><figcaption>图 4｜权重写入、原位特征提取、识别网络与完整硬件原型。</figcaption></figure></section>
+<section id="section-5"><span class="number">05 / 运动决策</span><h2>把视觉识别结果转化为机器人动作</h2><p>系统进一步面向路口倒计时场景，将闪烁数字的连续图像输入传感阵列，由前端提取时序特征、循环神经网络判断倒计时状态，再据此调节外骨骼机器人的行进速度。该演示建立了“看见—识别—决策—行动”的完整闭环，说明可重构感知阵列能够服务具身智能，而不只是完成静态图像分类。</p><figure><a href="../assets/research/retina-fig5.jpg" target="_blank" rel="noopener" aria-label="查看外骨骼机器人运动决策演示大图"><img src="../assets/research/retina-fig5.jpg" loading="lazy" alt="仿视网膜系统驱动外骨骼机器人进行交通场景决策"></a><figcaption>图 5｜交通倒计时识别、时序决策网络与外骨骼机器人运动控制。</figcaption></figure></section>
+<section class="reference" id="paper-source">
+<h2>论文来源</h2>
+<p>Perovskite retinomorphic image sensor for embodied intelligent vision</p>
+<p>Zhilong He, Hongxiao Duan, Jianmin Zeng, Jie Zhou, Xiaolong Zhong, Zhixin Wu, Shenzhou Ni, Ze Jiang, Guangjun Xie, Jung-Yong Lee, Yi Lu, Yonghong Zeng, Biao Zhang, Wu Bin Ying, Zhibin Yang, Zhang Zhang, Gang Liu</p>
+<p>Science Advances 11 (2025), eads2834</p>
+<a href="https://doi.org/10.1126/sciadv.ads2834" target="_blank" rel="noopener">DOI：10.1126/sciadv.ads2834</a>
+</section>
+<a class="back-bottom" href="collaboration.html#perovskite-retina">返回协同创新</a>
+<div class="signature">
+<span>AMBIC Laboratory</span>
+<span>SUN YAT-SEN UNIVERSITY</span>
+</div>
+</main>
+</body>
+</html>
