@@ -1,5 +1,57 @@
 (() => {
 'use strict';
+const interactionStyle = document.createElement('style');
+interactionStyle.id = 'global-link-hover-effects';
+interactionStyle.textContent = `
+/* Every link that opens another section, page, detail view or external site. */
+a[href]{
+  cursor:pointer;
+  transition:color .2s ease,background-color .2s ease,box-shadow .2s ease,
+    transform .2s ease,filter .2s ease,border-color .2s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  a[href]:hover{
+    color:#075b39;
+    filter:drop-shadow(0 5px 8px rgba(7,91,57,.14));
+  }
+  /* Navigation and ordinary text links receive a compact highlighted surface. */
+  .main-nav a[href]:hover,.rd-nav a[href]:hover,.rd-sidebar a[href]:hover,
+  .paper-nav a[href]:hover,.paper-toc a[href]:hover,
+  a.text-link:hover,a.profile-link:hover,a.roster-email:hover,
+  .contact-info a[href]:hover{
+    background:rgba(7,91,57,.09);
+    box-shadow:0 7px 18px rgba(7,91,57,.12);
+    transform:translateY(-2px);
+  }
+  /* Buttons, detail links, publication rows and clickable cards lift as a unit. */
+  a.mockup-button:hover,a.button:hover,a.back-bottom:hover,a.rd-paper:hover,
+  a.rd-study:hover,a.publication:hover,.team-build-slide a[href]:hover,
+  a[class*="card" i]:hover,a[class*="item" i]:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(7,91,57,.18);
+    filter:none;
+  }
+  /* Linked figures visibly enlarge without changing the document flow. */
+  a[href] img{
+    transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+  }
+  a[href]:hover img{
+    transform:scale(1.025);
+    box-shadow:0 14px 32px rgba(7,91,57,.2);
+    filter:saturate(1.04) contrast(1.02);
+  }
+}
+a[href]:active{transform:translateY(0) scale(.985)}
+a[href]:focus-visible{
+  outline:3px solid rgba(41,149,105,.72);
+  outline-offset:4px;
+  border-radius:6px;
+}
+@media (prefers-reduced-motion:reduce){
+  a[href],a[href] img{transition:none!important}
+}
+`;
+(document.head || document.documentElement).appendChild(interactionStyle);
 const notice = /For\s+demonstration\s+and\s+testing\s+purposes\s+only\.\s*Please\s+do\s+not\s+enter\s+any\s+sensitive\s+data\./;
 const noticeContainers = '[role="alert"],[class*="banner" i],[class*="notice" i],[class*="disclaimer" i],[class*="toast" i]';
 const observed = new WeakSet();
