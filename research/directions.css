@@ -509,3 +509,12 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
     justify-self:end;
   }
 }
+
+
+/* Transparent brand treatment for the red research-overview panel. */
+.rd-sidebar .rd-poster-brand.rd-poster-brand-pair-link img{
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
