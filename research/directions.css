@@ -519,3 +519,13 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
   box-shadow:none;
   filter:brightness(0) invert(1);
 }
+
+
+/* White detail-page logos with no rectangular backing. */
+.rd-paper-poster .rd-poster-logo img,
+.rd-paper-poster .rd-poster-university{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  filter:brightness(0) invert(1);
+}
