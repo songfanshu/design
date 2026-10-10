@@ -80,42 +80,37 @@ document.head.append(signatureStyle);
   if(page)page.append(createPageSignature());
 });
 
-// Use the live research poster so both poster columns align exactly.
+// Load the current research overview directly into the homepage section.
+// The overview markup changed from the old .stage layout to .rd-poster, so keep
+// this loader aligned with research.html and always leave a visible fallback.
 const researchPage=document.getElementById('research');
 if(researchPage&&!researchPage.querySelector('.rd-poster')){
-  researchPage.className='research section research-direct-poster-page';
-  // Render the research content in this document, without a nested page.
-  researchPage.innerHTML='<div class="research-inline-poster" aria-label="课题组研究方向"></div>';
-  const host=researchPage.querySelector('.research-inline-poster');
-  const root=host.attachShadow({mode:'open'});
-  root.innerHTML='<p style="padding:24px">研究方向加载中…</p>';
+  researchPage.className='research section research-overview research-loading';
+  researchPage.setAttribute('aria-busy','true');
+  researchPage.innerHTML='<div class="research-load-status" role="status">研究方向加载中…</div>';
+
+  if(!document.querySelector('link[data-research-directions]')){
+    const directionsCss=document.createElement('link');
+    directionsCss.rel='stylesheet';
+    directionsCss.href='research/directions.css?v=20261010-overview-fix-1';
+    directionsCss.dataset.researchDirections='';
+    document.head.appendChild(directionsCss);
+  }
+
   fetch('research.html').then(response=>{
     if(!response.ok)throw new Error('Research page unavailable');
     return response.text();
   }).then(html=>{
     const source=new DOMParser().parseFromString(html,'text/html');
-    const stage=source.querySelector('.stage');
-    const second=source.querySelector('.second-research-poster');
-    if(!stage||!second)throw new Error('Research content missing');
-    root.replaceChildren();
-    source.querySelectorAll('style').forEach(style=>root.append(style.cloneNode(true)));
-    const base=document.createElement('style');
-    base.textContent=':host{display:block;background:#fff;color:#252525;font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:normal} .stage{margin:0 auto} .poster{padding-left:16px;padding-right:16px} .second-research-poster{max-width:none;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}';
-    const signatureStyle=document.createElement('style');
-    signatureStyle.textContent=signatureCss+' .page-signature{width:calc(100% - 40px);margin-top:20px;margin-bottom:28px}';
-    root.append(base,signatureStyle,stage.cloneNode(true),second.cloneNode(true),createPageSignature());
-    const poster=root.querySelector('.poster');
-    const panel=root.querySelector('.stage');
-    const fit=()=>{
-      const scale=host.clientWidth/1500;
-      poster.style.transform='scale('+scale+')';
-      panel.style.width=(1500*scale)+'px';
-      panel.style.height=(poster.offsetHeight*scale)+'px';
-    };
-    new ResizeObserver(fit).observe(host);
-    fit();
+    const poster=source.querySelector('.rd-poster');
+    if(!poster)throw new Error('Research overview missing');
+    researchPage.replaceChildren(poster.cloneNode(true));
+    researchPage.classList.remove('research-loading');
+    researchPage.setAttribute('aria-busy','false');
   }).catch(()=>{
-    root.innerHTML='<p style="padding:24px">研究方向暂时无法加载，请刷新页面或<a href="research.html">打开研究方向页面</a>。</p>';
+    researchPage.innerHTML='<div class="research-load-status research-load-error"><strong>研究方向暂时无法加载</strong><span>请刷新页面，或<a href="research.html">打开研究方向页面</a>。</span></div>';
+    researchPage.classList.remove('research-loading');
+    researchPage.setAttribute('aria-busy','false');
   });
 }
 
@@ -123,33 +118,40 @@ document.querySelectorAll('#mainNav a[href="research.html"]').forEach(link=>{
   link.setAttribute('href','#research');
 });
 
-const researchDirectStyle=document.createElement('style');
-researchDirectStyle.id='research-direct-poster-style';
-researchDirectStyle.textContent=`
-body.paged #research.research-direct-poster-page{
+const researchOverviewStyle=document.createElement('style');
+researchOverviewStyle.id='research-overview-style';
+researchOverviewStyle.textContent=`
+body.paged #research.research-overview{
   height:100%!important;
   min-height:0!important;
   display:block!important;
-  padding:0!important;
-  overflow:hidden!important;
+  padding:12px 16px 40px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
   background:#fff!important;
-  scrollbar-gutter:auto;
 }
-#research.research-direct-poster-page .research-inline-poster{
-  display:block;
+#research.research-overview .rd-poster{
   width:100%;
-  max-width:none;
-  height:100%;
-  border:0;
+  max-width:1468px;
   margin:0 auto;
-  padding:0;
-  overflow:auto;
-  scrollbar-width:none;
-  background:#fff;
 }
-#research.research-direct-poster-page .research-inline-poster::-webkit-scrollbar{display:none}
+#research .research-load-status{
+  min-height:calc(100dvh - var(--header) - 52px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#52645b;
+  font-size:16px;
+}
+#research .research-load-error strong{color:#17372d;font-size:20px}
+#research .research-load-error a{color:var(--green);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:720px){
+  body.paged #research.research-overview{padding:12px 12px 36px!important}
+}
 `;
-document.head.appendChild(researchDirectStyle);
+document.head.appendChild(researchOverviewStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
