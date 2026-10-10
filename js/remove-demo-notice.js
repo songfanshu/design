@@ -83,73 +83,79 @@ a[href]:focus-visible{
 }
 `;
 (document.head || document.documentElement).appendChild(interactionStyle);
-const notice = /For\s+demonstration\s+and\s+testing\s+purposes\s+only\.\s*Please\s+do\s+not\s+enter\s+any\s+sensitive\s+data\./;
+const notice = /For\s+demonstration\s+and\s+testing\s+purposes\s+only\.\s*Please\s+do\s+not\s+enter\s+any\s+sensitive\s+data\./i;
 const noticeContainers = '[role="alert"],[class*="banner" i],[class*="notice" i],[class*="disclaimer" i],[class*="toast" i]';
-const observed = new WeakSet();
 const hidden = new WeakSet();
+
 function parent(element) {
   return element.parentElement || element.getRootNode()?.host || null;
 }
-function hideNotice(text) {
-  let element = text.parentElement;
-  if (!element || element.closest('script,style,textarea')) return;
-  let container = element;
-  // Keep the close control and backdrop inside the same hidden container.
-  // Never select the document or the site's content/navigation containers.
-  while (element && !element.matches('html,body,main,header,footer,section,#pages')) {
-    const style = getComputedStyle(element);
-    const label = element.id + ' ' + (element.getAttribute('class') || '');
+
+function hideContainer(element) {
+  if (!element || hidden.has(element)) return;
+  let container = element.closest?.(noticeContainers) || element;
+  let current = container;
+  while (current && !current.matches?.('html,body,main,header,footer,section,#pages')) {
+    const style = getComputedStyle(current);
+    const label = current.id + ' ' + (current.getAttribute?.('class') || '');
     if (style.position === 'fixed' || /(?:banner|notice|disclaimer|toast)/i.test(label)) {
-      container = element;
+      container = current;
     }
-    element = parent(element);
+    current = parent(current);
   }
   if (hidden.has(container)) return;
   hidden.add(container);
-  container.setAttribute('aria-hidden', 'true');
-  container.style.setProperty('display', 'none', 'important');
-  container.style.setProperty('visibility', 'hidden', 'important');
-  container.style.setProperty('pointer-events', 'none', 'important');
+  container.setAttribute?.('aria-hidden', 'true');
+  container.style?.setProperty('display', 'none', 'important');
+  container.style?.setProperty('visibility', 'hidden', 'important');
+  container.style?.setProperty('pointer-events', 'none', 'important');
 }
-function clean(root) {
+
+function inspect(root) {
+  if (!root) return;
   if (root.nodeType === Node.TEXT_NODE) {
-    if (notice.test(root.data)) hideNotice(root);
+    if (notice.test(root.data || '')) hideContainer(root.parentElement);
     return;
   }
+  if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE && root.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) return;
+
+  if (root.matches?.(noticeContainers) && notice.test(root.textContent || '')) hideContainer(root);
+  root.querySelectorAll?.(noticeContainers).forEach(element => {
+    if (notice.test(element.textContent || '')) hideContainer(element);
+  });
+
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  let node;
-  while ((node = walker.nextNode())) clean(node);
-  if (root.querySelectorAll) {
-    // Only inspect likely notice containers for split text. Avoid repeatedly
-    // reading textContent from every page element, which is costly on long pages.
-    root.querySelectorAll(noticeContainers).forEach(element => {
-      if (notice.test(element.textContent || '')) {
-        hideNotice({parentElement: element});
-      }
-    });
-    root.querySelectorAll('*').forEach(element => {
-      if (element.shadowRoot) watch(element.shadowRoot);
-    });
+  let text;
+  while ((text = walker.nextNode())) {
+    if (notice.test(text.data || '')) hideContainer(text.parentElement);
   }
 }
-function watch(root) {
-  if (observed.has(root)) return;
-  observed.add(root);
-  clean(root);
-  new MutationObserver(records => {
-    for (const record of records) {
-      if (record.type === 'characterData') clean(record.target);
-      else record.addedNodes.forEach(clean);
-    }
-  }).observe(root, {subtree:true, childList:true, characterData:true});
+
+function inspectExistingShadowRoots() {
+  document.querySelectorAll('*').forEach(element => {
+    if (element.shadowRoot) inspect(element.shadowRoot);
+  });
 }
-watch(document.documentElement);
-document.addEventListener('DOMContentLoaded', () => clean(document.documentElement), {once:true});
-window.addEventListener('pageshow', () => clean(document.documentElement));
-// Also catch shadow roots attached after their host entered the document.
-let passes = 0;
-const startupCheck = setInterval(() => {
-  clean(document.documentElement);
-  if (++passes === 8) clearInterval(startupCheck);
-}, 250);
+
+function start() {
+  inspect(document);
+  inspectExistingShadowRoots();
+
+  const observer = new MutationObserver(records => {
+    for (const record of records) {
+      if (record.type === 'characterData') {
+        inspect(record.target);
+      } else {
+        record.addedNodes.forEach(inspect);
+      }
+    }
+  });
+  observer.observe(document.documentElement, {subtree:true, childList:true, characterData:true});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', start, {once:true});
+} else {
+  start();
+}
 })();
