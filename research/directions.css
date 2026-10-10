@@ -448,3 +448,34 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
     padding:6px 8px;
   }
 }
+
+
+/* Exact crop of the homepage header's right-side AMBIC mark. */
+.rd-paper-poster .rd-poster-logo{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  overflow:visible;
+}
+.rd-paper-poster .rd-poster-logo img{
+  display:block;
+  width:auto;
+  height:64px;
+  max-width:100%;
+  padding:0;
+  object-fit:contain;
+  object-position:left center;
+  background:#fff;
+}
+@media(max-width:1250px){
+  .rd-paper-poster .rd-poster-logo img{height:58px}
+}
+@media(max-width:1050px){
+  .rd-paper-poster .rd-poster-logo img{height:52px}
+}
+@media(max-width:720px){
+  .rd-paper-poster .rd-poster-logo img{height:45px}
+}
+@media(max-width:370px){
+  .rd-paper-poster .rd-poster-logo img{height:40px}
+}
