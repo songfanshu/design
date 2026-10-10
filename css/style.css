@@ -170,3 +170,32 @@ body.paged.page-initializing main>section{transition:none!important}
 @media(prefers-reduced-motion:reduce){
   .contact-info>div:nth-child(3) a{transition:none}
 }
+
+/* Combined institutional mark: preserve the supplied artwork's exact proportions. */
+.home-branding {
+  gap: 0;
+}
+.home-branding .brand-pair-link {
+  display: block;
+  flex: 0 0 auto;
+  line-height: 0;
+}
+.brand-pair {
+  display: block;
+  width: auto;
+  height: 64px;
+  max-width: min(394px, 34vw);
+  object-fit: contain;
+}
+@media (max-width: 1250px) {
+  .brand-pair { height: 58px; }
+}
+@media (max-width: 1050px) {
+  .brand-pair { height: 52px; }
+}
+@media (max-width: 650px) {
+  .brand-pair { height: 45px; }
+}
+@media (max-width: 370px) {
+  .brand-pair { height: 40px; }
+}
