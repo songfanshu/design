@@ -202,7 +202,7 @@ body.paged.page-initializing main>section{transition:none!important}
 
 /* Plain map link: no inherited button box or backing. */
 .map-text-link {
-  display: inline;
+  display: inline-block;
   background: transparent !important;
   color: var(--green);
   padding: 0;
@@ -210,4 +210,21 @@ body.paged.page-initializing main>section{transition:none!important}
   border-radius: 0;
   box-shadow: none;
   margin: 0;
+  transform-origin: center;
+  transition: transform .18s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .map-text-link:hover,
+  .map-text-link:focus-visible {
+    transform: translateY(-3px) scale(1.055);
+  }
+}
+.map-text-link:active {
+  transform: translateY(-1px) scale(1.035);
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-text-link { transition: none; }
+  .map-text-link:hover,
+  .map-text-link:focus-visible,
+  .map-text-link:active { transform: none; }
 }
