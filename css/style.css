@@ -200,13 +200,14 @@ body.paged.page-initializing main>section{transition:none!important}
   .brand-pair { height: 40px; }
 }
 
-/* Keep the map action clickable while removing every box treatment. */
-.button.button-light {
-  appearance: none;
-  background: none !important;
+/* Plain map link: no inherited button box or backing. */
+.map-text-link {
+  display: inline;
+  background: transparent !important;
   color: var(--green);
   padding: 0;
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  margin: 0;
 }
