@@ -109,8 +109,17 @@ body.paged #research.research-overview{display:block;overflow-y:auto;padding:12p
 .rd-poster-title>span{font-size:12px;color:#f6ded9}
 .rd-poster-university{max-width:100%;width:160px;height:60px;object-fit:contain;background:#fff;padding:8px;justify-self:end}
 .rd-poster-tools nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;padding:11px 6px;border-bottom:1px solid #dfc2c0;font-size:12px;color:#92221e;line-height:1.7}
-.rd-poster-tools nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:4px}
-.rd-poster-tools nav a:hover{text-decoration:underline}
+.rd-poster-tools nav a{
+display:inline-block;
+transform-origin:center;
+transition:transform .18s ease;
+}
+.rd-poster-tools nav a[aria-current]{font-weight:700;text-decoration:none}
+@media (hover:hover) and (pointer:fine){
+.rd-poster-tools nav a:hover,.rd-poster-tools nav a:focus-visible{transform:translateY(-3px) scale(1.055);text-decoration:none}
+}
+.rd-poster-tools nav a:active{transform:translateY(-1px) scale(1.035)}
+@media(prefers-reduced-motion:reduce){.rd-poster-tools nav a{transition:none}.rd-poster-tools nav a:hover,.rd-poster-tools nav a:focus-visible,.rd-poster-tools nav a:active{transform:none}}
 .rd-paper-poster .rd-scope{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:12px 0;margin:0}
 .rd-paper-poster .rd-scope section{margin:0;padding:9px 12px;background:#fff;border-left:3px solid #92221e}
 .rd-paper-poster .rd-scope h2{font-size:14px;color:#92221e;margin:0 0 4px}
