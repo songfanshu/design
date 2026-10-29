@@ -71,6 +71,10 @@ html.initial-team-culture body.page-initializing #mainNav a[href="#news"]{color:
 .home-research-topics span{background:transparent}
 @media(max-width:1100px){.home-research-card{gap:36px}.home-research-copy{margin:0;padding-left:28px}.home-research-card.neuromorphic .home-research-copy{margin:0;padding-right:28px}}
 @media(max-width:720px){.home-research-card,.home-research-card.neuromorphic{gap:22px}.home-research-card figure,.home-research-card.neuromorphic figure{padding:10px;border-radius:14px}.home-research-copy,.home-research-card.neuromorphic .home-research-copy{margin:0;padding:20px 4px 0;border:0;border-top:2px solid #075b39;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}.home-research-card.neuromorphic .home-research-copy{border-top-color:#a8862f}.home-research-card.systems .home-research-copy{border-top-color:#3f819e}.home-research-copy:after{top:4px;right:4px}}
+
+/* Direction numbers removed. */
+.home-research-card:after{content:none!important}
+.home-research-card figure>span{display:none!important}
 </style>
   <style id="about-styles">
 #about{position:relative;overflow-y:auto;background:linear-gradient(135deg,#fbfdfc 0%,#f0f7f3 100%);padding:clamp(38px,6vh,78px) clamp(28px,6vw,92px)}
@@ -227,15 +231,15 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
       <div class="home-research" id="home-research">
         <div class="home-research-grid">
           <a class="home-research-card sensing" href="research/intelligent-sensing.html">
-            <figure><img src="assets/research/papers/gas-porous-growth.webp" alt="智能感知材料与传感器件研究图示" loading="lazy" decoding="async"><span>01</span><figcaption>代表性研究 · 多孔有机半导体与智能传感</figcaption></figure>
+            <figure><img src="assets/research/papers/gas-porous-growth.webp" alt="智能感知材料与传感器件研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 多孔有机半导体与智能传感</figcaption></figure>
             <div class="home-research-copy"><small>INTELLIGENT SENSING</small><h3>智能感知材料与传感器件</h3><p>面向气体、生化与环境信息感知，研究高灵敏功能材料、微纳结构及传感器件，实现复杂信号的精准识别与响应。</p><div class="home-research-topics"><span>气体传感</span><span>生化检测</span><span>微纳结构</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
           </a>
           <a class="home-research-card neuromorphic" href="research/optoelectronic-neuromorphic.html">
-            <figure><img src="assets/collaboration/fig1.webp" alt="光电融合神经形态材料与器件研究图示" loading="lazy" decoding="async"><span>02</span><figcaption>代表性研究 · 光感知与神经形态信息处理</figcaption></figure>
+            <figure><img src="assets/collaboration/fig1.webp" alt="光电融合神经形态材料与器件研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 光感知与神经形态信息处理</figcaption></figure>
             <div class="home-research-copy"><small>OPTOELECTRONIC NEUROMORPHICS</small><h3>光电融合神经形态材料与器件</h3><p>融合光电探测、信息存储与突触可塑性，探索感存算一体化器件，为仿生视觉和高效神经形态计算提供硬件基础。</p><div class="home-research-topics"><span>光电探测</span><span>人工突触</span><span>感存算一体</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
           </a>
           <a class="home-research-card systems" href="research/brain-inspired-systems.html">
-            <figure><img src="assets/research/organic-synapse-fig3.png" alt="类脑芯片设计与智能系统研究图示" loading="lazy" decoding="async"><span>03</span><figcaption>代表性研究 · 器件阵列与类脑智能系统</figcaption></figure>
+            <figure><img src="assets/research/organic-synapse-fig3.png" alt="类脑芯片设计与智能系统研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 器件阵列与类脑智能系统</figcaption></figure>
             <div class="home-research-copy"><small>BRAIN-INSPIRED SYSTEMS</small><h3>类脑芯片设计与智能系统</h3><p>连接器件阵列、电路架构与智能算法，开展神经形态芯片和软硬件协同研究，面向低功耗感知与智能决策应用。</p><div class="home-research-topics"><span>器件阵列</span><span>类脑芯片</span><span>智能系统</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
           </a>
         </div>
@@ -254,9 +258,9 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
         <div class="about-visual">
           <figure><img src="assets/people/team-group-20260913.jpg" alt="先进集成电路材料与类脑芯片实验室团队合照" width="1536" height="1050" loading="lazy" decoding="async"><figcaption><span>中山大学 · 深圳</span><strong>材料、器件、芯片与智能系统协同创新</strong></figcaption></figure>
           <div class="about-focus-grid" aria-label="实验室核心研究方向">
-            <div><span>01</span><strong>智能感知器件</strong></div>
-            <div><span>02</span><strong>光电神经形态</strong></div>
-            <div><span>03</span><strong>类脑芯片系统</strong></div>
+            <div><strong>智能感知器件</strong></div>
+            <div><strong>光电神经形态</strong></div>
+            <div><strong>类脑芯片系统</strong></div>
           </div>
         </div>
       </div>
