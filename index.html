@@ -232,6 +232,14 @@ body.paged main>#news:target{
   }
 }
 </style>
+<style id="updates-news-force-visible">
+body.paged main>#updates.active,body.paged main>#news.active{
+ visibility:visible!important;
+ opacity:1!important;
+ transform:translateX(0)!important;
+}
+body.paged main>#updates.active *,body.paged main>#news.active *{visibility:visible}
+</style>
 </head>
 <body class="paged page-initializing">
   <header class="site-header" id="siteHeader">
