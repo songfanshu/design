@@ -143,7 +143,7 @@ window.addEventListener('popstate',()=>{
   if(newerPageIds.has(id))showNewerPage(id,false);
 });
 const newerPageStyle=document.createElement('style');
-newerPageStyle.textContent='body.paged main>#updates.active,body.paged main>#news.active{display:block!important;visibility:visible!important;pointer-events:auto!important;opacity:1!important;transform:translateX(0)!important}';
+newerPageStyle.textContent='body.paged main>#updates,body.paged main>#news{position:absolute!important;inset:0 auto auto 0!important;width:100%!important;min-height:calc(100dvh - var(--header))!important;margin:0!important;box-sizing:border-box!important}body.paged main>#updates.active,body.paged main>#news.active{display:block!important;visibility:visible!important;pointer-events:auto!important;opacity:1!important;transform:translateX(0)!important}';
 document.head.appendChild(newerPageStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
