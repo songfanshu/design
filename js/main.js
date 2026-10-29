@@ -107,9 +107,48 @@ homeResearchLinks.forEach(link=>link.addEventListener('click',event=>{
 }));
 if(location.hash==='#home-research')setTimeout(()=>showHomeResearch(false),80);
 
+// Keep the two newer top-level pages independently reachable even when an older
+// cached copy of the original switcher is still present.
+const newerPageIds=new Set(['updates','news']);
+function showNewerPage(id,updateHistory=true){
+  if(!newerPageIds.has(id))return false;
+  const target=document.getElementById(id);
+  if(!target||target.parentElement?.id!=='pages')return false;
+  document.querySelectorAll('#pages>section').forEach(page=>{
+    const active=page===target;
+    page.classList.toggle('active',active);
+    page.classList.toggle('before',!active&&page.compareDocumentPosition(target)&Node.DOCUMENT_POSITION_FOLLOWING);
+    page.inert=!active;
+    page.setAttribute('aria-hidden',String(!active));
+  });
+  target.scrollTop=0;
+  document.querySelectorAll('#mainNav a').forEach(link=>{
+    if(link.hash==='#'+id)link.setAttribute('aria-current','page');
+    else link.removeAttribute('aria-current');
+  });
+  document.getElementById('mainNav')?.classList.remove('open');
+  document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
+  if(updateHistory&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
+  return true;
+}
+document.addEventListener('click',event=>{
+  const link=event.target.closest?.('#mainNav a[href="#updates"],#mainNav a[href="#news"]');
+  if(!link)return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  showNewerPage(link.hash.slice(1),true);
+},true);
+window.addEventListener('popstate',()=>{
+  const id=location.hash.slice(1);
+  if(newerPageIds.has(id))showNewerPage(id,false);
+});
+const newerPageStyle=document.createElement('style');
+newerPageStyle.textContent='body.paged main>#updates.active,body.paged main>#news.active{display:block!important;visibility:visible!important;pointer-events:auto!important;opacity:1!important;transform:translateX(0)!important}';
+document.head.appendChild(newerPageStyle);
+
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=20260914-new-portraits';
+script.src='js/main-original.js?v=20261029-updates-news-fix-1';
 script.async=false;
 document.body.appendChild(script);
 })();
