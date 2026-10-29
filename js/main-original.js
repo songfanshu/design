@@ -15,18 +15,13 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';
 
 function show(id,push=false){
   let index=pages.findIndex(p=>p.id===id);if(index<0)index=0;
-  const previous=pages[current];
-  const moveFocus=push&&previous?.contains(document.activeElement);
   current=index;
-  if(push)pages[index].scrollTop=0;
-  pages.forEach((p,i)=>{
-    const active=i===index;
-    p.classList.toggle('active',active);
-    p.classList.toggle('before',i<index);
-    p.inert=!active;
-    p.setAttribute('aria-hidden',String(!active));
+  pages.forEach(p=>{
+    p.classList.remove('before');
+    p.classList.toggle('active',p===pages[index]);
+    p.inert=false;
+    p.setAttribute('aria-hidden','false');
   });
-  if(moveFocus){pages[index].setAttribute('tabindex','-1');pages[index].focus({preventScroll:true});}
   nav.querySelectorAll('a').forEach(a=>{
     if(a.hash==='#'+pages[index].id)a.setAttribute('aria-current','page');
     else a.removeAttribute('aria-current');
@@ -35,7 +30,12 @@ function show(id,push=false){
   nav.classList.remove('open');
   toggle.setAttribute('aria-expanded','false');
   if(id==='contact'&&campusMap)setTimeout(()=>campusMap.resize(),80);
-  if(push&&location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
+  if(push){
+    if(location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
+    pages[index].scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(location.hash){
+    requestAnimationFrame(()=>pages[index].scrollIntoView({behavior:'auto',block:'start'}));
+  }
 }
 
 function installViewportFit(){}
@@ -350,6 +350,16 @@ installPublicationsBackground();
 initSharpCampusMap();
 show(location.hash.slice(1));
 requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remove('page-initializing')));
+const navById=new Map([...nav.querySelectorAll('a[href^="#"]')].map(a=>[a.hash.slice(1),a]));
+const visibleSections=new Map();
+const navObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>visibleSections.set(entry.target.id,entry.intersectionRatio));
+  const visible=[...visibleSections.entries()].sort((a,b)=>b[1]-a[1])[0];
+  if(!visible||visible[1]<=0)return;
+  nav.querySelectorAll('a').forEach(a=>a.removeAttribute('aria-current'));
+  navById.get(visible[0])?.setAttribute('aria-current','page');
+},{rootMargin:'-80px 0px -55% 0px',threshold:[0,.15,.35,.6]});
+pages.forEach(page=>navObserver.observe(page));
 
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[href^="#"]');if(!a)return;
@@ -361,26 +371,12 @@ window.addEventListener('popstate',()=>show(location.hash.slice(1)));
 window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
 window.addEventListener('pageshow',()=>show(location.hash.slice(1)));
 document.addEventListener('keydown',e=>{
-  if(e.target.closest('input,textarea,select,[contenteditable="true"]'))return;
-  if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
-  if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
-    e.preventDefault();
-    const next=Math.max(0,Math.min(pages.length-1,current+(e.key==='ArrowRight'?1:-1)));
-    show(pages[next].id,true);
+  if(e.key==='Escape'){
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
   }
 });
-let touch=null;
-main.addEventListener('touchstart',e=>{if(e.touches.length!==1){touch=null;return;}touch={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
-main.addEventListener('touchcancel',()=>{touch=null;},{passive:true});
-main.addEventListener('touchend',e=>{
-  if(!touch)return;
-  const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;
-  touch=null;
-  if(Math.abs(dx)>80&&Math.abs(dx)>Math.abs(dy)*1.8){
-    const next=Math.max(0,Math.min(pages.length-1,current+(dx<0?1:-1)));
-    show(pages[next].id,true);
-  }
-},{passive:true});
+
 const portraitLightbox=document.createElement('div');
 portraitLightbox.className='portrait-lightbox';
 portraitLightbox.innerHTML='<button class="portrait-lightbox-close" type="button" aria-label="关闭原图预览">×</button><img alt="教师原图预览">';
