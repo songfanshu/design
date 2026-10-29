@@ -28,31 +28,31 @@ html.initial-team-culture body.page-initializing #mainNav a[href="#news"]{color:
   
 
   <style id="home-research-styles">
-#home{padding:0!important;background:#fff!important;display:block!important;overflow-y:auto!important;scroll-behavior:smooth;scrollbar-gutter:auto!important}
+#home{padding:0!important;background:#fff!important;display:block!important;overflow-y:auto!important;scroll-behavior:smooth;scrollbar-gutter:auto!important;scroll-snap-type:y mandatory}
 #home:before{content:none!important}
-#home .home-hero{position:relative;isolation:isolate;min-height:calc(100dvh - var(--header));padding:clamp(36px,7vh,88px) 11.3vw 28px;display:flex;flex-direction:column;gap:24px;background:#fff url("assets/home-campus-new.jpg") center/cover no-repeat}
+#home .home-hero{position:relative;isolation:isolate;min-height:calc(100dvh - var(--header));padding:clamp(36px,7vh,88px) 11.3vw 28px;display:flex;flex-direction:column;gap:24px;background:#fff url("assets/home-campus-new.jpg") center/cover no-repeat;scroll-snap-align:start;scroll-snap-stop:always}
 #home .home-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.8) 32%,rgba(255,255,255,.1) 72%)}
 #home .home-hero>*{flex-shrink:0}
 .home-scroll-cue{position:absolute;right:clamp(26px,5vw,76px);bottom:28px;display:flex;align-items:center;gap:12px;padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.86);color:#075b39;font-size:12px;font-weight:700;letter-spacing:.08em;box-shadow:0 8px 24px rgba(23,55,45,.08);backdrop-filter:blur(8px)}
 .home-scroll-cue i{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#075b39;color:#fff;font-style:normal;transition:transform .2s ease}.home-scroll-cue:hover i{transform:translateY(3px)}
-.home-research{position:relative;min-height:calc(100dvh - var(--header));padding:clamp(46px,6vh,76px) clamp(28px,5.5vw,88px) 34px;background:linear-gradient(135deg,#fbfdfc 0%,#f1f7f4 100%);scroll-margin-top:0}
-.home-research:before{content:"";position:absolute;right:-120px;top:-180px;width:520px;height:520px;border:1px solid rgba(7,91,57,.07);border-radius:50%;box-shadow:0 0 0 70px rgba(7,91,57,.02),0 0 0 140px rgba(7,91,57,.012);pointer-events:none}
-.home-research-head,.home-research-grid,.home-research-footer{position:relative;z-index:1;width:min(1400px,100%);margin-left:auto;margin-right:auto}
-.home-research-head{display:flex;align-items:end;justify-content:space-between;gap:38px;margin-bottom:clamp(28px,4vh,42px)}
-.home-research-kicker{display:flex;align-items:center;gap:12px;color:#075b39;font-size:11px;font-weight:800;letter-spacing:.18em}.home-research-kicker:before{content:"";width:38px;height:3px;border-radius:99px;background:#075b39}
-.home-research-head h2{margin:8px 0 0;color:#17372d;font-size:clamp(40px,4vw,62px);line-height:1;letter-spacing:-.04em}
-.home-research-head>p{max-width:520px;margin:0;color:#60736a;font-size:16px;line-height:1.8}
-.home-research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
-.home-research-card{display:flex;flex-direction:column;min-width:0;border:1px solid rgba(7,91,57,.13);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.94);box-shadow:0 14px 34px rgba(23,55,45,.06);transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
-.home-research-card:hover{transform:translateY(-6px);border-color:rgba(7,91,57,.3);box-shadow:0 24px 50px rgba(23,55,45,.13)}
-.home-research-card figure{position:relative;height:clamp(190px,25vh,280px);margin:0;padding:16px;background:#eef5f1;overflow:hidden}
-.home-research-card figure img{width:100%;height:100%;object-fit:contain;border-radius:10px;background:#fff}
-.home-research-card figure span{position:absolute;top:17px;left:17px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#075b39;color:#fff;font-size:12px;font-weight:800;box-shadow:0 6px 18px rgba(7,91,57,.2)}
-.home-research-copy{display:flex;flex:1;flex-direction:column;padding:22px 24px 24px}.home-research-copy small{color:#7a9187;font-size:10px;font-weight:800;letter-spacing:.13em}.home-research-copy h3{margin:8px 0 13px;color:#24483a;font-size:clamp(20px,1.55vw,25px);line-height:1.38}.home-research-copy p{margin:0 0 18px;color:#63766d;font-size:14px;line-height:1.78}.home-research-copy strong{display:flex;align-items:center;gap:10px;margin-top:auto;color:#075b39;font-size:13px}.home-research-copy strong i{font-style:normal;transition:transform .2s ease}.home-research-card:hover strong i{transform:translateX(5px)}
-.home-research-card.neuromorphic figure{background:#f7f1df}.home-research-card.neuromorphic figure span{background:#a8862f}.home-research-card.systems figure{background:#eaf3f7}.home-research-card.systems figure span{background:#3f819e}
-.home-research-footer{display:flex;justify-content:space-between;gap:20px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(7,91,57,.14);color:#6f8178;font-size:11px;letter-spacing:.13em}
-@media(max-width:1050px){.home-research-grid{grid-template-columns:1fr}.home-research-card{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr)}.home-research-card figure{height:100%;min-height:260px}.home-research-copy{padding:25px 28px}}
-@media(max-width:720px){#home .home-hero{min-height:calc(100dvh - var(--header));padding:34px 22px 28px}.home-scroll-cue{right:18px;bottom:18px}.home-research{padding:38px 18px 30px}.home-research-head{display:block}.home-research-head>p{margin-top:18px}.home-research-grid{gap:14px}.home-research-card{display:flex}.home-research-card figure{height:220px;min-height:0}.home-research-copy{padding:20px}.home-research-copy h3{font-size:21px}.home-research-footer{font-size:9px;letter-spacing:.06em}}
+.home-research{position:relative;padding:0;background:#fff;scroll-margin-top:0}
+.home-research-grid{display:block}
+.home-research-card{position:relative;min-height:calc(100dvh - var(--header));padding:clamp(38px,5vh,68px) clamp(34px,6vw,100px);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(380px,.92fr);gap:clamp(46px,6vw,100px);align-items:center;overflow:hidden;background:linear-gradient(135deg,#f7fbf9 0%,#edf5f1 100%);scroll-snap-align:start;scroll-snap-stop:always}
+.home-research-card:after{content:"";position:absolute;right:-150px;top:-190px;width:520px;height:520px;border:1px solid rgba(7,91,57,.07);border-radius:50%;box-shadow:0 0 0 76px rgba(7,91,57,.018),0 0 0 150px rgba(7,91,57,.01);pointer-events:none}
+.home-research-card:first-child:before{content:"研究方向  /  RESEARCH DIRECTIONS";position:absolute;z-index:3;left:clamp(34px,6vw,100px);top:24px;color:#075b39;font-size:11px;font-weight:800;letter-spacing:.15em}
+.home-research-card.neuromorphic{background:linear-gradient(135deg,#fbf9f2 0%,#f4eedc 100%)}
+.home-research-card.systems{background:linear-gradient(135deg,#f6fafc 0%,#e9f2f6 100%)}
+.home-research-card figure{position:relative;z-index:1;width:100%;height:min(68vh,650px);margin:0;padding:clamp(18px,2vw,30px);border:1px solid rgba(7,91,57,.11);border-radius:26px;background:rgba(255,255,255,.86);box-shadow:0 22px 54px rgba(23,55,45,.1);overflow:hidden}
+.home-research-card figure img{width:100%;height:100%;object-fit:contain;border-radius:14px;background:#fff}
+.home-research-card figure span{position:absolute;top:clamp(24px,3vw,40px);left:clamp(24px,3vw,40px);display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#075b39;color:#fff;font-size:15px;font-weight:800;box-shadow:0 9px 24px rgba(7,91,57,.25)}
+.home-research-copy{position:relative;z-index:2;max-width:560px}.home-research-copy small{display:flex;align-items:center;gap:12px;color:#668177;font-size:11px;font-weight:800;letter-spacing:.16em}.home-research-copy small:before{content:"";width:34px;height:3px;border-radius:99px;background:#075b39}
+.home-research-copy h3{margin:18px 0 22px;color:#17372d;font-size:clamp(36px,3.8vw,60px);line-height:1.17;letter-spacing:-.045em}
+.home-research-copy p{max-width:520px;margin:0 0 32px;color:#556b61;font-size:clamp(16px,1.25vw,19px);line-height:1.9}
+.home-research-copy strong{display:inline-flex;align-items:center;gap:14px;padding:11px 20px;border:1px solid rgba(7,91,57,.25);border-radius:999px;color:#075b39;font-size:14px;transition:background .2s ease,color .2s ease}.home-research-copy strong i{font-style:normal;transition:transform .2s ease}.home-research-card:hover strong{background:#075b39;color:#fff}.home-research-card:hover strong i{transform:translateX(5px)}
+.home-research-card.neuromorphic figure{grid-column:2;grid-row:1;border-color:rgba(169,134,47,.18)}.home-research-card.neuromorphic .home-research-copy{grid-column:1;grid-row:1}.home-research-card.neuromorphic figure span{background:#a8862f}.home-research-card.neuromorphic .home-research-copy small:before{background:#a8862f}.home-research-card.neuromorphic .home-research-copy strong{color:#896b20;border-color:rgba(169,134,47,.32)}.home-research-card.neuromorphic:hover .home-research-copy strong{background:#a8862f;color:#fff}
+.home-research-card.systems figure span{background:#3f819e}.home-research-card.systems .home-research-copy small:before{background:#3f819e}.home-research-card.systems .home-research-copy strong{color:#326d87;border-color:rgba(63,129,158,.32)}.home-research-card.systems:hover .home-research-copy strong{background:#3f819e;color:#fff}
+@media(max-width:1000px){.home-research-card{grid-template-columns:minmax(0,1fr) minmax(330px,.9fr);gap:38px;padding-left:38px;padding-right:38px}.home-research-card figure{height:min(58vh,520px)}.home-research-copy h3{font-size:clamp(31px,4.5vw,46px)}}
+@media(max-width:720px){#home{scroll-snap-type:y proximity}#home .home-hero{min-height:calc(100dvh - var(--header));padding:34px 22px 28px}.home-scroll-cue{right:18px;bottom:18px}.home-research-card,.home-research-card.neuromorphic{min-height:calc(100dvh - var(--header));padding:42px 18px 30px;display:flex;flex-direction:column;gap:22px;align-items:stretch}.home-research-card:first-child:before{left:20px;top:14px;font-size:9px}.home-research-card figure,.home-research-card.neuromorphic figure{order:0;width:100%;height:34vh;min-height:210px;padding:12px;border-radius:18px}.home-research-card figure span{top:20px;left:20px;width:40px;height:40px;font-size:12px}.home-research-copy,.home-research-card.neuromorphic .home-research-copy{order:1;max-width:none}.home-research-copy h3{margin:10px 0 12px;font-size:clamp(26px,8vw,36px)}.home-research-copy p{margin-bottom:18px;font-size:14px;line-height:1.72}.home-research-copy strong{padding:8px 16px;font-size:12px}}
 </style>
   <style id="about-styles">
 #about{position:relative;overflow-y:auto;background:linear-gradient(135deg,#fbfdfc 0%,#f0f7f3 100%);padding:clamp(38px,6vh,78px) clamp(28px,6vw,92px)}
@@ -207,10 +207,6 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
         <a class="home-scroll-cue" href="#home-research" data-home-research-link aria-label="向下查看研究方向"><span>研究方向</span><i aria-hidden="true">↓</i></a>
       </div>
       <div class="home-research" id="home-research">
-        <header class="home-research-head">
-          <div><span class="home-research-kicker">RESEARCH DIRECTIONS</span><h2>研究方向</h2></div>
-          <p>围绕智能感知、光电神经形态器件与类脑芯片系统，贯通材料设计、器件构筑、信号处理和系统应用。</p>
-        </header>
         <div class="home-research-grid">
           <a class="home-research-card sensing" href="research/intelligent-sensing.html">
             <figure><img src="assets/research/papers/gas-porous-growth.webp" alt="智能感知材料与传感器件研究图示" loading="lazy" decoding="async"><span>01</span></figure>
@@ -225,7 +221,7 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
             <div class="home-research-copy"><small>BRAIN-INSPIRED SYSTEMS</small><h3>类脑芯片设计与智能系统</h3><p>连接器件阵列、电路架构与智能算法，开展神经形态芯片和软硬件协同研究，面向低功耗感知与智能决策应用。</p><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
           </a>
         </div>
-        <footer class="home-research-footer"><span>AMBIC LABORATORY</span><span>SUN YAT-SEN UNIVERSITY</span></footer>
+
       </div>
     </section>
     <section class="about section" id="about" aria-label="实验室介绍">
