@@ -82,7 +82,7 @@ document.head.append(signatureStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=20261029-home-directions-4';
+script.src='js/main-original.js?v=20261029-home-research-visible-5';
 script.async=false;
 document.body.appendChild(script);
 })();
