@@ -20,51 +20,6 @@ if(teamCulturePage){
 const teamCultureNav=document.querySelector('#mainNav a[href="#news"]');
 if(teamCultureNav)teamCultureNav.textContent='团队建设';
 
-// Team culture carousel: remove the visible "了解详情" CTA and make the image slide itself the detail-page entry.
-const teamBuildLinkStyle=document.createElement('style');
-teamBuildLinkStyle.textContent=`
-#news .team-build-slide-copy>a{display:none!important}
-#news .team-build-slide{cursor:pointer}
-#news .team-build-slide:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:-5px}
-`;
-document.head.appendChild(teamBuildLinkStyle);
-
-const decorateTeamBuildSlides=()=>{
-  document.querySelectorAll('#news .team-build-slide').forEach(slide=>{
-    const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
-    if(!detailLink)return;
-    slide.setAttribute('role','link');
-    slide.setAttribute('tabindex','0');
-    const title=slide.querySelector('h3')?.textContent?.trim()||'团队建设';
-    slide.setAttribute('aria-label',`查看${title}详情`);
-  });
-};
-decorateTeamBuildSlides();
-
-// Use event delegation because main-original.js rebuilds the team-culture carousel after this file loads.
-document.addEventListener('click',event=>{
-  const slide=event.target.closest?.('#news .team-build-slide');
-  if(!slide)return;
-  if(event.target.closest('.team-build-arrow,.team-build-tabs,.team-build-dots,button'))return;
-  const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
-  if(!detailLink)return;
-  event.preventDefault();
-  location.assign(detailLink.href);
-});
-document.addEventListener('keydown',event=>{
-  if(event.key!=='Enter'&&event.key!==' ')return;
-  const slide=event.target.closest?.('#news .team-build-slide');
-  if(!slide)return;
-  if(event.target.closest('button'))return;
-  const detailLink=slide.querySelector('.team-build-slide-copy>a[href]');
-  if(!detailLink)return;
-  event.preventDefault();
-  location.assign(detailLink.href);
-});
-if(teamCulturePage){
-  new MutationObserver(decorateTeamBuildSlides).observe(teamCulturePage,{childList:true,subtree:true});
-}
-
 function createPageSignature(){
   const signature=document.createElement('div');
   signature.className='page-signature';
@@ -82,7 +37,7 @@ document.head.append(signatureStyle);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=20261029-home-research-visible-5';
+script.src='js/main-original.js?v=20261029-team-culture-vertical-1';
 script.async=false;
 document.body.appendChild(script);
 })();
