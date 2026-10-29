@@ -43,7 +43,7 @@ if(heroCarousel){
   const dots=[...heroCarousel.querySelectorAll('[data-hero-slide]')];
   const pause=heroCarousel.querySelector('[data-hero-pause]');
   const home=document.getElementById('home');
-  let index=0,timer=null,hover=false,focused=false,inView=true;
+  let index=0,timer=null,focused=false,inView=true;
   let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const stop=()=>{if(timer!==null){clearInterval(timer);timer=null;}};
   const render=next=>{
@@ -61,18 +61,16 @@ if(heroCarousel){
     pause.setAttribute('aria-pressed',String(paused));
     pause.setAttribute('aria-label',paused?'播放自动轮播':'暂停自动轮播');
     pause.textContent=paused?'播放':'暂停';
-    if(!paused&&!hover&&!focused&&!document.hidden&&inView&&home.classList.contains('active')){
+    if(!paused&&!focused&&!document.hidden&&inView&&home.classList.contains('active')){
       timer=setInterval(()=>render(index+1),5000);
     }
   };
   const move=next=>{render(next);sync();};
-  heroCarousel.querySelector('[data-hero-prev]').addEventListener('click',()=>move(index-1));
-  heroCarousel.querySelector('[data-hero-next]').addEventListener('click',()=>move(index+1));
+  heroCarousel.querySelector('[data-hero-prev]')?.addEventListener('click',()=>move(index-1));
+  heroCarousel.querySelector('[data-hero-next]')?.addEventListener('click',()=>move(index+1));
   dots.forEach((dot,i)=>dot.addEventListener('click',()=>move(i)));
   pause.addEventListener('click',()=>{paused=!paused;sync();});
-  heroCarousel.addEventListener('mouseenter',()=>{hover=true;sync();});
-  heroCarousel.addEventListener('mouseleave',()=>{hover=false;sync();});
-  heroCarousel.addEventListener('focusin',()=>{focused=true;sync();});
+  heroCarousel.addEventListener('focusin',e=>{focused=e.target.matches(':focus-visible');sync();});
   heroCarousel.addEventListener('focusout',e=>{if(!heroCarousel.contains(e.relatedTarget)){focused=false;sync();}});
   heroCarousel.addEventListener('keydown',e=>{
     if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();e.stopPropagation();move(index+(e.key==='ArrowRight'?1:-1));}
