@@ -543,3 +543,7 @@ transition:transform .18s ease;
   box-shadow:none;
   filter:brightness(0) invert(1);
 }
+
+/* Static research figures: no zoom or lightbox interaction. */
+.rd-figure>a{cursor:default!important;pointer-events:none!important}
+.rd-lightbox{display:none!important}
