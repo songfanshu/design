@@ -91,7 +91,7 @@ if(heroCarousel){
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=20261029-team-culture-vertical-1';
+script.src='js/main-original.js?v=20261029-team-profiles-rectangular-1';
 script.async=false;
 document.body.appendChild(script);
 })();
