@@ -80,8 +80,32 @@ document.head.append(signatureStyle);
   if(page)page.append(createPageSignature());
 });
 
-// The research directions interface has been removed from the public site.
-if(location.hash==='#home-research')history.replaceState(null,'','#home');
+// The former standalone research page now lives below the homepage hero.
+const homeResearch=document.getElementById('home-research');
+const homePage=document.getElementById('home');
+const homeResearchLinks=document.querySelectorAll('a[href="#home-research"],[data-home-research-link]');
+function showHomeResearch(updateHistory=true){
+  if(!homePage||!homeResearch)return;
+  const pages=[...document.querySelectorAll('#pages>section')];
+  pages.forEach(page=>{
+    const active=page===homePage;
+    page.classList.toggle('active',active);
+    page.classList.remove('before');
+    page.setAttribute('aria-hidden',String(!active));
+  });
+  document.querySelectorAll('#mainNav a').forEach(link=>{
+    if(link.hasAttribute('data-home-research-link'))link.setAttribute('aria-current','page');
+    else link.removeAttribute('aria-current');
+  });
+  if(updateHistory)history.pushState(null,'','#home-research');
+  requestAnimationFrame(()=>homePage.scrollTo({top:homeResearch.offsetTop,behavior:'smooth'}));
+}
+homeResearchLinks.forEach(link=>link.addEventListener('click',event=>{
+  event.preventDefault();
+  event.stopPropagation();
+  showHomeResearch(true);
+}));
+if(location.hash==='#home-research')setTimeout(()=>showHomeResearch(false),80);
 
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
