@@ -23,7 +23,7 @@ html.initial-team-culture body.page-initializing #mainNav a[href="#news"]{color:
   <meta name="description" content="先进集成电路材料与类脑芯片实验室｜中山大学材料学院深圳校区">
   <meta name="theme-color" content="#ffffff">
   <title>先进集成电路材料与类脑芯片实验室｜中山大学</title>
-  <link rel="preload" as="image" href="assets/home-campus-new.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/people/team-group-20260913.jpg" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css?v=map-text-link-hover-20261011-v4">
   
 
@@ -190,6 +190,51 @@ body.paged #home .home-slogan{left:7vw;right:7vw;max-width:none}
 }
 @media(prefers-reduced-motion:reduce){#home .home-direction-link{transition:none}}
 </style>
+<style id="home-carousel-styles">
+#home .home-hero{background:none!important;min-height:600px}
+#home .home-hero:before{content:none!important}
+#home .home-carousel{position:relative;height:100%;min-height:600px;background:#fff;overflow:hidden}
+#home .home-carousel-slide{position:absolute;inset:0;padding:26px clamp(22px,5vw,80px) 76px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .6s ease,visibility .6s}
+#home .home-carousel-slide.is-active{visibility:visible;opacity:1;pointer-events:auto}
+#home .hero-team-layout{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:16px}
+#home .hero-slide-heading{display:flex;align-items:center;justify-content:space-between;gap:24px}
+#home .hero-eyebrow{margin:0 0 8px;color:#075b39;font-size:11px;font-weight:700;letter-spacing:.14em}
+#home .hero-slide-heading h1{font-size:clamp(21px,2.3vw,34px);line-height:1.4;margin:0;color:#17372d}
+#home .hero-slide-heading>a{white-space:nowrap;font-size:13px;color:#075b39}
+#home .hero-team-photo{min-height:0;margin:0;overflow:hidden}
+#home .hero-team-photo img{width:100%;height:100%;object-fit:contain}
+#home .hero-team-caption{margin:0;font-size:clamp(15px,1.4vw,21px);letter-spacing:.13em;text-align:center;color:#075b39;font-weight:700}
+#home .hero-news-layout{height:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:center}
+#home .hero-news-layout>figure{margin:0;min-width:0}
+#home .hero-news-layout>figure img{width:100%;max-height:60vh;object-fit:contain}
+#home .hero-news-copy h2{font-size:clamp(28px,3vw,46px);line-height:1.3;color:#17372d;margin:0 0 20px}
+#home .hero-news-copy>p:not(.hero-eyebrow){font-size:15px;line-height:1.85;color:#5d7267;margin:0 0 20px}
+#home .hero-news-link{display:inline-flex;gap:28px;color:#075b39;font-size:14px;font-weight:700;padding:10px 0}
+#home .hero-more-news{margin-top:20px;border-top:1px solid #dce5df}
+#home .hero-more-news a{display:block;padding:12px 0;border-bottom:1px solid #dce5df;font-size:13px;line-height:1.6;color:#314e40}
+#home .hero-more-news small{display:block;color:#7b8e83;font-size:10px;letter-spacing:.04em;margin-bottom:4px}
+#home .home-carousel-controls{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:10px;align-items:center;padding:5px;background:#fff;border:1px solid #dce5df;border-radius:30px;white-space:nowrap}
+#home .home-carousel-controls button{border:0;background:transparent;color:#5d7769;padding:9px 12px;border-radius:20px;cursor:pointer;font-size:12px}
+#home .home-carousel-controls button:hover{background:#edf5f0;color:#075b39}
+#home .home-carousel-dots{display:flex;gap:4px}
+#home .home-carousel-dots button[aria-pressed="true"]{background:#075b39;color:#fff}
+@media(max-width:760px){
+#home .hero-slide-heading{display:block}
+#home .hero-slide-heading>a{display:inline-block;margin-top:8px}
+#home .home-carousel-slide{padding:22px 18px 80px}
+#home .hero-team-layout{gap:16px}
+#home .hero-team-caption{font-size:14px;letter-spacing:.02em}
+#home .hero-news-layout{display:flex;flex-direction:column;justify-content:center;gap:14px}
+#home .hero-news-layout>figure img{max-height:23vh}
+#home .hero-news-copy h2{font-size:26px;margin-bottom:12px}
+#home .hero-news-copy>p:not(.hero-eyebrow){font-size:13px;line-height:1.6;margin-bottom:6px}
+#home .hero-more-news{margin-top:8px}
+#home .hero-more-news a{font-size:11px;padding:7px 0}
+#home .home-carousel-controls{gap:0}
+#home .home-carousel-controls button{padding:9px 10px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){#home .home-carousel-slide{transition:none}}
+</style>
 </head>
 <body class="paged page-initializing">
   <header class="site-header" id="siteHeader">
@@ -201,7 +246,15 @@ body.paged #home .home-slogan{left:7vw;right:7vw;max-width:none}
         <nav class="main-nav" id="mainNav" aria-label="主导航"><a href="#home" aria-current="page">首页</a><a href="#research">研究方向</a><a href="#publications">科研成果</a><a href="#team">团队成员</a><a href="#updates">动态新闻</a><a href="#news">团队建设</a><a href="#contact">联系我们</a></nav>
     <button class="menu-toggle" aria-controls="mainNav" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
   </header>
-  <main id="pages">    <section class="hero mockup-home active" id="home" aria-hidden="false"><div class="home-hero"><div class="mockup-copy"><p class="lab-cn">先进集成电路材料与类脑芯片课题组</p><p class="lab-en">Advanced IC Materials &amp; Neuromorphic Chips Research Group</p><p class="mockup-description">致力于突破后摩尔时代的算力瓶颈，<br>聚焦于新型半导体材料、忆阻器器件、以及具有高能效比的<br>神经形态（类脑）计算架构的研究与应用。</p><a class="mockup-button" href="#research">了解更多 <span>→</span></a></div><div class="home-slogan"><div><strong>材料感知世界　让芯片理解智能</strong><small>SENSING THE WORLD WITH MATERIALS　EMPOWERING INTELLIGENCE WITH CHIPS</small></div></div></div><div id="home-research" class="home-research" aria-label="研究方向"><div class="home-research-intro"><a class="rd-poster-brand rd-poster-brand-pair-link" href="#home" aria-label="返回首页"><img src="assets/brand-pair-overview-clean.webp?v=20261010-clean-pair-1" alt="中山大学 · AMBIC Laboratory" width="1640" height="267" decoding="async"></a><h1>先进集成电路材料<br>与类脑芯片课题组</h1><p class="rd-lead">面向智能感知、信息存储<br>与神经形态计算的<br>材料与器件</p><p class="rd-context">聚焦新型半导体材料与功能器件，连接智能传感、光电神经形态器件与类脑芯片设计。</p><p class="rd-context">以材料—器件—算法—系统协同为研究主线，围绕三个方向展示代表性论文与研究进展。</p><nav aria-label="研究方向"><a href="research/intelligent-sensing.html">智能感知材料与传感器件</a><a href="research/optoelectronic-neuromorphic.html">光电融合神经形态材料与器件</a><a href="research/brain-inspired-systems.html">类脑芯片设计与智能系统</a></nav></div>
+  <main id="pages">    <section class="hero mockup-home active" id="home" aria-hidden="false"><div class="home-hero"><div class="home-carousel" role="region" aria-roledescription="轮播图" aria-label="团队合照与最新动态">
+<article class="home-carousel-slide is-active" role="group" aria-roledescription="幻灯片" aria-label="第1张，共2张：团队合照" aria-hidden="false">
+<div class="hero-team-layout"><div class="hero-slide-heading"><div><p class="hero-eyebrow">AMBIC LABORATORY</p><h1>先进集成电路材料与类脑芯片课题组</h1></div><a href="#team">认识我们的团队 →</a></div><figure class="hero-team-photo"><img src="assets/people/team-group-20260913.jpg" alt="AMBIC课题组团队合照" fetchpriority="high" decoding="async"></figure><p class="hero-team-caption">让材料感知世界　让芯片理解智能</p></div>
+</article>
+<article class="home-carousel-slide" role="group" aria-roledescription="幻灯片" aria-label="第2张，共2张：最新动态" aria-hidden="true" inert>
+<div class="hero-news-layout"><figure><img src="assets/contact-neuromorphic-soft.webp" alt="神经形态器件与智能感知研究示意" decoding="async"></figure><div class="hero-news-copy"><p class="hero-eyebrow">最新动态 · 科研进展</p><h2>质子耦合突触可塑性研究取得新进展</h2><p>基于 Al₃Zr₇Oₓ 电解质与 W-InOₓ 沟道构建电解质栅控晶体管，探索面向神经形态器件的突触可塑性调控。</p><a class="hero-news-link" href="#updates">查看动态新闻 <span aria-hidden="true">→</span></a><div class="hero-more-news"><a href="https://doi.org/10.1126/sciadv.ads2834" target="_blank" rel="noopener"><small>2025 · Science Advances</small>钙钛矿视网膜形态图像传感器用于具身智能视觉 ↗</a><a href="https://doi.org/10.1038/s41467-025-57410-8" target="_blank" rel="noopener"><small>2025 · Nature Communications</small>分子 HDD 逻辑用于加密海量数据存储 ↗</a></div></div></div>
+</article>
+<div class="home-carousel-controls"><button type="button" data-hero-prev aria-label="上一张">←</button><div class="home-carousel-dots" aria-label="选择轮播内容"><button type="button" data-hero-slide="0" aria-label="显示团队合照" aria-pressed="true">团队合照</button><button type="button" data-hero-slide="1" aria-label="显示最新动态" aria-pressed="false">最新动态</button></div><button type="button" data-hero-next aria-label="下一张">→</button><button type="button" data-hero-pause aria-label="暂停自动轮播" aria-pressed="false">暂停</button></div>
+</div></div><div id="home-research" class="home-research" aria-label="研究方向"><div class="home-research-intro"><a class="rd-poster-brand rd-poster-brand-pair-link" href="#home" aria-label="返回首页"><img src="assets/brand-pair-overview-clean.webp?v=20261010-clean-pair-1" alt="中山大学 · AMBIC Laboratory" width="1640" height="267" decoding="async"></a><h1>先进集成电路材料<br>与类脑芯片课题组</h1><p class="rd-lead">面向智能感知、信息存储<br>与神经形态计算的<br>材料与器件</p><p class="rd-context">聚焦新型半导体材料与功能器件，连接智能传感、光电神经形态器件与类脑芯片设计。</p><p class="rd-context">以材料—器件—算法—系统协同为研究主线，围绕三个方向展示代表性论文与研究进展。</p><nav aria-label="研究方向"><a href="research/intelligent-sensing.html">智能感知材料与传感器件</a><a href="research/optoelectronic-neuromorphic.html">光电融合神经形态材料与器件</a><a href="research/brain-inspired-systems.html">类脑芯片设计与智能系统</a></nav></div>
 <article class="home-direction direction-1" aria-labelledby="direction-title-1"><div class="home-direction-image"><figure class="rd-figure"><img src="assets/research/papers/gas-porous-growth.webp" alt="多孔有机单晶制备 · Chen et al. · Nano Research · 2025" loading="lazy" decoding="async" fetchpriority="low"><figcaption>多孔有机单晶制备 · Chen et al. · Nano Research · 2025</figcaption></figure></div><div class="home-direction-copy"><p class="home-direction-label">研究方向</p><h2 id="direction-title-1">智能感知材料与传感器件</h2><p class="home-direction-description">面向气体、生化与环境信号检测，研究有机半导体及微纳结构中的分子识别、电荷输运与信号转换。通过多孔结构、功能界面和器件结构设计，提高目标物与敏感材料的有效接触，探索兼顾灵敏度、选择性与稳定性的智能感知方案。</p><p class="home-direction-topics">分子识别 · 多孔微纳结构 · 气体与生化传感</p><a class="home-direction-link" href="research/intelligent-sensing.html">阅读详细讲解 <span aria-hidden="true">→</span></a></div></article>
 <article class="home-direction direction-2" aria-labelledby="direction-title-2"><div class="home-direction-image"><figure class="rd-figure"><img src="assets/collaboration/fig1.webp" alt="Xiong et al. · Chemical Engineering Journal · 2026" loading="lazy" decoding="async" fetchpriority="low"><figcaption>Xiong et al. · Chemical Engineering Journal · 2026</figcaption></figure></div><div class="home-direction-copy"><p class="home-direction-label">研究方向</p><h2 id="direction-title-2">光电融合神经形态材料与器件</h2><p class="home-direction-description">将光电响应与突触可塑性相结合，研究光生载流子的产生、输运、俘获及其时间演化。围绕光电异质结、离子调控与神经形态器件，探索感知、存储和初步计算在同一器件中的融合，为仿生视觉与类脑信息处理提供器件基础。</p><p class="home-direction-topics">光电突触 · 突触可塑性 · 感存算融合</p><a class="home-direction-link" href="research/optoelectronic-neuromorphic.html">阅读详细讲解 <span aria-hidden="true">→</span></a></div></article>
 <article class="home-direction direction-3" aria-labelledby="direction-title-3"><div class="home-direction-image"><figure class="rd-figure"><img src="assets/research/organic-synapse-fig3.png" alt="Liu et al. · Nature Communications · 2023" loading="lazy" decoding="async" fetchpriority="low"><figcaption>Liu et al. · Nature Communications · 2023</figcaption></figure></div><div class="home-direction-copy"><p class="home-direction-label">研究方向</p><h2 id="direction-title-3">类脑芯片设计与智能系统</h2><p class="home-direction-description">面向高能效智能计算，连接新型突触器件、集成电路与系统算法。研究器件特性与计算架构的协同设计，探索神经形态电路、存算融合及智能系统实现路径，将材料与器件层面的功能拓展至可集成的计算与感知系统。</p><p class="home-direction-topics">神经形态电路 · 存算融合 · 器件与算法协同</p><a class="home-direction-link" href="research/brain-inspired-systems.html">阅读详细讲解 <span aria-hidden="true">→</span></a></div></article></div></section>
@@ -291,6 +344,6 @@ body.paged #home .home-slogan{left:7vw;right:7vw;max-width:none}
   }
 })();
 </script>
-  <script src="js/main.js?v=20261029-team-culture-vertical-1"></script>
+  <script src="js/main.js?v=20261029-home-carousel-1"></script>
 </body>
 </html>
