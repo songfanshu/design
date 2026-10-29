@@ -27,54 +27,13 @@ html.initial-team-culture body.page-initializing #mainNav a[href="#news"]{color:
   <link rel="stylesheet" href="css/style.css?v=map-text-link-hover-20261011-v4">
   
 
-  <style id="home-research-styles">
-#home{padding:0!important;background:#fff!important;display:block!important;overflow-y:auto!important;scroll-behavior:smooth;scrollbar-gutter:auto!important;scroll-snap-type:none}
+    <style id="home-hero-styles">
+#home{padding:0!important;background:#fff!important;display:block!important;overflow:hidden!important}
 #home:before{content:none!important}
 #home .home-hero{position:relative;isolation:isolate;min-height:calc(100dvh - var(--header));padding:clamp(36px,7vh,88px) 11.3vw 28px;display:flex;flex-direction:column;gap:24px;background:#fff url("assets/home-campus-new.jpg") center/cover no-repeat}
 #home .home-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.8) 32%,rgba(255,255,255,.1) 72%)}
 #home .home-hero>*{flex-shrink:0}
-.home-scroll-cue{position:absolute;right:clamp(26px,5vw,76px);bottom:28px;display:flex;align-items:center;gap:12px;padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.86);color:#075b39;font-size:12px;font-weight:700;letter-spacing:.08em;box-shadow:0 8px 24px rgba(23,55,45,.08);backdrop-filter:blur(8px)}
-.home-scroll-cue i{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#075b39;color:#fff;font-style:normal;transition:transform .2s ease}.home-scroll-cue:hover i{transform:translateY(3px)}
-.home-research{position:relative;padding:0;background:#fff;scroll-margin-top:0}
-.home-research-grid{display:block}
-.home-research-card{position:relative;min-height:calc(100dvh - var(--header));padding:clamp(42px,5vh,72px) clamp(30px,5vw,82px);display:grid;grid-template-columns:minmax(0,1.28fr) minmax(410px,.72fr);gap:0;align-items:center;overflow:hidden;background:linear-gradient(135deg,#f7fbf9 0%,#eaf4ef 100%)}
-.home-research-card:after{content:none;position:absolute;right:2vw;top:-6vh;color:rgba(7,91,57,.045);font-size:clamp(170px,23vw,360px);font-weight:900;line-height:1;letter-spacing:-.08em;pointer-events:none}
-.home-research-card.neuromorphic:after{left:1vw;right:auto;color:rgba(169,134,47,.055)}.home-research-card.systems:after{color:rgba(63,129,158,.055)}
-.home-research-card:first-child:before{content:"研究方向  /  RESEARCH DIRECTIONS";position:absolute;z-index:4;left:clamp(30px,5vw,82px);top:20px;color:#075b39;font-size:11px;font-weight:800;letter-spacing:.15em}
-.home-research-card.neuromorphic{background:linear-gradient(135deg,#fcfaf4 0%,#f3ecd8 100%)}.home-research-card.systems{background:linear-gradient(135deg,#f7fbfd 0%,#e7f1f6 100%)}
-.home-research-card figure{position:relative;z-index:1;width:100%;height:min(73vh,690px);margin:0;padding:clamp(20px,2.4vw,38px);border:1px solid rgba(7,91,57,.12);border-radius:30px;background:rgba(255,255,255,.9);box-shadow:0 28px 70px rgba(23,55,45,.13);overflow:hidden}
-.home-research-card figure:before{content:"";position:absolute;inset:13px;border:1px solid rgba(7,91,57,.08);border-radius:20px;pointer-events:none}
-.home-research-card figure img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;border-radius:14px;background:#fff}
-.home-research-card figure>span{position:absolute;z-index:3;top:clamp(28px,3vw,46px);left:clamp(28px,3vw,46px);display:grid;place-items:center;width:58px;height:58px;border:5px solid rgba(255,255,255,.86);border-radius:50%;background:#075b39;color:#fff;font-size:15px;font-weight:800;box-shadow:0 10px 26px rgba(7,91,57,.28)}
-.home-research-card figcaption{position:absolute;z-index:3;right:clamp(27px,3vw,44px);bottom:clamp(27px,3vw,44px);max-width:75%;padding:8px 14px;border:1px solid rgba(7,91,57,.15);border-radius:999px;background:rgba(255,255,255,.9);color:#49675a;font-size:11px;font-weight:700;letter-spacing:.04em;box-shadow:0 8px 22px rgba(23,55,45,.08);backdrop-filter:blur(8px)}
-.home-research-copy{position:relative;z-index:3;max-width:610px;margin-left:clamp(-140px,-8vw,-80px);padding:clamp(36px,4vw,62px);border-top:5px solid #075b39;border-radius:4px 24px 24px 4px;background:rgba(255,255,255,.94);box-shadow:0 24px 62px rgba(23,55,45,.16);backdrop-filter:blur(13px)}
-.home-research-copy:after{content:"AMBIC";position:absolute;right:25px;top:20px;color:rgba(7,91,57,.06);font-size:54px;font-weight:900;letter-spacing:-.05em;pointer-events:none}
-.home-research-copy small{position:relative;z-index:1;display:flex;align-items:center;gap:12px;color:#668177;font-size:11px;font-weight:800;letter-spacing:.16em}.home-research-copy small:before{content:"";width:34px;height:3px;border-radius:99px;background:#075b39}
-.home-research-copy h3{position:relative;z-index:1;margin:20px 0 20px;color:#17372d;font-size:clamp(34px,3.5vw,56px);line-height:1.17;letter-spacing:-.045em}
-.home-research-copy p{position:relative;z-index:1;max-width:520px;margin:0 0 22px;color:#556b61;font-size:clamp(15px,1.12vw,18px);line-height:1.88}
-.home-research-topics{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}.home-research-topics span{padding:6px 11px;border:1px solid rgba(7,91,57,.16);border-radius:999px;background:#f2f7f4;color:#426154;font-size:11px;font-weight:700}
-.home-research-copy strong{position:relative;z-index:1;display:inline-flex;align-items:center;gap:14px;padding:11px 20px;border:1px solid rgba(7,91,57,.25);border-radius:999px;color:#075b39;font-size:14px;transition:background .2s ease,color .2s ease}.home-research-copy strong i{font-style:normal;transition:transform .2s ease}.home-research-card:hover strong{background:#075b39;color:#fff}.home-research-card:hover strong i{transform:translateX(5px)}
-.home-research-card.neuromorphic figure{grid-column:2;grid-row:1;border-color:rgba(169,134,47,.18)}.home-research-card.neuromorphic .home-research-copy{grid-column:1;grid-row:1;margin-left:0;margin-right:clamp(-140px,-8vw,-80px);border-top-color:#a8862f;border-radius:24px 4px 4px 24px}.home-research-card.neuromorphic figure>span{background:#a8862f}.home-research-card.neuromorphic .home-research-copy small:before{background:#a8862f}.home-research-card.neuromorphic .home-research-topics span{border-color:rgba(169,134,47,.2);background:#fbf7ea;color:#80661f}.home-research-card.neuromorphic .home-research-copy strong{color:#896b20;border-color:rgba(169,134,47,.32)}.home-research-card.neuromorphic:hover .home-research-copy strong{background:#a8862f;color:#fff}
-.home-research-card.systems figure>span{background:#3f819e}.home-research-card.systems .home-research-copy{border-top-color:#3f819e}.home-research-card.systems .home-research-copy small:before{background:#3f819e}.home-research-card.systems .home-research-topics span{border-color:rgba(63,129,158,.2);background:#eff7fa;color:#326d87}.home-research-card.systems .home-research-copy strong{color:#326d87;border-color:rgba(63,129,158,.32)}.home-research-card.systems:hover .home-research-copy strong{background:#3f819e;color:#fff}
-@media(max-width:1100px){.home-research-card{grid-template-columns:minmax(0,1fr) minmax(360px,.78fr);padding-left:34px;padding-right:34px}.home-research-card figure{height:min(63vh,560px)}.home-research-copy{margin-left:-70px;padding:34px}.home-research-card.neuromorphic .home-research-copy{margin-right:-70px}.home-research-copy h3{font-size:clamp(30px,4vw,44px)}}
-@media(max-width:720px){#home{scroll-snap-type:none}#home .home-hero{min-height:calc(100dvh - var(--header));padding:34px 22px 28px}.home-scroll-cue{right:18px;bottom:18px}.home-research-card,.home-research-card.neuromorphic{min-height:calc(100dvh - var(--header));padding:42px 18px 28px;display:flex;flex-direction:column;gap:0;align-items:stretch}.home-research-card:first-child:before{left:20px;top:13px;font-size:9px}.home-research-card figure,.home-research-card.neuromorphic figure{order:0;width:100%;height:36vh;min-height:220px;padding:12px;border-radius:20px}.home-research-card figure:before{inset:8px;border-radius:14px}.home-research-card figure>span{top:18px;left:18px;width:42px;height:42px;border-width:3px;font-size:12px}.home-research-card figcaption{right:18px;bottom:18px;max-width:78%;padding:6px 10px;font-size:9px}.home-research-copy,.home-research-card.neuromorphic .home-research-copy{order:1;max-width:none;margin:-18px 10px 0;padding:25px 22px;border-top-width:4px;border-radius:16px}.home-research-copy:after{right:15px;top:10px;font-size:38px}.home-research-copy h3{margin:11px 0 12px;font-size:clamp(25px,7.8vw,35px)}.home-research-copy p{margin-bottom:13px;font-size:13px;line-height:1.68}.home-research-topics{gap:5px;margin-bottom:15px}.home-research-topics span{padding:4px 8px;font-size:9px}.home-research-copy strong{padding:8px 15px;font-size:11px}}
-
-/* Flat composition: image and text share one visual plane. */
-.home-research-card{grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);gap:clamp(48px,6vw,96px)}
-.home-research-card figure{box-shadow:none;background:transparent;border:1px solid rgba(7,91,57,.16);border-radius:18px;padding:20px}
-.home-research-card figure:before{content:none}
-.home-research-card figcaption{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;color:#587067}
-.home-research-copy,.home-research-card.neuromorphic .home-research-copy{max-width:590px;margin:0;padding:0 0 0 clamp(28px,3vw,48px);border:0;border-left:3px solid #075b39;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
-.home-research-copy:after{right:0;top:-52px;color:rgba(7,91,57,.045)}
-.home-research-card.neuromorphic .home-research-copy{margin:0;padding:0 clamp(28px,3vw,48px) 0 0;border-left:0;border-right:3px solid #a8862f}
-.home-research-card.systems .home-research-copy{border-left-color:#3f819e}
-.home-research-topics span{background:transparent}
-@media(max-width:1100px){.home-research-card{gap:36px}.home-research-copy{margin:0;padding-left:28px}.home-research-card.neuromorphic .home-research-copy{margin:0;padding-right:28px}}
-@media(max-width:720px){.home-research-card,.home-research-card.neuromorphic{gap:22px}.home-research-card figure,.home-research-card.neuromorphic figure{padding:10px;border-radius:14px}.home-research-copy,.home-research-card.neuromorphic .home-research-copy{margin:0;padding:20px 4px 0;border:0;border-top:2px solid #075b39;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}.home-research-card.neuromorphic .home-research-copy{border-top-color:#a8862f}.home-research-card.systems .home-research-copy{border-top-color:#3f819e}.home-research-copy:after{top:4px;right:4px}}
-
-/* Direction numbers removed. */
-.home-research-card:after{content:none!important}
-.home-research-card figure>span{display:none!important}
+@media(max-width:720px){#home .home-hero{min-height:calc(100dvh - var(--header));padding:34px 22px 28px}}
 </style>
   <style id="about-styles">
 #about{position:relative;overflow-y:auto;background:linear-gradient(135deg,#fbfdfc 0%,#f0f7f3 100%);padding:clamp(38px,6vh,78px) clamp(28px,6vw,92px)}
@@ -219,31 +178,13 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
             <img class="brand-pair" src="assets/brand-pair.svg?v=20261010-combined-clean-1" alt="中山大学 · AMBIC Laboratory" width="800" height="130" decoding="async">
           </a>
         </div>
-        <nav class="main-nav" id="mainNav" aria-label="主导航"><a href="#home" aria-current="page">首页</a><a href="#about">实验室介绍</a><a href="#home-research" data-home-research-link>研究方向</a><a href="#publications">科研成果</a><a href="#team">团队成员</a><a href="#updates">最新动态</a><a href="#news">团队建设</a><a href="#contact">联系我们</a></nav>
+        <nav class="main-nav" id="mainNav" aria-label="主导航"><a href="#home" aria-current="page">首页</a><a href="#about">实验室介绍</a><a href="#publications">科研成果</a><a href="#team">团队成员</a><a href="#updates">最新动态</a><a href="#news">团队建设</a><a href="#contact">联系我们</a></nav>
     <button class="menu-toggle" aria-controls="mainNav" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
   </header>
   <main id="pages">    <section class="hero mockup-home active" id="home" aria-hidden="false">
       <div class="home-hero">
         <div class="mockup-copy"><p class="lab-cn">先进集成电路材料与类脑芯片课题组</p><p class="lab-en">Advanced IC Materials &amp; Neuromorphic Chips Research Group</p><p class="mockup-description">致力于突破后摩尔时代的算力瓶颈，<br>聚焦于新型半导体材料、忆阻器器件、以及具有高能效比的<br>神经形态（类脑）计算架构的研究与应用。</p><a class="mockup-button" href="#about">了解更多 <span>→</span></a></div>
         <div class="home-slogan"><div><strong>材料感知世界　让芯片理解智能</strong><small>SENSING THE WORLD WITH MATERIALS　EMPOWERING INTELLIGENCE WITH CHIPS</small></div></div>
-        <a class="home-scroll-cue" href="#home-research" data-home-research-link aria-label="向下查看研究方向"><span>研究方向</span><i aria-hidden="true">↓</i></a>
-      </div>
-      <div class="home-research" id="home-research">
-        <div class="home-research-grid">
-          <a class="home-research-card sensing" href="research/intelligent-sensing.html">
-            <figure><img src="assets/research/papers/gas-porous-growth.webp" alt="智能感知材料与传感器件研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 多孔有机半导体与智能传感</figcaption></figure>
-            <div class="home-research-copy"><small>INTELLIGENT SENSING</small><h3>智能感知材料与传感器件</h3><p>面向气体、生化与环境信息感知，研究高灵敏功能材料、微纳结构及传感器件，实现复杂信号的精准识别与响应。</p><div class="home-research-topics"><span>气体传感</span><span>生化检测</span><span>微纳结构</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
-          </a>
-          <a class="home-research-card neuromorphic" href="research/optoelectronic-neuromorphic.html">
-            <figure><img src="assets/collaboration/fig1.webp" alt="光电融合神经形态材料与器件研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 光感知与神经形态信息处理</figcaption></figure>
-            <div class="home-research-copy"><small>OPTOELECTRONIC NEUROMORPHICS</small><h3>光电融合神经形态材料与器件</h3><p>融合光电探测、信息存储与突触可塑性，探索感存算一体化器件，为仿生视觉和高效神经形态计算提供硬件基础。</p><div class="home-research-topics"><span>光电探测</span><span>人工突触</span><span>感存算一体</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
-          </a>
-          <a class="home-research-card systems" href="research/brain-inspired-systems.html">
-            <figure><img src="assets/research/organic-synapse-fig3.png" alt="类脑芯片设计与智能系统研究图示" loading="lazy" decoding="async"><figcaption>代表性研究 · 器件阵列与类脑智能系统</figcaption></figure>
-            <div class="home-research-copy"><small>BRAIN-INSPIRED SYSTEMS</small><h3>类脑芯片设计与智能系统</h3><p>连接器件阵列、电路架构与智能算法，开展神经形态芯片和软硬件协同研究，面向低功耗感知与智能决策应用。</p><div class="home-research-topics"><span>器件阵列</span><span>类脑芯片</span><span>智能系统</span></div><strong>查看研究详情 <i aria-hidden="true">→</i></strong></div>
-          </a>
-        </div>
-
       </div>
     </section>
     <section class="about section" id="about" aria-label="实验室介绍">
