@@ -80,82 +80,9 @@ document.head.append(signatureStyle);
   if(page)page.append(createPageSignature());
 });
 
-// Load the current research overview directly into the homepage section.
-// The overview markup changed from the old .stage layout to .rd-poster, so keep
-// this loader aligned with research.html and always leave a visible fallback.
-const researchPage=document.getElementById('research');
-if(researchPage&&!researchPage.querySelector('.rd-poster')){
-  researchPage.className='research section research-overview research-loading';
-  researchPage.setAttribute('aria-busy','true');
-  researchPage.innerHTML='<div class="research-load-status" role="status">研究方向加载中…</div>';
-
-  if(!document.querySelector('link[data-research-directions]')){
-    const directionsCss=document.createElement('link');
-    directionsCss.rel='stylesheet';
-    directionsCss.href='research/directions.css?v=20261010-overview-fix-1';
-    directionsCss.dataset.researchDirections='';
-    document.head.appendChild(directionsCss);
-  }
-
-  fetch('research.html').then(response=>{
-    if(!response.ok)throw new Error('Research page unavailable');
-    return response.text();
-  }).then(html=>{
-    const source=new DOMParser().parseFromString(html,'text/html');
-    const poster=source.querySelector('.rd-poster');
-    if(!poster)throw new Error('Research overview missing');
-    researchPage.replaceChildren(poster.cloneNode(true));
-    researchPage.classList.remove('research-loading');
-    researchPage.setAttribute('aria-busy','false');
-  }).catch(()=>{
-    researchPage.innerHTML='<div class="research-load-status research-load-error"><strong>研究方向暂时无法加载</strong><span>请刷新页面，或<a href="research.html">打开研究方向页面</a>。</span></div>';
-    researchPage.classList.remove('research-loading');
-    researchPage.setAttribute('aria-busy','false');
-  });
-}
-
-document.querySelectorAll('#mainNav a[href="research.html"]').forEach(link=>{
-  link.setAttribute('href','#research');
-});
-
-const researchOverviewStyle=document.createElement('style');
-researchOverviewStyle.id='research-overview-style';
-researchOverviewStyle.textContent=`
-body.paged #research.research-overview{
-  height:100%!important;
-  min-height:0!important;
-  display:block!important;
-  padding:12px 16px 40px!important;
-  overflow-y:auto!important;
-  overflow-x:hidden!important;
-  background:#fff!important;
-}
-#research.research-overview .rd-poster{
-  width:100%;
-  max-width:1468px;
-  margin:0 auto;
-}
-#research .research-load-status{
-  min-height:calc(100dvh - var(--header) - 52px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  color:#52645b;
-  font-size:16px;
-}
-#research .research-load-error strong{color:#17372d;font-size:20px}
-#research .research-load-error a{color:var(--green);text-decoration:underline;text-underline-offset:4px}
-@media(max-width:720px){
-  body.paged #research.research-overview{padding:12px 12px 36px!important}
-}
-`;
-document.head.appendChild(researchOverviewStyle);
-
 // Load the preserved site logic after obsolete sections/content have been removed.
 const script=document.createElement('script');
-script.src='js/main-original.js?v=20260914-new-portraits';
+script.src='js/main-original.js?v=20261029-home-directions-4';
 script.async=false;
 document.body.appendChild(script);
 })();
