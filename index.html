@@ -372,16 +372,55 @@ body.paged #research.research-papers .paper-source{margin-top:auto;padding-top:1
   <footer><span>© 2026 Advanced Integrated Circuit Materials &amp; Brain-Inspired Chip Lab</span><span>Sun Yat-sen University · Shenzhen</span></footer>
   <script>
 (() => {
-  const target=document.getElementById(location.hash.slice(1));
-  if(target && target.parentElement.id==='pages'){
-    document.querySelectorAll('#pages>section').forEach(page=>{
-      const active=page===target;
+  const pages=[...document.querySelectorAll('#pages>section')];
+  const nav=document.getElementById('mainNav');
+  const newerPageIds=new Set(['updates','news']);
+
+  function activatePage(id,updateHistory=false){
+    const target=document.getElementById(id);
+    const targetIndex=pages.indexOf(target);
+    if(targetIndex<0)return false;
+
+    pages.forEach((page,index)=>{
+      const active=index===targetIndex;
       page.classList.toggle('active',active);
+      page.classList.toggle('before',index<targetIndex);
+      page.inert=!active;
       page.setAttribute('aria-hidden',String(!active));
     });
+
+    target.scrollTop=0;
+    nav?.querySelectorAll('a').forEach(link=>{
+      if(link.hash==='#'+id)link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+    nav?.classList.remove('open');
+    document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
+    document.body.classList.remove('page-initializing');
+
+    if(updateHistory&&location.hash!=='#'+id){
+      history.pushState(null,'','#'+id);
+    }
+    return true;
   }
+
+  const initialId=location.hash.slice(1);
+  if(initialId)activatePage(initialId,false);
+
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('#mainNav a[href="#updates"],#mainNav a[href="#news"]');
+    if(!link)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    activatePage(link.hash.slice(1),true);
+  },true);
+
+  window.addEventListener('popstate',()=>{
+    const id=location.hash.slice(1);
+    if(newerPageIds.has(id))activatePage(id,false);
+  });
 })();
 </script>
-  <script src="js/main.js?v=20261029-updates-news-fix-1"></script>
+  <script src="js/main.js?v=20261029-updates-news-inline-fix-2"></script>
 </body>
 </html>
