@@ -8,7 +8,7 @@ const nav=document.getElementById('mainNav');
 const visualNav=nav?.querySelector('a[href="#visual"]');
 if(visualNav)visualNav.remove();
 const toggle=document.querySelector('.menu-toggle');
-const pageIds=['home','research','publications','team','laboratory','news','contact'];
+const pageIds=['home','about','publications','team','updates','news','contact'];
 let current=0;
 let campusMap=null;
 if('scrollRestoration' in history)history.scrollRestoration='manual';
