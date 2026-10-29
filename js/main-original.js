@@ -112,14 +112,33 @@ function addMasterStudents(){
   const list=document.querySelector('#team .roster-masters .roster-students');
   if(!list)return;
   const names=['胡松','张宇迪','孙艳姿','朱丹','程现','尹越檐','赵安欣'];
-  const existing=new Set([...list.querySelectorAll('.roster-student > span:last-child')].map(el=>el.textContent.trim()));
+  const existing=new Set([...list.querySelectorAll('.roster-student-name')].map(el=>el.textContent.trim()));
   const avatar='<span class="roster-avatar" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="13" fill="#c5ccca"/><path d="M15 71v-7a25 25 0 0 1 50 0v7" fill="#c5ccca"/></svg></span>';
   names.forEach(name=>{
     if(existing.has(name))return;
-    list.insertAdjacentHTML('beforeend',`<li class="roster-student">${avatar}<span>${name}</span></li>`);
+    list.insertAdjacentHTML('beforeend',`<li class="roster-student">${avatar}<span class="roster-student-name">${name}</span></li>`);
   });
 }
 
+
+
+function addStudentProfileFields(){
+  document.querySelectorAll('#team .roster-student').forEach(person=>{
+    const name=person.querySelector('.roster-student-name');
+    if(!name)return;
+    const alumni=!!person.closest('.roster-alumni');
+    let info=person.querySelector('.roster-student-info');
+    if(!info){info=document.createElement('dl');info.className='roster-student-info';person.appendChild(info);}
+    info.replaceChildren();
+    const fields=alumni?[['毕业去向',person.dataset.destination]]:[['年级',person.dataset.enrollmentYear],['研究方向',person.dataset.researchDirection]];
+    fields.forEach(([label,value])=>{
+      const row=document.createElement('div'),term=document.createElement('dt'),description=document.createElement('dd');
+      term.textContent=label;
+      description.textContent=value?.trim()||'待补充';
+      row.append(term,description);info.appendChild(row);
+    });
+  });
+}
 
 function applyStudentPortraits(){
   const portraits={
@@ -130,7 +149,7 @@ function applyStudentPortraits(){
     '赵安欣':'zhao-anxin.jpg','程现':'cheng-xian.jpg','江政东':'jiang-zhengd.jpg'
   };
   document.querySelectorAll('#team .roster-student').forEach(person=>{
-    const name=person.querySelector('span:last-child')?.textContent.trim();
+    const name=person.querySelector('.roster-student-name')?.textContent.trim();
     const file=portraits[name];
     const avatar=person.querySelector('.roster-avatar');
     if(!file||!avatar)return;
@@ -152,7 +171,7 @@ function addAlumniSection(){
   if(!masters)return;
   const names=['郭建苗','刘可康','罗致远','江政东'];
   const avatar='<span class="roster-avatar" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="13" fill="#c5ccca"/><path d="M15 71v-7a25 25 0 0 1 50 0v7" fill="#c5ccca"/></svg></span>';
-  const people=names.map(name=>`<li class="roster-student">${avatar}<span>${name}</span></li>`).join('');
+  const people=names.map(name=>`<li class="roster-student">${avatar}<span class="roster-student-name">${name}</span></li>`).join('');
   masters.insertAdjacentHTML('afterend',`<div class="roster-row roster-alumni"><div class="roster-label"><h3>毕业生</h3><span>ALUMNI</span></div><div class="roster-members"><ul class="roster-students">${people}</ul></div></div>`);
 }
 
@@ -207,6 +226,7 @@ applyCopyUpdates();
 refineResearchSection();
 addMasterStudents();
 addAlumniSection();
+addStudentProfileFields();
 applyStudentPortraits();
 buildTeamCulturePage();
 installViewportFit();
@@ -258,7 +278,7 @@ document.querySelectorAll('#team .roster-pi .roster-avatar,#team .roster-faculty
     event.preventDefault();
     event.stopPropagation();
     portraitPreview.src=image;
-    portraitPreview.alt=(avatar.closest('.roster-person')?.querySelector('.roster-person-name strong')?.textContent.trim()||avatar.closest('.roster-student')?.querySelector('span:last-child')?.textContent.trim()||'成员')+'老师原图';
+    portraitPreview.alt=(avatar.closest('.roster-person')?.querySelector('.roster-person-name strong')?.textContent.trim()||avatar.closest('.roster-student')?.querySelector('.roster-student-name')?.textContent.trim()||'成员')+'老师原图';
     portraitLightbox.classList.add('is-open');
   });
 });
