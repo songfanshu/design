@@ -14,6 +14,8 @@ let campusMap=null;
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 
 function show(id,push=false){
+  const requestedId=id;
+  if(id==='research')id='home';
   let index=pages.findIndex(p=>p.id===id);if(index<0)index=0;
   const previous=pages[current];
   const moveFocus=push&&previous?.contains(document.activeElement);
@@ -28,14 +30,15 @@ function show(id,push=false){
   });
   if(moveFocus){pages[index].setAttribute('tabindex','-1');pages[index].focus({preventScroll:true});}
   nav.querySelectorAll('a').forEach(a=>{
-    if(a.hash==='#'+pages[index].id)a.setAttribute('aria-current','page');
+    if(a.hash==='#'+(requestedId==='research'?'research':pages[index].id))a.setAttribute('aria-current','page');
     else a.removeAttribute('aria-current');
   });
   updatePageDots(pages[index].id);
   nav.classList.remove('open');
   toggle.setAttribute('aria-expanded','false');
   if(id==='contact'&&campusMap)setTimeout(()=>campusMap.resize(),80);
-  if(push&&location.hash!=='#'+pages[index].id)history.pushState(null,'','#'+pages[index].id);
+  if(push&&location.hash!=='#'+requestedId)history.pushState(null,'','#'+requestedId);
+  if(requestedId==='research')requestAnimationFrame(()=>{pages[index].scrollTop=document.getElementById('research')?.offsetTop||0;});
 }
 
 function installViewportFit(){}
@@ -353,7 +356,7 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remo
 
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[href^="#"]');if(!a)return;
-  const id=a.hash.slice(1);if(!pages.some(p=>p.id===id))return;
+  const id=a.hash.slice(1);if(id!=='research'&&!pages.some(p=>p.id===id))return;
   e.preventDefault();show(id,true);
 });
 toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
